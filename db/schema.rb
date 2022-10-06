@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_06_220038) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_06_222829) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_220038) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_challenges_on_user_id"
+  end
+
+  create_table "path_challenges", force: :cascade do |t|
+    t.bigint "challenge_id"
+    t.bigint "pathway_id"
+    t.integer "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_path_challenges_on_challenge_id"
+    t.index ["pathway_id"], name: "index_path_challenges_on_pathway_id"
   end
 
   create_table "pathways", force: :cascade do |t|
@@ -42,6 +52,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_220038) do
     t.integer "rating"
     t.index ["challenge_id"], name: "index_user_challenges_on_challenge_id"
     t.index ["user_id"], name: "index_user_challenges_on_user_id"
+  end
+
+  create_table "user_pathways", force: :cascade do |t|
+    t.bigint "pathway_id"
+    t.bigint "user_id"
+    t.datetime "completed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pathway_id"], name: "index_user_pathways_on_pathway_id"
+    t.index ["user_id"], name: "index_user_pathways_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
