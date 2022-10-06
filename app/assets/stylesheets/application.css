@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+#banner {
+  position: relative;
+}
+
+#banner::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  display: block;
+  background-image: url("christina-wocintechchat-com-HocFQHhGjDE-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
