@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+#banner {
+  background-image: url("banner-image-2.jpg");
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(20px);
+  box-shadow: inset 0 0 0 2000px rgba(2, 0, 1, 0.2);
+}
