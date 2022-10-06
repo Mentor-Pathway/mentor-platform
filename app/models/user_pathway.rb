@@ -1,0 +1,2 @@
+class UserPathway < ApplicationRecord
+end

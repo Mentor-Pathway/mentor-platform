@@ -1,0 +1,2 @@
+class PathChallenge < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class Pathway < ApplicationRecord
+end
