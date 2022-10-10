@@ -3,6 +3,6 @@ class AddCompletedNotesFeedbackRatingToUserChallenges < ActiveRecord::Migration[
     add_column :challenges, :completed, :datetime
     add_column :challenges, :notes, :text
     add_column :challenges, :feedback, :text
-    add_column :challenges, :rating, :interger
+    add_column :challenges, :rating, :integer
   end
 end
