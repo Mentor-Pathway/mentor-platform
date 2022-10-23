@@ -9,5 +9,9 @@ Rails.application.routes.draw do
     resources :challenges, only %w[index]
   end
 
-  resources :profile, only %w[show]
+  resources :profile, only %w[show] do
+    resources :user_challenges, %w[show]
+  end
+
+
 end
