@@ -10,11 +10,11 @@ class ChallengesController < ApplicationController
   end
 
   def new
-    Challenge.new
+    @challenge = Challenge.new
   end
 
   def create
-    @challenge = Challenge.create(challenge_params)
+    @challenge = Challenge.new(challenge_params)
     @challenge.user = set_user
     if @challenge.save
       redirect_to challenge_path(@user, @challenge) #path can be modified after routes built
