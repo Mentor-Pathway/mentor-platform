@@ -36,7 +36,7 @@ class PathwaysController < ApplicationController
   private
 
   def pathway_params
-    params.require(:pathway).permit(:title, :difficulty)
+    params.require(:pathway).permit(:title, :details, :difficulty)
   end
 
   def set_pathway

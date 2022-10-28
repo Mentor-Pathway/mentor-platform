@@ -16,6 +16,7 @@ class ChallengesController < ApplicationController
   def create
     @challenge = Challenge.new(challenge_params)
     @challenge.user = set_user
+    @challenge.completed = false
     if @challenge.save
       redirect_to challenge_path(@user, @challenge) #path can be modified after routes built
     else
@@ -38,7 +39,7 @@ class ChallengesController < ApplicationController
   private
 
   def challenge_params
-    params.require(:challenge).permit(:title, :details)
+    params.require(:challenge).permit(:title, :details, :notes, :feedback, :rating)
   end
 
   def set_user

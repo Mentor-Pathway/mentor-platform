@@ -31,7 +31,7 @@ class ProfilesController < ApplicationController
 
   def profile_params
     # This should be modified if params will return more than one inputs.
-    params.require(:profile).permit(:job, :expertise, :learning)
+    params.require(:profile).permit(:job)
   end
 
   def set_user
