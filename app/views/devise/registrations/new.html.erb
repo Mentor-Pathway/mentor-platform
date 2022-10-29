@@ -12,6 +12,11 @@
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name, autofocus: true, autocomplete: "last-name" %>
   </div>
+
+  <div class="field">
+    <%= f.label :role %><br />
+    <%= f.select :role, options_for_select(User.roles.map {|key, value| [key.titleize, User.roles.key(value)]}, @user.role) %>
+  </div>
   
   <div class="field">
     <%= f.label :email %><br />
