@@ -45,6 +45,9 @@ gem "bootsnap", require: false
 # Gem for authorization
 gem "devise"
 
+# Gem for testing
+gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

@@ -1,6 +1,7 @@
-User.create( email: "ben@ben.com", encrypted_password: "qqqqqq")
+User.create!( email: "ben@ben.com", password: "qqqqqq")
 
-Challenge.create( title: "Database number 1", details: "This is a question that needs answers regarding the database", user_id: User.last.id)
+Challenge.create!( title: "Database number 1", details: "This is a question that needs answers regarding the database", user_id: User.last.id)
+
 
 
 # This file should contain all the record creation needed to seed the database with its default values.
