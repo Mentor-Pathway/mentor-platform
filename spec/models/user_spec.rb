@@ -9,7 +9,7 @@ RSpec.describe User, type: :model do
 
     it "user must have first name nust not allow special characters" do
       user = User.create!(first_name: "test>", last_name: "user", role:"mentor", email: "test@test.com", password: "123456")
-      expect(user).to !eq(User.last) 
+      expect(user).not_to eq(User.last) 
     end
   end
 end
