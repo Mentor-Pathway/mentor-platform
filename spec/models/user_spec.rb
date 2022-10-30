@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   context "Create a user account:" do
+    let(:user) {create(:user)}
     it "user must have first name, last name, role, email and password" do
-      user = User.create!(first_name: "test", last_name: "user", role: :mentor, email: "test@test.com", password: "Testpassword!1")
       expect(user).to eq(User.last) 
     end
-
+    
     it "user must have first name must not allow special characters" do
       user = User.create!(first_name: "test><\?@*", last_name: "user", role: :mentor, email: "test1@test.com", password: "Testpassword!1")
       expect(user).not_to eq(User.last) 
