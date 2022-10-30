@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user_challenge do
-    challenge_id { Challenge.last.id }
-    user_id { User.last.id }
+    challenge { association :challenge }
+    user { association :user }
   end
 end
