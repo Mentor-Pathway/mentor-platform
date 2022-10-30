@@ -2,46 +2,48 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   context "Create a user account:" do
-    let(:user) {create(:user)}
     it "user must have first name, last name, role, email and password" do
-      expect(user).to eq(User.last) 
+      user = build(:user)
+      expect(user).to be_valid
     end
-    
+
     it "user must have first name must not allow special characters" do
-      user = User.create!(first_name: "test><\?@*", last_name: "user", role: :mentor, email: "test1@test.com", password: "Testpassword!1")
-      expect(user).not_to eq(User.last) 
+      user = build(:user, first_name: "test><\?@*" )
+      expect(user).not_to be_valid
     end
 
     it "user must have last name must not allow special characters" do
-      user = User.create!(first_name: "test", last_name: "user><\?@*", role: :mentee, email: "test2@test.com", password: "Testpassword!1")
-      expect(user).not_to eq(User.last) 
+      user = build(:user, last_name: "user><\?@*" )
+      expect(user).not_to be_valid
     end
 
     it "user role can eq `mentee` or `mentor`" do
-      mentor = User.create!(first_name: "test", last_name: "user", role: :mentee, email: "test3@test.com", password: "Testpassword!1")
-      mentee = User.create!(first_name: "test", last_name: "user", role: :mentor, email: "test4@test.com", password: "Testpassword!1")
-      expect{User.create!(first_name: "test", last_name: "user", role: "other", email: "test4@test.com", password: "Testpassword!1")}.to raise_error(ArgumentError, "'other' is not a valid role")
-      expect(mentor.role).to eq("mentee")
-      expect(mentee.role).to eq("mentor")
+      mentor = build(:user, role: :mentor)
+      mentee = build(:user, role: :mentor)
+      
+      expect(mentor).to be_valid
+      expect(mentee).to be_valid
+
+      expect{build(:user, role: "other")}.to raise_error(ArgumentError)
     end
 
     it "user has a valid email" do
-      expect{User.create!(first_name: "test", last_name: "user", role: :mentee, email: "tes", password: "123456")}.to raise_error(ActiveRecord::RecordInvalid)
-      user = User.create!(first_name: "test", last_name: "user", role: :mentee, email: "test5@test.com", password: "Testpassword!1")
-      expect(user).to eq(User.last) 
+      expect{build(:user, email: "test")}.to raise_error(ActiveRecord::RecordInvalid)
     end
 
-    it "user has a valid email" do
-      expect{User.create!(first_name: "test", last_name: "user", role: :mentee, email: "tes", password: "Testpassword!1")}.to raise_error(ActiveRecord::RecordInvalid)
-      user = User.create!(first_name: "test", last_name: "user", role: :mentee, email: "test5@test.com", password: "Testpassword!1")
-      expect(user).to eq(User.last) 
+    it "user has a unique email" do
+      user = build(:user, email: "email1@example.com")
+      expect(user).not_to be_valid
     end
 
     it "password must be valid - Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character" do
-      expect{User.create!(first_name: "test", last_name: "user", role: :mentee, email: "test7@test.com", password: "123456")}.to raise_error(ActiveRecord::RecordInvalid)
-      expect{User.create!(first_name: "test", last_name: "user", role: :mentee, email: "test7@test.com", password: "tyuiopdfdsah")}.to raise_error(ActiveRecord::RecordInvalid)
-      expect{User.create!(first_name: "test", last_name: "user", role: :mentee, email: "test7@test.com", password: "!dfdsfdsfdfK")}.to raise_error(ActiveRecord::RecordInvalid)
-      expect{User.create!(first_name: "test", last_name: "user", role: :mentee, email: "test6@test.com", password: "Testpassword!1")}.not_to raise_error(ActiveRecord::RecordInvalid)
+      password1 = build(:user, password: "123456")
+      password2 = build(:user, password: "tyuiopdfdsah")
+      password3 = build(:user, password: "!dfdsfdsfdfK")
+
+      expect(password1).not_to be_valid
+      expect(password2).not_to be_valid
+      expect(password3).not_to be_valid
     end
   end
 end

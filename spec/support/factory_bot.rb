@@ -1,4 +1,4 @@
-require 'factory_bot's
+require 'factory_bot'
 
 RSpec.configure do |config|
     config.include FactoryBot::Syntax::Methods

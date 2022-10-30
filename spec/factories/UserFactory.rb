@@ -5,6 +5,6 @@ FactoryBot.define do
       role { :mentor }
       password { "Testpassword1!" }
       
-      sequence(:email) { |n| "email#{n}@example.com" }
+      sequence(:email) { |n| "user#{n}@example.com" }
     end
   end
