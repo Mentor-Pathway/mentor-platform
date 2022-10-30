@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe PathChallenge, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  pathway_id { Pathway.last.id }
+  challenge_id { Challenge.last.id }
 end
