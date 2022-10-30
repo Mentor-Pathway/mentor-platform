@@ -1,0 +1,2 @@
+class PathChallengesController < ApplicationController
+end
