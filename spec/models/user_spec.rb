@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
     end
 
     it "user has a valid email" do
-      expect{User.create!(first_name: "test", last_name: "user", role: :mentee, email: "tes", password: "123456")}.to raise_error(ActiveRecord::RecordInvalid)
+      expect{User.create!(first_name: "test", last_name: "user", role: :mentee, email: "tes", password: "Testpassword!1")}.to raise_error(ActiveRecord::RecordInvalid)
       user = User.create!(first_name: "test", last_name: "user", role: :mentee, email: "test5@test.com", password: "Testpassword!1")
       expect(user).to eq(User.last) 
     end
