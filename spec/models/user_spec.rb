@@ -32,8 +32,8 @@ RSpec.describe User, type: :model do
     end
 
     it "user has a unique email" do
-      user = build(:user, email: "email1@example.com")
-      expect(user).not_to be_valid
+      user1 = create(:user, email: "email1@example.com")
+      expect{create(:user, email: "email1@example.com")}.to raise_error(ActiveRecord::RecordInvalid)
     end
 
     it "password must be valid - Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character" do
