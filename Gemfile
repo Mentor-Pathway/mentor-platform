@@ -48,6 +48,9 @@ gem "devise"
 # image hosting
 gem "cloudinary"
 
+# managing ENV
+gem 'figaro'
+
 
 # Use Sass to process CSS
 # gem "sassc-rails"
