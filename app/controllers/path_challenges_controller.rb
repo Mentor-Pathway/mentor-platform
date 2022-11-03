@@ -1,6 +1,6 @@
 class PathChallengesController < ApplicationController
   before_action :set_challenge, only: :create
-  before_action : set_path_challenge, only: %i[edit update destroy]
+  before_action :set_path_challenge, only: %i[edit update destroy]
 
   def new
     @path_challenge = PathChallenge.new
