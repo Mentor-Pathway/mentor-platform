@@ -28,7 +28,7 @@ RSpec.describe User, type: :model do
     end
 
     it "user has a valid email" do
-      expect{build(:user, email: "test")}.to raise_error(ActiveRecord::RecordInvalid)
+      expect{create(:user, email: "test")}.to raise_error(ActiveRecord::RecordInvalid)
     end
 
     it "user has a unique email" do
@@ -47,3 +47,5 @@ RSpec.describe User, type: :model do
     end
   end
 end
+
+
