@@ -3,11 +3,7 @@
 
   <% if @pathways %>
     <% @pathways.each do |pathway| %>
-    <div class="border">
-      <p><%= pathway.title %></p>
-      <p><%= pathway.details %></p>
-      <p><%= pathway.difficulty %></p>
-    </div>
+      <%= render "pathway", pathway: pathway %>
     <% end %>
   <% else %>
     <h1 class="error">Ooops no pathways here!</h1>

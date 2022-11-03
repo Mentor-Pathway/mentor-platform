@@ -6,6 +6,7 @@ class PathwaysController < ApplicationController
   end
 
   def show
+    @challenges = @pathway.challenges
   end
 
   def new

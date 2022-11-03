@@ -1,14 +1,15 @@
 <div class="mt-16 p-12">
+  <h1 class="font-bold">This is Pathway</h1>
   <div class="border">
-    <%= @pathway.title %>
-    <%= @pathway.details %>
-    <%= @pathway.difficulty %>
+    <p><%= @pathway.title %></p>
+    <p><%= @pathway.details %></p>
+    <p><%= @pathway.difficulty %></p>
   </div>
 
-  <div class="border">
-    <% challenges = @pathway.challenges %>
-    <% challenges.each do |challenge| %>
-      <%= challenge.title %>
+  <div class="mt-5">
+    <h1 class="font-bold">This is Challenges</h1>
+    <% @challenges.each do |challenge| %>
+      <%= render "challenge", challenge: challenge %>
     <% end %>
   </div>
 </div>
