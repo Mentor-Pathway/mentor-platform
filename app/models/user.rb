@@ -2,7 +2,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :role, presence: true
   validates :email, uniqueness: true
   validates :role, presence: true
-  enum role: [:mentor, :mentee]
+  enum :role, { mentor: 0, mentee: 1 }  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
