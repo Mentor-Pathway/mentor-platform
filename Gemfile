@@ -45,6 +45,8 @@ gem "bootsnap", require: false
 # Gem for authorization
 gem "devise"
 
+# Simple Form
+gem 'simple_form'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
