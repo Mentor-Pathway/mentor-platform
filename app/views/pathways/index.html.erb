@@ -4,9 +4,9 @@
   <% if @pathways %>
     <% @pathways.each do |pathway| %>
     <div class="border">
-      <%= pathway.title %>
-      <%= pathway.details %>
-      <%= pathway.difficulty %>
+      <p><%= pathway.title %></p>
+      <p><%= pathway.details %></p>
+      <p><%= pathway.difficulty %></p>
     </div>
     <% end %>
   <% else %>
