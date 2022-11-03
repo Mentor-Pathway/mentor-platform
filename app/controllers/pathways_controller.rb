@@ -16,7 +16,7 @@ class PathwaysController < ApplicationController
   def create
     @pathway = Pathway.new(pathway_params)
     if @pathway.save
-      redirect_to pathway_path(@pathway)
+      redirect_to pathways_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,6 +27,7 @@ class PathwaysController < ApplicationController
 
   def update
     @pathway.update(pathway_params)
+    redirect_to pathway_path(@pathway)
   end
 
   def destroy

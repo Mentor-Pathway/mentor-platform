@@ -1,4 +1,4 @@
-<div class="mt-16 p-12">
+<div class="mt-5">
   <%= simple_form_for pathway do |f| %>
     <div class="my-3">
       <p>Title</p>
@@ -12,6 +12,6 @@
       <p>Difficulty</p>
       <%= f.input :difficulty, label: false %>
     </div>
-    <%= f.button :submit, "Submit", class: "border rounded mt-3 py-2 px-3 bg-blue-700 text-white" %>
+    <%= f.submit pathway.nil? ? "Save" : "Create", class: "border rounded mt-3 py-2 px-3 bg-blue-700 text-white" %>
   <% end %>
 </div>
