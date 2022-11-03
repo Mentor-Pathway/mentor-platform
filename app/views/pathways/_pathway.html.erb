@@ -1,5 +1,10 @@
-<div class="border">
-  <p><%= pathway.title %></p>
-  <p><%= pathway.details %></p>
-  <p><%= pathway.difficulty %></p>
-</div>
+  <div class="border flex justify-between">
+    <div>
+      <%= link_to pathway_path(pathway) do %>
+        <p><%= pathway.title %></p>
+        <p><%= pathway.details %></p>
+        <p><%= pathway.difficulty %></p>
+      <% end %>
+    </div>
+    <%= link_to "Delete", pathway_path(pathway), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  </div>
