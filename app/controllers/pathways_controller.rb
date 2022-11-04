@@ -1,5 +1,6 @@
 class PathwaysController < ApplicationController
   before_action :set_pathway, only: %i[show edit update destroy]
+  before_action :mentor?, only: %i[new create edit update destroy]
 
   def index
     @pathways = Pathway.all
@@ -43,5 +44,11 @@ class PathwaysController < ApplicationController
 
   def set_pathway
     @pathway = Pathway.find(params[:id])
+  end
+
+  def mentor?
+    unless current_user.mentor?
+      redirect_to root_path
+    end
   end
 end
