@@ -5,4 +5,5 @@ class Challenge < ApplicationRecord
     belongs_to :user
     has_many :path_challenges
     has_many :pathways, through: :path_challenges
+    has_one_attached :photo
 end

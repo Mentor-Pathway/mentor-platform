@@ -5,4 +5,5 @@ class Pathway < ApplicationRecord
 
     has_many :path_challenges
     has_many :challenges, through: :path_challenges
+     has_one_attached :photo
 end

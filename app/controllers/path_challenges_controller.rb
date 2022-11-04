@@ -26,7 +26,7 @@ class PathChallengesController < ApplicationController
   def destroy
     @path_challenge.destroy
     # We should add where to redirect
-    status: :see_other
+    # status: :see_other
   end
 
 

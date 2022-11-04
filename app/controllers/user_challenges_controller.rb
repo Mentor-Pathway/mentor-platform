@@ -1,6 +1,6 @@
 class UserChallengesController < ApplicationController
   before_action :set_user, only: :create
-  before_action :set_user_challenge, only %i[edit update]
+  before_action :set_user_challenge, only: %i[edit update]
 
   def new
     @user_challenge = UserChallenge.new
