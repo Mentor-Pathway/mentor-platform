@@ -1,0 +1,17 @@
+<div class="mt-5">
+  <%= simple_form_for pathway do |f| %>
+    <div class="my-3">
+      <p>Title</p>
+      <%= f.input :title, label: false %>
+    </div>
+    <div class="my-3">
+      <p>Details</p>
+      <%= f.input :details, label: false, input_html: { style: "width: 30%" } %>
+    </div>
+    <div class="my-3">
+      <p>Difficulty</p>
+      <%= f.input :difficulty, collection: [ "beginner", "intermediate", "professional", "advanced" ], label: false %>
+    </div>
+    <%= f.submit pathway.nil? ? "Save" : "Create", class: "border rounded mt-3 py-2 px-3 bg-blue-700 text-white" %>
+  <% end %>
+</div>
