@@ -2,7 +2,7 @@
   <%= link_to "Back", pathways_path %>
   <h1 class="font-bold">This is Pathway #Show page</h1>
   <div class="my-5">
-    <%= link_to "Edit", edit_pathway_path(@pathway), class: "border rounded-lg bg-blue-700 text-white py-2 px-3" if current_user.mentor? %>
+    <%= link_to "Edit", edit_pathway_path(@pathway), class: "border rounded-lg bg-blue-700 text-white py-2 px-3" if user_signed_in? && current_user.mentor? %>
   </div>
   <h1 class="font-bold">This is Pathway</h1>
   <div class="border">
