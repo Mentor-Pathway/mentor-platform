@@ -1,5 +1,5 @@
 class PathwaysController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_pathway, only: %i[show edit update destroy]
   before_action :mentor?, only: %i[new create edit update destroy]
   def index
