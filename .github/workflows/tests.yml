@@ -19,5 +19,9 @@ jobs:
           ruby-version: '3.0.3'
       - name: Install dependencies
         run: bundle install
-      - name: Run tests
+      - name: Create DB
+        run: rails db:create
+      - name: Migrate DB
+        run: rails db:migrate
+      - name: Run Tests
         run: bundle exec rspec
