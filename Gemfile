@@ -45,12 +45,14 @@ gem "bootsnap", require: false
 # Gem for authorization
 gem "devise"
 
+# Simple Form
+gem 'simple_form'
+
 # image hosting
 gem "cloudinary"
 
 # managing ENV
 gem 'figaro'
-
 
 # Use Sass to process CSS
 # gem "sassc-rails"
