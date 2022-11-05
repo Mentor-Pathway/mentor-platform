@@ -34,9 +34,12 @@ jobs:
           ruby-version: '3.0.3'
       - name: Install dependencies
         run: bundle install
-      - name: Create DB
-        run: rails db:create
-      - name: Migrate DB
-        run: rails db:migrate
-      - name: Run Tests
-        run: bundle exec rspec
+      -name: build and run tests
+         env:
+          DATABASE_URL: postgres://postgres:@localhost:5432/test
+          RAILS_ENV: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        run: bundle exec rails db:create
+    bundle exec rails db:migrate
+    RAILS_ENV=test bundle exec rake
