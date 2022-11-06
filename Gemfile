@@ -54,6 +54,9 @@ gem "cloudinary"
 # managing ENV
 gem 'figaro'
 
+# generating test data
+gem 'faker'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

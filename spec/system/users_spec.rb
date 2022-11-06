@@ -23,9 +23,12 @@ RSpec.describe "Users", type: :system do
     end
 
     scenario "valid with correct credentials" do
-      fill_in "user_email", with: @user.email
-      fill_in "user_password", with: @user.password
-      click_button "Log in" 
+      fill_in "user_first_name", with: "test"
+      fill_in "user_last_name", with: "user"
+      fill_in "user_email", with: Faker::Internet.email
+      fill_in "user_password", with: "Testpassword1!"
+      fill_in "user_password_confirmation", with: "Testpassword1!"
+      click_button "Sign up" 
       expect(page).to have_link "Log out"
     end
   end
