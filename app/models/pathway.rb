@@ -3,6 +3,7 @@ class Pathway < ApplicationRecord
     validates :details, presence: true, length: { maximum: 1500 }
     validates :difficulty, presence: true, length: { minimum: 3 }
 
+    belongs_to :user
     has_many :path_challenges
     has_many :challenges, through: :path_challenges
      has_one_attached :photo
