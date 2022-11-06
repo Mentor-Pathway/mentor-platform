@@ -84,7 +84,7 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-  gem "webdrivers"
+  gem "webdrivers", github: 'jmccure/webdrivers', branch:'fix-m1-downloads'
 end
 
 gem "tailwindcss-rails", "~> 2.0"

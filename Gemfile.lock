@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/jmccure/webdrivers.git
+  revision: 7f6d88dfd7d7f4e52eed744a0935bafa0572a66d
+  branch: fix-m1-downloads
+  specs:
+    webdrivers (5.1.0)
+      nokogiri (~> 1.6)
+      rubyzip (>= 1.3.0)
+      selenium-webdriver (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -270,10 +280,6 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webdrivers (5.0.0)
-      nokogiri (~> 1.6)
-      rubyzip (>= 1.3.0)
-      selenium-webdriver (~> 4.0)
     websocket (1.2.9)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
@@ -309,11 +315,10 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
-  webdrivers
+  webdrivers!
 
 RUBY VERSION
    ruby 3.0.3p157
 
 BUNDLED WITH
-   2.3.25
-
+   2.3.20

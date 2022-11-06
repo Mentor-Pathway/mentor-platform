@@ -28,7 +28,7 @@ RSpec.describe "Pathways", type: :request do
       it "should redirect to root" do
         pathway = create(:pathway)
         get edit_pathway_path(pathway)
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end
