@@ -11,7 +11,7 @@ class UserChallengesController < ApplicationController
     @user_challenge.user = @user
     @user_challenge.completed = false
     if @user_challenge.save
-      #We should add where to redirect
+      # We should add where to redirect
     else
       render :new, status: :unprocessable_entity
     end

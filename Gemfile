@@ -37,7 +37,7 @@ gem "jbuilder"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -46,13 +46,13 @@ gem "bootsnap", require: false
 gem "devise"
 
 # Simple Form
-gem 'simple_form'
+gem "simple_form"
 
 # image hosting
 gem "cloudinary"
 
 # managing ENV
-gem 'figaro'
+gem "figaro"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -66,9 +66,9 @@ group :development, :test do
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[mri mingw x64_mingw]
   # Gem for testing
-  gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
+  gem "rspec-rails", "~> 6.0", ">= 6.0.1"
   # Gem for factories
   gem "factory_bot_rails"
 end
