@@ -61,6 +61,10 @@ gem 'figaro'
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
+  # See https://github.com/testdouble/standard
+  gem "standard", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   # Gem for testing
