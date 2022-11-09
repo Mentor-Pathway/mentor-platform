@@ -18,7 +18,7 @@ class ChallengesController < ApplicationController
     @challenge.user = set_user
     @challenge.completed = false
     if @challenge.save
-      redirect_to challenge_path(@user, @challenge) #path can be modified after routes built
+      redirect_to challenge_path(@user, @challenge) # path can be modified after routes built
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class ChallengesController < ApplicationController
 
   def destroy
     @challenge.destroy
-    redirect_to challenges_path(@user), status: :see_other #path can be modified after routes built
+    redirect_to challenges_path(@user), status: :see_other # path can be modified after routes built
   end
 
   private
