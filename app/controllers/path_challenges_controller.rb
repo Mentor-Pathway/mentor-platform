@@ -29,7 +29,6 @@ class PathChallengesController < ApplicationController
     # status: :see_other
   end
 
-
   private
 
   def path_challenge_params
