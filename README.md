@@ -15,23 +15,23 @@ Things you may want to cover:
 - Database creation
 
 ## Database initialization
-  ```
-    rails db:create
-    rails db:migrate
-  ```
 
+```
+  rails db:create
+  rails db:migrate
+```
 
 ## Testing
 
-  We are using rspec and factory_bot_rails.
-  ```
-    bundle exec rspec
-    bundle exec rspec/<folder>
-    bundle exec rspec/<folder>/<filename>
-  ```
+We are using rspec and factory_bot_rails.
+
+```
+  bundle exec rspec
+  bundle exec rspec/<folder>
+  bundle exec rspec/<folder>/<filename>
+```
 
 - Services (job queues, cache servers, search engines, etc.)
 
 - Deployment instructions
-  
-- 
+-
