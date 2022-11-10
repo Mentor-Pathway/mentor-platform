@@ -14,9 +14,9 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(challenge_params)
     @challenge.user = @user
     if @challenge.save
-      @path_challenges = PathChallenge.all
+      @challenges = @pathway.challenges
       @path_challenge = PathChallenge.new(pathway: @pathway, challenge: @challenge)
-      @path_challenge.order = @path_challenges.empty? ? 1 : @path_challenges.last + 1
+      @path_challenge.order = @challenges.empty? ? 1 : @challenges.count + 1
       redirect_to pathway_challenge_path(@pathway, @challenge) # path can be modified after routes built
     else
       render :new, status: :unprocessable_entity
