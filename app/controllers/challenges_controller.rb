@@ -28,7 +28,7 @@ class ChallengesController < ApplicationController
 
   def update
     @challenge.update(challenge_params)
-    redirect_to pathway_challenge_path()
+    redirect_to pathway_challenge_path(@pathway, @challenge)
   end
 
   def destroy
@@ -47,7 +47,7 @@ class ChallengesController < ApplicationController
   end
 
   def set_pathway
-    @pathway = Challenge.find(params[:pathway_id])
+    @pathway = Pathway.find(params[:pathway_id])
   end
 
   def set_challenge

@@ -1,5 +1,6 @@
 <div class="mt-16 p-12">
   <%= link_to "Back", pathways_path %>
+  <%= link_to "New", new_pathway_challenge_path(@pathway) %>
   <h1 class="font-bold">This is Pathway #Show page</h1>
   <div class="my-5">
     <%= link_to "Edit", edit_pathway_path(@pathway), class: "border rounded-lg bg-blue-700 text-white py-2 px-3" if user_signed_in? && current_user.mentor? %>
