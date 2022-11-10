@@ -31,7 +31,7 @@ def CreateChallenge(order)
     )
 end
 
-20.times do |i| 
+5.times do |i| 
     level_choice = rand(0..3) 
     Pathway.create!(
     title: "Pathway, #{i}!",

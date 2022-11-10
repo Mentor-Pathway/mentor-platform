@@ -6,6 +6,8 @@ class UserPathwaysController < ApplicationController
   end
 
   def create
+    @user_pathway = UserPathway.new
+    @user_pathway.pathway = Pathway.find(params[:pathway_id])
     @user_pathway.new(user_pathway_params)
     @user_pathway.user = @user
     @user_pathway.completed = false
