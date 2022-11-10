@@ -53,6 +53,8 @@ end
     end         
 end
 
+challenge = Challenge.create!( title: "Database number 1", details: "This is a question that needs answers regarding the database", user_id: User.last.id)
+puts "one challage created"
 
 
 puts "created #{User.count} users"

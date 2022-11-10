@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user = @user
     if @profile.save
-      redirect_to profile_path(@profile) #We can modify this after we decide where we'll redirect a user to after creating profile.
+      redirect_to profile_path(@profile) # We can modify this after we decide where we'll redirect a user to after creating profile.
     else
       render :new, status: :unprocessable_entity
     end
