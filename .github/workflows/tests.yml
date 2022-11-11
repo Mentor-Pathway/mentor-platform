@@ -2,9 +2,9 @@ name: Tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test:
@@ -18,9 +18,8 @@ jobs:
           RAILS_ENV: test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-        ports: ['5432:5432']
-        options:
-          --health-cmd pg_isready
+        ports: ["5432:5432"]
+        options: --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
@@ -30,7 +29,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
-          ruby-version: '3.0.3'
+          ruby-version: "3.0.3"
       - name: Install dependencies
         run: bundle install
       - name: build and run tests
@@ -40,6 +39,6 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         run: |
-            bundle exec rails db:create
-            bundle exec rails db:migrate
-            RAILS_ENV=test bundle exec rake
+          bundle exec rails db:create
+          bundle exec rails db:migrate
+          RAILS_ENV=test bundle exec rake
