@@ -1,5 +1,5 @@
 <div class="mt-16 p-12">
-  <%= link_to "Back", url_for(:back) %>
+  <%= link_to "Back", pathway_path(@pathway) %>
   <p class="font-bold">This is Challenge #New page</p>
   <%= render "challenges/form", pathway: @pathway, challenge: @challenge %>
 </div>
