@@ -54,6 +54,9 @@ gem "cloudinary"
 # managing ENV
 gem "figaro"
 
+# generating test data
+gem 'faker'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -88,7 +91,7 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-  gem "webdrivers"
+  gem "webdrivers", github: 'jmccure/webdrivers', branch:'fix-m1-downloads'
 end
 
 gem "tailwindcss-rails", "~> 2.0"
