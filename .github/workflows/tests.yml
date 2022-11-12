@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     services:
       postgres:
@@ -27,9 +27,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set up Ruby
-        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
-        with:
-          ruby-version: "3.1.2"
+        uses: ruby/setup-ruby@v1
+        # with:
+        # ruby-version: "3.1.2" # not needed with a .ruby-version file
       - name: Install dependencies
         run: bundle install
       - name: build and run tests
