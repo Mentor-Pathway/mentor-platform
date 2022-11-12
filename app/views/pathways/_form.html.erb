@@ -10,7 +10,7 @@
     </div>
     <div class="my-3">
       <p>Difficulty</p>
-      <%= f.input :difficulty, collection: [ "beginner", "intermediate", "professional", "advanced" ], label: false %>
+      <%= f.input :difficulty, collection: [ "beginner", "intermediate", "advanced" ], label: false %>
     </div>
     <%= f.submit pathway.nil? ? "Save" : "Create", class: "border rounded mt-3 py-2 px-3 bg-blue-700 text-white" %>
   <% end %>
