@@ -3,9 +3,9 @@
 one:
   title: MyString
   details: MyText
-  difficulty: MyString
+  difficulty: Integer
 
 two:
   title: MyString
   details: MyText
-  difficulty: MyString
+  difficulty: Integer
