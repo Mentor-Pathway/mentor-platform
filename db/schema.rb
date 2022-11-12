@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_06_184532) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_12_175149) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_06_184532) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "completed"
+    t.text "notes"
+    t.text "feedback"
+    t.integer "rating"
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
 
@@ -64,10 +68,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_06_184532) do
   create_table "pathways", force: :cascade do |t|
     t.string "title"
     t.text "details"
-    t.string "difficulty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.integer "difficulty"
     t.index ["user_id"], name: "index_pathways_on_user_id"
   end
 
