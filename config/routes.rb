@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "pages#home"
   resources :pathways do
-    resources :challenges, only: %w[show]
+    resources :challenges, only: %w[show new create edit update]
+    resources :path_challenges, only: %w[new create edit update]
   end
 
   resources :profile, only: %w[show] do
@@ -15,4 +16,5 @@ Rails.application.routes.draw do
 
   resources :challenges, only: %w[destroy]
   resources :user_challenges, only: %w[destroy]
+  resources :path_challenges, only: %w[destroy]
 end

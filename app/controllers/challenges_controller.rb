@@ -1,10 +1,7 @@
 class ChallengesController < ApplicationController
   before_action :set_user, only: %i[new create edit]
+  before_action :set_pathway, except: :destroy
   before_action :set_challenge, only: %i[show edit update destroy]
-
-  def index
-    @challenges = Challenge.all
-  end
 
   def show
   end
@@ -15,10 +12,12 @@ class ChallengesController < ApplicationController
 
   def create
     @challenge = Challenge.new(challenge_params)
-    @challenge.user = set_user
-    @challenge.completed = false
+    @challenge.user = @user
     if @challenge.save
-      redirect_to challenge_path(@user, @challenge) # path can be modified after routes built
+      @challenges = @pathway.challenges
+      @path_challenge = PathChallenge.new(pathway: @pathway, challenge: @challenge)
+      @path_challenge.order = @challenges.empty? ? 1 : @challenges.count + 1
+      redirect_to pathway_challenge_path(@pathway, @challenge) # path can be modified after routes built
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,6 +28,7 @@ class ChallengesController < ApplicationController
 
   def update
     @challenge.update(challenge_params)
+    redirect_to pathway_challenge_path(@pathway, @challenge)
   end
 
   def destroy
@@ -44,6 +44,10 @@ class ChallengesController < ApplicationController
 
   def set_user
     @user = current_user
+  end
+
+  def set_pathway
+    @pathway = Pathway.find(params[:pathway_id])
   end
 
   def set_challenge

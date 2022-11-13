@@ -1,3 +1,5 @@
-<div class="border">
-  <%= challenge.title %>
-</div>
+<%= link_to pathway_challenge_path(challenge) do %>
+  <div class="border">
+    <%= challenge.title %>
+  </div>
+<% end %>
