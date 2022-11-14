@@ -20,15 +20,40 @@ RSpec.describe Challenge, type: :model do
       expect(subject).to be_valid
     end
 
-    it "is not valid without a title" do
-      subject.title = nil
-      expect(subject).to_not be_valid
+    describe "title validation" do
+      context "no title" do
+        it "is not valid without a title" do
+          subject.title = nil
+          expect(subject).to_not be_valid
+        end
+      end
+
+      context "title too short" do
+        it "is not valid with too short a title" do
+          subject.title = "abc"
+          expect(subject).to_not be_valid
+        end
+      end
+
+      context "title too long" do
+        it "is not valid with too long a title" do
+          subject.title = "abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabc"
+          expect(subject).to_not be_valid
+        end
+      end
+
+      context "invalid chars" do
+        it "is not valid with invalid characters" do
+          subject.title = "!!**?!#@"
+          expect(subject).to_not be_valid
+        end
+      end
     end
 
-    it "is not valid without a details" do
-      subject.details = nil
-      expect(subject).to_not be_valid
-    end
+    # it "is not valid without a details" do
+    #   subject.details = nil
+    #   expect(subject).to_not be_valid
+    # end
   end
 end
 
