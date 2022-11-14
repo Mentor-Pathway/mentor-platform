@@ -8,9 +8,12 @@ RSpec.describe Challenge, type: :model do
   end
 
   describe "create a challenge" do
-    before :each do
-      user = create(:user)
-      subject { build(:described_class, user: user) }
-    end
+    subject {
+      described_class.new(
+        user: create(:user),
+        title: "Roman numeral to integer",
+        description: "Convert Roman numerals to numbers and convert numbers to Roman numerals"
+      )
+    }
   end
 end
