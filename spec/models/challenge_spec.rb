@@ -1,6 +1,10 @@
 require "rails_helper"
 
 RSpec.describe Challenge, type: :model do
+  describe "validations" do
+    it { should validate_presence_of(:user) }
+  end
+
   describe "associations" do
     it { should belong_to(:user).without_validating_presence }
     it { should have_many(:path_challenges) }
@@ -67,7 +71,7 @@ RSpec.describe Challenge, type: :model do
 
       context "invalid chars" do
         it "is not valid with invalid characters" do
-          subject.title = "!!**?!#@"
+          subject.title = "!*?!#@"
           expect(subject).to_not be_valid
         end
       end

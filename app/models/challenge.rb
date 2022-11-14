@@ -6,4 +6,6 @@ class Challenge < ApplicationRecord
   has_many :path_challenges
   has_many :pathways, through: :path_challenges
   has_one_attached :photo
+
+  validates_presence_of :user
 end
