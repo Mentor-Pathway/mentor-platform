@@ -31,3 +31,6 @@ RSpec.describe Challenge, type: :model do
     end
   end
 end
+
+# https://semaphoreci.com/community/tutorials/how-to-test-rails-models-with-rspec
+# http://matchers.shoulda.io/docs/v4.0.1/Shoulda/Matchers/ActiveRecord.html
