@@ -26,7 +26,7 @@ RSpec.describe Challenge, type: :model do
 
     describe "details validation" do
       context "no details" do
-        it "is not valid without a details" do
+        it "is not valid without details" do
           subject.details = nil
           expect(subject).to_not be_valid
         end
