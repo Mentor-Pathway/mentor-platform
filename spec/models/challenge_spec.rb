@@ -71,7 +71,7 @@ RSpec.describe Challenge, type: :model do
 
       context "invalid chars" do
         it "is not valid with invalid characters" do
-          subject.title = "!*?!#@"
+          subject.title = "!*?!#@^(){}"
           expect(subject).to_not be_valid
         end
       end
