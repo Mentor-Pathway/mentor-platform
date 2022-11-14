@@ -12,8 +12,22 @@ RSpec.describe Challenge, type: :model do
       described_class.new(
         user: create(:user),
         title: "Roman numeral to integer",
-        description: "Convert Roman numerals to numbers and convert numbers to Roman numerals"
+        details: "Convert Roman numerals to numbers and convert numbers to Roman numerals"
       )
     }
+
+    it "is valid with valid attributes" do
+      expect(subject).to be_valid
+    end
+
+    it "is not valid without a title" do
+      subject.title = nil
+      expect(subject).to_not be_valid
+    end
+
+    it "is not valid without a details" do
+      subject.details = nil
+      expect(subject).to_not be_valid
+    end
   end
 end
