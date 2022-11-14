@@ -1,11 +1,16 @@
 require "rails_helper"
 
 RSpec.describe Challenge, type: :model do
-  context "create a challenge" do
-    it "A challenge must have a title and details" do
+  describe "associations" do
+    it { should belong_to(:user).without_validating_presence }
+    it { should have_many(:path_challenges) }
+    it { should have_many(:pathways).through :path_challenges }
+  end
+
+  describe "create a challenge" do
+    before :each do
       user = create(:user)
-      challenge = build(:challenge, user: user)
-      expect(challenge).to be_valid
+      subject { build(:described_class, user: user) }
     end
   end
 end
