@@ -20,6 +20,29 @@ RSpec.describe Challenge, type: :model do
       expect(subject).to be_valid
     end
 
+    describe "details validation" do
+      context "no details" do
+        it "is not valid without a details" do
+          subject.details = nil
+          expect(subject).to_not be_valid
+        end
+      end
+
+      context "details are too short" do
+        it "is not valid with too short details" do
+          subject.details = "abc"
+          expect(subject).to_not be_valid
+        end
+      end
+
+      context "details too long" do
+        it "is not valid with too long details" do
+          subject.details = ("a" * 1501).to_s
+          expect(subject).to_not be_valid
+        end
+      end
+    end
+
     describe "title validation" do
       context "no title" do
         it "is not valid without a title" do
@@ -37,7 +60,7 @@ RSpec.describe Challenge, type: :model do
 
       context "title too long" do
         it "is not valid with too long a title" do
-          subject.title = "abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabc"
+          subject.title = ("a" * 51).to_s
           expect(subject).to_not be_valid
         end
       end
@@ -49,11 +72,6 @@ RSpec.describe Challenge, type: :model do
         end
       end
     end
-
-    # it "is not valid without a details" do
-    #   subject.details = nil
-    #   expect(subject).to_not be_valid
-    # end
   end
 end
 
