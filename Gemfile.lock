@@ -121,6 +121,7 @@ GEM
       railties (>= 5.0.0)
     faker (3.0.0)
       i18n (>= 1.8.11, < 2)
+    ffi (1.15.5)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
     globalid (1.0.0)
@@ -268,6 +269,14 @@ GEM
       rubocop (~> 1.33)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (4.4.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -298,6 +307,7 @@ GEM
     tailwindcss-rails (2.0.14-x86_64-linux)
       railties (>= 6.0.0)
     thor (1.2.1)
+    tilt (2.0.11)
     timeout (0.3.0)
     turbo-rails (1.1.1)
       actionpack (>= 6.0.0)
@@ -347,6 +357,7 @@ DEPENDENCIES
   rspec-rails (~> 6.0, >= 6.0.1)
   rubocop-rails
   rubocop-rspec
+  sassc-rails
   selenium-webdriver
   shoulda-matchers
   simple_form
