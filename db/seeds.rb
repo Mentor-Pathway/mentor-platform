@@ -11,6 +11,13 @@ puts "-----------------"
 @mentee = User.create!(
     first_name: "Mentee", last_name: "Test", email: "mentee@test.com", password: "Testpassword1!", role: "mentee")
 
+@mentee.profile.update!(
+    job: 'Devops Enginner',
+    bio: "Ever since I was a little child, I've dreamt of being a DevOps Engineer. I'm still dreaming!",
+    linkedin: "linkedin.com/in/boris-johnson",
+    github: 'www.github.com/torvalds'
+)
+
 level = ["beginner", "intermediate", "advanced", ]
 
 def CreateChallenge(i)
