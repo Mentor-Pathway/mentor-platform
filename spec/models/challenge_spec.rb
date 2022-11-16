@@ -1,4 +1,5 @@
 require "rails_helper"
+require "open-uri"
 
 RSpec.describe Challenge, type: :model do
   describe "validations" do
@@ -19,6 +20,13 @@ RSpec.describe Challenge, type: :model do
         details: "Convert Roman numerals to numbers and convert numbers to Roman numerals"
       )
     }
+
+    it "can have an attached photo" do
+      file = URI.open("https://source.unsplash.com/random")
+      subject.photo.attach(io: file, filename: "random.jpg")
+      subject.save
+      expect(subject.photo.attached?).to be_truthy
+    end
 
     it "is valid with valid attributes" do
       expect(subject).to be_valid
