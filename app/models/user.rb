@@ -8,8 +8,14 @@ class User < ApplicationRecord
   enum :role, {mentor: 0, mentee: 1}
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
+# Creates profile and associates it to given user instance. Method only called upon initial user creation
+  after_create :create_profile
 
   private
+
+  def self.create_profile
+    self.profile.create!
+  end
 
   def password_regex
     return if password.blank? || password =~ /\A(?=.*\d)(?=.*[A-Z])(?=.*\W)[^ ]{8,}\z/
