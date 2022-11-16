@@ -1,3 +1,8 @@
 class Profile < ApplicationRecord
+  validates :job, format: {with: /\A[a-zA-Z0-9 ]+\z/}, allow_nil: true
+  validates :linkedin, format: { with: /.*linkedin.\S*\/\S*/ }, allow_nil: true
+  validates :github, format: { with: /.*github.\S*\/\S*/ }, allow_nil: true
+  validates :bio, length: { maximum: 1500, minimum: 40 }, allow_nil: true
+  belongs_to :user
   has_one_attached :photo
 end
