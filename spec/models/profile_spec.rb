@@ -17,6 +17,10 @@ RSpec.describe Profile, type: :model do
   end
 
   describe "Validations" do
+    it 'is valid with valid attributes' do
+      profile = (build(:profile))
+      expect(profile).to be_valid
+    end
 
     context 'is valid' do
       it 'without a job title' do
