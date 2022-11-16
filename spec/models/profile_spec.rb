@@ -8,11 +8,21 @@ RSpec.describe Profile, type: :model do
       expect { create(:profile, user: nil) }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: User must exist")
     end  
     it "can have a profile picture" do
-      profile = (build(:profile))
+      profile = (create(:profile))
       file = URI.open("https://images.unsplash.com/photo-1613679074971-91fc27180061?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80")
       profile.photo.attach(io: file, filename: "avatar.jpg")
       profile.save
       expect(profile.photo.attached?).to be_truthy
+    end
+
+    it 'creating a user creates a profile' do
+      user = create((:user))
+      expect(user.profile).to be_an_instance_of Profile
+    end
+
+    it 'destroying a user destroys its profile' do
+      user = create((:user))
+      expect { user.destroy }.to change { Profile.count }.by(-1)
     end
   end
 
