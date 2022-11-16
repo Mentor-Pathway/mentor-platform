@@ -1,0 +1,22 @@
+<div>
+  <div>
+    <h2>Name</h2>
+    <%= @user.first_name + ' ' + @user.last_name  %>
+    <h2>Email</h2>
+    <%= @user.email %>
+    <h2>Role</h2>
+    <%= @user.role %>
+  </div>
+  <div>
+    <h2>Job</h2>
+    <%= @user.profile.job %>
+    <h2>Bio</h2>
+    <%= @user.profile.bio %>
+
+    <h2>Linkedin</h2>
+    <%= @user.profile.job %>
+    <h2>Github</h2>
+    <%= @user.profile.job %>
+
+  </div>
+</div>
