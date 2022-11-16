@@ -1,22 +1,15 @@
-<div>
+<div class='text-center p-4'>
+  <br>
   <div>
-    <h2>Name</h2>
-    <%= @profile.user.first_name + ' ' + @profile.user.last_name  %>
-    <h2>Email</h2>
-    <%= @profile.user.email %>
-    <h2>Role</h2>
-    <%= @profile.user.role %>
+    <h2>Name: <%= @profile.user.first_name + ' ' + @profile.user.last_name %></h2>
+    <h2>Email: <%= @profile.user.email %></h2>
+    <h2>Role: <%= @profile.user.role %></h2>
   </div>
+  <br>
   <div>
-    <h2>Job</h2>
-    <%= @profile.job %>
-    <h2>Bio</h2>
-    <%= @profile.bio %>
-
-    <h2>Linkedin</h2>
-    <%= @profile.job %>
-    <h2>Github</h2>
-    <%= @profile.job %>
-
+    <h2>Job: <%= @profile.job %></h2>
+    <h2>Bio: <%= @profile.bio %></h2>
+    <h2>Linkedin: <%= @profile.job %></h2>
+    <h2>Github: <%= @profile.job %></h2>  
   </div>
 </div>
