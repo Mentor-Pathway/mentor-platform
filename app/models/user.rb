@@ -4,7 +4,9 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :role, presence: true
   validate :password_regex
-  has_one :profile
+  has_one :profile, dependent: :destroy
+  has_many :pathways, dependent: :destroy
+
   enum :role, {mentor: 0, mentee: 1}
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
