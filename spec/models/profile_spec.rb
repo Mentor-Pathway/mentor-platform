@@ -5,11 +5,9 @@ RSpec.describe Profile, type: :model do
   describe "Associations" do
 
     it "must belong to a user" do
-      profile = (build(:profile))
-      expect(profile.user).to be_valid
-    end
-    
-    it "has a profile picture" do
+      expect { create(:profile, user: nil) }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: User must exist")
+    end  
+    it "can have a profile picture" do
       profile = (build(:profile))
       file = URI.open("https://images.unsplash.com/photo-1613679074971-91fc27180061?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80")
       profile.photo.attach(io: file, filename: "avatar.jpg")
@@ -19,17 +17,42 @@ RSpec.describe Profile, type: :model do
   end
 
   describe "Validations" do
-    it "Has a valid linkedin url" do
-      expect { create(:profile, linkedin: 'Boris Johnson') }.to raise_error(ActiveRecord::RecordInvalid)
+
+    context 'is valid' do
+      it 'without a job title' do
+        profile = (build(:profile, job: nil))
+        expect(profile).to be_valid
+      end
+      it 'without a linkedin' do
+        profile = (build(:profile, linkedin: nil))
+        expect(profile).to be_valid
+      end
+      it 'without a github' do
+        profile = (build(:profile, github: nil))
+        expect(profile).to be_valid
+      end
+      it 'without a bio' do
+        profile = (build(:profile, bio: nil))
+        expect(profile).to be_valid
+      end
     end
-    it "Has a valid github url" do
-      expect { create(:profile, github: 'torvalds') }.to raise_error(ActiveRecord::RecordInvalid)
-    end
-    it "Bio has a minimum of 6 words" do
-      expect { create(:profile, bio: 'Ever since I') }.to raise_error(ActiveRecord::RecordInvalid)
-    end
-    it "Job title contains no special characters" do
-      expect { create(:profile, job: '&*^%$') }.to raise_error(ActiveRecord::RecordInvalid)
+
+    context 'if present' do
+      it "linkedin url is a valid url" do
+        expect { create(:profile, linkedin: 'Boris Johnson') }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Linkedin is invalid")
+      end
+      it "github url is a valid url" do
+        expect { create(:profile, github: 'torvalds') }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Github is invalid")
+      end
+      it "bio is not too short" do
+        expect { create(:profile, bio: 'Ever since I') }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Bio is too short (minimum is 40 characters)")
+      end
+      it "bio is not too long " do
+        expect { create(:profile, bio: ("a" * 2000).to_s) }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Bio is too long (maximum is 1500 characters)")
+      end
+      it "Job title contains no special characters" do
+        expect { create(:profile, job: '&*^%$') }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Job is invalid")
+      end
     end
   end
 end
