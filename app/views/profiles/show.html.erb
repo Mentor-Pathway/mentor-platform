@@ -6,7 +6,7 @@
     <h2>Role: <%= @profile.user.role %></h2>
   </div>
   <br>
-  <%= turbo_frame_tag :profile_job do %>
+  <%= turbo_frame_tag :profile do %>
     <div>
       <strong><%= link_to 'Edit profile', edit_profile_path(@profile) if @profile.user == current_user %></strong>
         <h2>Job: <%= @profile.job %></h2> 

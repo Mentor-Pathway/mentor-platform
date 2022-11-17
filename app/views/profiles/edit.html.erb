@@ -1,4 +1,4 @@
-<%= turbo_frame_tag :profile_job do %>
+<%= turbo_frame_tag :profile do %>
   <%= form_with model: @profile, url: profile_path(@profile), class: 'grid' do |form| %>
     <%= form.text_field :job %>
     <%= form.text_field :bio %>
