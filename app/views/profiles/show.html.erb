@@ -8,7 +8,7 @@
   <br>
   <%= turbo_frame_tag :profile_job do %>
     <div>
-      <%= link_to 'Edit', edit_profile_path(Profile.find(params[:id])) %>
+      <strong><%= link_to 'Edit profile', edit_profile_path(Profile.find(params[:id])) %></strong>
         <h2>Job: <%= @profile.job %></h2> 
         <h2>Bio: <%= @profile.bio %></h2>
         <h2>Linkedin: <%= @profile.linkedin %></h2>

@@ -1,10 +1,10 @@
 <%= turbo_frame_tag :profile_job do %>
-  <%= form_with model: @profile, url: profile_path(@profile) do |form| %>
+  <%= form_with model: @profile, url: profile_path(@profile), class: 'grid' do |form| %>
     <%= form.text_field :job %>
     <%= form.text_field :bio %>
     <%= form.text_field :linkedin %>
     <%= form.text_field :github %>
-    <%= form.submit "Save" %>
+    <strong><%= form.submit "Save" %></strong>
     <%= link_to 'Cancel', @profile %>
   <% end %>
 <% end %>
