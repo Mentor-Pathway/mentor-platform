@@ -24,14 +24,18 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile.update(profile_params)
+    if @profile.update(profile_params)
+      redirect_to profile_path(@profile) 
+    else
+      render :edit, status: :unprocessable_entity 
+    end
   end
 
   private
 
   def profile_params
     # This should be modified if params will return more than one inputs.
-    params.require(:profile).permit(:job)
+    params.require(:profile).permit(:job, :bio, :linkedin, :github)
   end
 
   def set_user
