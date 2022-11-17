@@ -13,12 +13,12 @@ RSpec.describe "Profiles", type: :request do
     end
 
     context "not profile owner cannot access" do
-      it "should not return 200:OK" do
+      it "should return 401:UNAUTHORIZED" do
         profile = create(:profile)
         user = create(:user)
         login_as user
-        get edit_profile_path(profile.)
-        expect(response).to_not have_http_status(:success)
+        get edit_profile_path(profile)
+        expect(response).to have_http_status(:unauthorized)
       end
     end
   end

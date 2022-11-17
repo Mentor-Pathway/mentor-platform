@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_user, except: :show
-  before_action :set_profile, only: %i[show edit update]
+  before_action :set_profile, only: %i[show edit update authenticate_profile_owner]
+  before_action :authenticate_profile_owner, only: %i[edit update]
 
   def show
   end
@@ -44,5 +45,11 @@ class ProfilesController < ApplicationController
 
   def set_profile
     @profile = Profile.find(params[:id])
+  end
+
+  def authenticate_profile_owner
+    unless current_user == @profile.user
+      head(:unauthorized)
+    end
   end
 end
