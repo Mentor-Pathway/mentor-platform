@@ -14,7 +14,7 @@ class User < ApplicationRecord
   def password_regex
     return if password.blank? || password =~ /\A(?=.*\d)(?=.*[A-Z])(?=.*\W)[^ ]{8,}\z/
     errors.add :password, "Password should have more than 8 characters including 1 uppercase letter, 1 number, 1 special character"
-  end
+  end              
 end
 
 # Include default devise modules. Others available are:

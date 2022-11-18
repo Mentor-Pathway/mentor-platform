@@ -4,10 +4,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  get "/user_pathways/:id/signup", to: "user_pathways#signup", as: "signup"
   root "pages#home"
   resources :pathways do
     resources :challenges, only: %w[show new create edit update]
     resources :path_challenges, only: %w[new create edit update]
+    resources :user_pathways, only: :create
   end
 
   resources :profile, only: %w[show] do

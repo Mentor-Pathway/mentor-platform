@@ -1,7 +1,7 @@
 <div class="mt-16 p-12">
   <h1 class="mb-5 font-bold">This is Pathway #Index Page</h1>
   <div class="mb-5">
-    <%= link_to "New", new_pathway_path, class: "border rounded-lg bg-blue-700 text-white py-2 px-3" if user_signed_in? && current_user.mentor? %>
+    <%= link_to "New", new_pathway_path, class: "border rounded-lg bg-blue-700 text-white py-2 px-3" if user_signed_in? && current_user.mentee? %>
   </div>
   <% if @pathways %>
     <% @pathways.each do |pathway| %>
@@ -11,3 +11,4 @@
     <h1 class="error">Ooops no pathways here!</h1>
   <% end %>
 </div>
+</select>
