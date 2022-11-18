@@ -2,6 +2,7 @@ class PathwaysController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_pathway, only: %i[show edit update destroy]
   before_action :mentor?, only: %i[new create edit update destroy]
+
   def index
     @pathways = Pathway.all
   end
@@ -16,6 +17,7 @@ class PathwaysController < ApplicationController
 
   def create
     @pathway = Pathway.new(pathway_params)
+    @pathway.user = current_user
     if @pathway.save
       redirect_to pathways_path
     else
