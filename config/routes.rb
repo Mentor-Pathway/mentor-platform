@@ -11,12 +11,15 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: %w[show] do
-    resources :user_challenges, only: %w[show]
+    resources :user_challenges, only: %w[show] do
+      resources :comments, only: %w[create update]
+    end
   end
 
   resources :challenges, only: %w[destroy]
   resources :user_challenges, only: %w[destroy]
   resources :path_challenges, only: %w[destroy]
+  resources :comments, only: %[destroy]
 
   get "/user_pathway/:id", to: "user_pathways#approved", as: "approved"
 end
