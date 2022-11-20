@@ -45,5 +45,10 @@ RSpec.describe User, type: :model do
       expect(password2).not_to be_valid
       expect(password3).not_to be_valid
     end
+    
+    it 'user can be destroyed' do
+      user = create((:user))
+      expect { user.destroy }.to change { User.count }.by(-1)
+    end
   end
 end
