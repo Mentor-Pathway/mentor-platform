@@ -50,6 +50,11 @@ end
     end         
 end
 
+User.create!(
+  first_name: "Mentor", last_name: "Fresh", email: "mentor@fresh.com", password: "Testpassword1!", role: "mentor")
+User.create!(
+  first_name: "Mentee", last_name: "Fresh", email: "mentee@fresh.com", password: "Testpassword1!", role: "mentor")
+
 puts "created #{User.count} users"
 puts "created #{Pathway.count} pathways"
 puts "Created #{Challenge.count} challenges"

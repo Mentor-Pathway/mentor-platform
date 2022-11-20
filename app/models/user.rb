@@ -16,7 +16,7 @@ class User < ApplicationRecord
   private
 
   def self.create_profile
-    self.profile.create!
+    Profile.create(user: self)
   end
 
   def password_regex

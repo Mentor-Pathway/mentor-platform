@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   resources :challenges, only: %w[destroy]
   resources :user_challenges, only: %w[destroy]
   resources :path_challenges, only: %w[destroy]
+
+  get "/user_pathway/:id", to: "user_pathways#approved", as: "approved"
 end
