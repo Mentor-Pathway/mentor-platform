@@ -2,6 +2,7 @@ Pathway.destroy_all
 Challenge.destroy_all
 UserChallenge.destroy_all
 User.destroy_all
+UserPathway.destroy_all
 puts "RUNNING SEED FILE"
 puts "-----------------"
 
@@ -10,6 +11,12 @@ puts "-----------------"
 
 @mentee = User.create!(
     first_name: "Mentee", last_name: "Test", email: "mentee@test.com", password: "Testpassword1!", role: "mentee")
+
+User.create!(
+    first_name: "Mentor", last_name: "Fresh", email: "mentor@fresh.com", password: "Testpassword1!", role: "mentor")
+
+    User.create!(
+    first_name: "Mentee", last_name: "Fresh", email: "mentee@fresh.com", password: "Testpassword1!", role: "mentor")
 
 @mentee.profile.update!(
     job: 'Devops Enginner',
@@ -50,15 +57,14 @@ end
     end         
 end
 
-User.create!(
-  first_name: "Mentor", last_name: "Fresh", email: "mentor@fresh.com", password: "Testpassword1!", role: "mentor")
-User.create!(
-  first_name: "Mentee", last_name: "Fresh", email: "mentee@fresh.com", password: "Testpassword1!", role: "mentor")
+UserPathway.create!(user_id: @mentee.id, pathway_id: Pathway.last.id)
+
 
 puts "created #{User.count} users"
 puts "created #{Pathway.count} pathways"
 puts "Created #{Challenge.count} challenges"
 puts "Created #{PathChallenge.count} Path challenges"
+puts "Created #{UserPathway.count} User Pathways"
 
 puts "-----------------"
 puts "SEED FINISHED"

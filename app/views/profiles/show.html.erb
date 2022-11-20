@@ -12,4 +12,10 @@
     <h2>Linkedin: <%= @profile.linkedin %></h2>
     <h2>Github: <%= @profile.github %></h2>  
   </div>
+  <section>
+  <h2>Pathways</h2>
+  <%= @pathways.each do |pathway| %>
+    <%= pathway.pathway.title %>
+  <% end %>
+  </section>
 </div>
