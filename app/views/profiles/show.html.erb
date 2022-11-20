@@ -14,10 +14,12 @@
   </div>
   <section>
   <h2>Pathways</h2>
-  <% @pathways.each do |pathway| %>
-      <%= pathway.pathway.title %>
-      <%= pathway.pathway.details %>
-      <%= link_to "See Pathway", profile_user_pathway_path(pathway), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  <% @pathways.each do |user_pathway| %>
+    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      <h2><%= user_pathway.pathway.title %></h2>
+      <p><%= user_pathway.pathway.details %></p>
+      <%= link_to "See Pathway", profile_user_pathway_path(pathway.id, profile_id: current_user.profile.id), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    </div>
   <% end %>
   </section>
 </div>
