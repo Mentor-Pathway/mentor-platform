@@ -57,7 +57,7 @@ end
     end         
 end
 
-UserPathway.create!(user_id: @mentee.id, pathway_id: Pathway.last.id)
+UserPathway.create!(user: @mentee, pathway: Pathway.last)
 
 
 puts "created #{User.count} users"

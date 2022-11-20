@@ -7,6 +7,7 @@ class Pathway < ApplicationRecord
 
   belongs_to :user
   has_many :path_challenges
+  has_many :user_pathways, dependent: :destroy
   has_many :challenges, through: :path_challenges
   has_one_attached :photo
 end

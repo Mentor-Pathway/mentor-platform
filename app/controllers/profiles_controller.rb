@@ -3,8 +3,7 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show edit update]
 
   def show
-    @pathways = UserPathway.where(user_id: current_user.id)
-    raise
+    @pathways = UserPathway.where(user: current_user)
   end
 
   def new
