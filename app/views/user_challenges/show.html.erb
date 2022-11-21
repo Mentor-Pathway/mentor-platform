@@ -1,10 +1,9 @@
-<%= turbo_stream_from "notes" %>
-
 <div class="mt-16 p-12">
   <h1>This is User_Challenge #Show page</h1>
   <%= link_to "New note",
               new_user_challenge_note_path(@user_challenge),
-              data: { turbo_frame: dom_id(Note.new) } %>
+              data: { turbo_frame: dom_id(Note.new) },
+              class: "border px-3 mb-3" %>
 
   <%= turbo_frame_tag Note.new %>
 
@@ -13,6 +12,4 @@
       <%= render "notes/note", note: note %>
     <% end %>
   <% end %>
-
-
 </div>

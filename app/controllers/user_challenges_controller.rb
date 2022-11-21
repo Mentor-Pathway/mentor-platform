@@ -3,8 +3,8 @@ class UserChallengesController < ApplicationController
   before_action :set_user_challenge, only: %i[edit update]
 
   def show
-    @user_challenge = UserChallenge.find(params[:id])
-    @notes = Note.where(user_challenge_id: @user_challenge.id).ordered
+    @user_challenge = current_user.user_challenges.find(params[:id])
+    @notes = @user_challenge.notes.reverse
   end
 
   def new
@@ -12,7 +12,7 @@ class UserChallengesController < ApplicationController
   end
 
   def create
-    @user_challenge = UserChallenge.new(user_challenge_params)
+    @user_challenge = current_user.user_challenges.build(user_challenge_params)
     @user_challenge.user = @user
     @user_challenge.completed = false
     if @user_challenge.save
@@ -40,6 +40,6 @@ class UserChallengesController < ApplicationController
   end
 
   def set_user_challenge
-    @user_challenge = UserChallenge.find(params[:id])
+    @user_challenge = current_user.user_challenges.find(params[:id])
   end
 end

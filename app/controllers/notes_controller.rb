@@ -7,12 +7,12 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = Note.new(note_params)
+    @note = current_user.notes.build(note_params)
     @note.user_challenge = @user_challenge
     if @note.save
       respond_to do |format|
         format.html { redirect_to user_challenge_path(@user_challenge) }
-        foramt.turbo_stream
+        format.turbo_stream
       end
     else
       render :new, status: :unprocessable_entity
@@ -46,10 +46,10 @@ class NotesController < ApplicationController
   end
 
   def set_user_challenge
-    @user_challenge = UserChallenge.find(params[:user_challenge_id])
+    @user_challenge = current_user.user_challenges.find(params[:user_challenge_id])
   end
 
   def set_note
-    @note = Note.find(params[:id])
+    @note = current_user.notes.find(params[:id])
   end
 end
