@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   end
 
   resources :profile, only: %w[show] do
-    resources :user_challenges, only: %w[show]
+    resources :user_challenges, only: %w[index show]
   end
+  resources :notes, except: :show
 
   resources :challenges, only: %w[destroy]
   resources :user_challenges, only: %w[destroy]

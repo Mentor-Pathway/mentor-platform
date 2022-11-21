@@ -1,0 +1,15 @@
+<div class="mt-16 p-12">
+
+  <div class="flex justify-between">
+    <h1>Notes</h1>
+    <%= link_to "New note",
+                new_note_path,
+                data: { turbo_frame: dom.id(Note.new) } %>
+  </div>
+
+  <%= turbo_frame_tag Note.new %>
+  <%= turbo_frame_tag "notes" do %>
+    <%= render @notes %>
+  <% end %>
+
+</div>
