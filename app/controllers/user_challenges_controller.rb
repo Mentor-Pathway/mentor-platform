@@ -2,6 +2,11 @@ class UserChallengesController < ApplicationController
   before_action :set_user, only: :create
   before_action :set_user_challenge, only: %i[edit update]
 
+  def show
+    @user_challenge = UserChallenge.find(params[:id])
+    @notes = Note.where(user_challenge_id: @user_challenge.id).ordered
+  end
+
   def new
     @user_challenge = UserChallenge.new
   end

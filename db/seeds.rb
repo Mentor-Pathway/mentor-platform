@@ -55,10 +55,16 @@ User.create!(
 User.create!(
   first_name: "Mentee", last_name: "Fresh", email: "mentee@fresh.com", password: "Testpassword1!", role: "mentor")
 
+puts "Create User Challenge object"
+UserChallenge.create!(
+  user_id: @mentee.id, challenge_id: Challenge.all.sample.id, rating: 5
+)
+
 puts "created #{User.count} users"
 puts "created #{Pathway.count} pathways"
 puts "Created #{Challenge.count} challenges"
 puts "Created #{PathChallenge.count} Path challenges"
+puts "Created #{UserChallenge.count} User challenges"
 
 puts "-----------------"
 puts "SEED FINISHED"

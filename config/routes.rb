@@ -13,7 +13,12 @@ Rails.application.routes.draw do
   resources :profiles, only: %w[show edit update] do
     resources :user_challenges, only: %w[show]
   end
-  resources :notes, except: :show
+
+  # Created this routes to test out Notes
+  resources :user_challenges, only: %w[index show] do
+    resources :notes, only: %w[new create edit update]
+  end
+  resources :notes, only: :destroy
 
   resources :challenges, only: %w[destroy]
   resources :user_challenges, only: %w[destroy]
