@@ -1,0 +1,18 @@
+<div class='text-center p-4'>
+  <br>
+  <div>
+    <h2>Name: <%= @profile.user.first_name + ' ' + @profile.user.last_name %></h2>
+    <h2>Email: <%= @profile.user.email %></h2>
+    <h2>Role: <%= @profile.user.role %></h2>
+  </div>
+  <br>
+  <%= turbo_frame_tag :profile do %>
+    <div>
+      <strong><%= link_to 'Edit profile', edit_profile_path(@profile) if @profile.user == current_user %></strong>
+        <h2>Job: <%= @profile.job %></h2> 
+        <h2>Bio: <%= @profile.bio %></h2>
+        <h2>Linkedin: <%= @profile.linkedin %></h2>
+        <h2>Github: <%= @profile.github %></h2>  
+    </div>
+    <% end %>
+</div>

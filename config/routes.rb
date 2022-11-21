@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     resources :path_challenges, only: %w[new create edit update]
   end
 
-  resources :profile, only: %w[show] do
-    resources :user_challenges, only: %w[index show]
+  resources :profiles, only: %w[show edit update] do
+    resources :user_challenges, only: %w[show]
   end
   resources :notes, except: :show
 
