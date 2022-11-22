@@ -1,5 +1,6 @@
 class UserPathwaysController < ApplicationController
   before_action :set_user
+  before_action :set_user_pathway, only: %i[destroy approved]
 
   before_action :set_pathway, only: :create
 
@@ -25,6 +26,11 @@ class UserPathwaysController < ApplicationController
     # status: :see_other
   end
 
+  def approved
+    @user_pathway.update(approved: true)
+    redirect_to # We should add a route
+  end
+
   private
 
   def user_pathway_params
@@ -35,7 +41,7 @@ class UserPathwaysController < ApplicationController
     @user = current_user
   end
 
-  def set_pathway
-    @pathway = Pathway.find(params[:pathway_id])
+  def set_user_pathway
+    @user_pathway = UserPathway.find(params[:id])
   end
 end
