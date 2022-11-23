@@ -9,18 +9,13 @@ Rails.application.routes.draw do
     resources :challenges, only: %w[show new create edit update]
     resources :path_challenges, only: %w[new create edit update]
   end
-
-<<<<<<< HEAD
+  
   resources :profiles, only: %w[show] do
     resources :user_pathways, only: %w[show] do 
       resources :user_challenges, only: %w[show] do
         resources :comments, only: %w[create update]
       end
     end
-=======
-  resources :profiles, only: %w[show edit update] do
-    resources :user_challenges, only: %w[show]
->>>>>>> main
   end
 
   resources :challenges, only: %w[destroy]
