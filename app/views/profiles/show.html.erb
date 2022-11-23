@@ -6,24 +6,6 @@
     <h2>Role: <%= @profile.user.role %></h2>
   </div>
   <br>
-<<<<<<< HEAD
-  <div>
-    <h2>Job: <%= @profile.job %></h2>
-    <h2>Bio: <%= @profile.bio %></h2>
-    <h2>Linkedin: <%= @profile.linkedin %></h2>
-    <h2>Github: <%= @profile.github %></h2>  
-  </div>
-  <section>
-  <h2>Pathways</h2>
-  <% @pathways.each do |user_pathway| %>
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
-      <h2><%= user_pathway.pathway.title %></h2>
-      <p><%= user_pathway.pathway.details %></p>
-      <%= link_to "See Pathway", profile_user_pathway_path(pathway.id, profile_id: current_user.profile.id), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-    </div>
-  <% end %>
-  </section>
-=======
   <%= turbo_frame_tag :profile do %>
     <div>
       <strong><%= link_to 'Edit profile', edit_profile_path(@profile) if @profile.user == current_user %></strong>
@@ -32,6 +14,15 @@
         <h2>Linkedin: <%= @profile.linkedin %></h2>
         <h2>Github: <%= @profile.github %></h2>  
     </div>
-    <% end %>
->>>>>>> main
-</div>
+  <% end %>
+  <section>
+  <h2>Pathways</h2>
+  <% @pathways.each do |user_pathway| %>
+    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      <h2><%= user_pathway.pathway.title %></h2>
+      <p><%= user_pathway.pathway.details %></p>
+      <%= link_to "See Pathway", profile_user_pathway_path(user_pathway.id, profile_id: current_user.profile.id), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    </div>
+  <% end %>
+  </section>
+  
