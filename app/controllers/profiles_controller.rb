@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_user, except: :show
-  before_action :set_profile, only: %i[show edit update]
+  before_action :set_profile, only: %i[show edit update authenticate_profile_owner]
+  before_action :authenticate_profile_owner, only: %i[edit update]
 
   def show
     @pathways = UserPathway.where(user: current_user)
@@ -25,14 +26,18 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile.update(profile_params)
+    if @profile.update(profile_params)
+      redirect_to profile_path(@profile) 
+    else
+      render :edit, status: :unprocessable_entity 
+    end
   end
 
   private
 
   def profile_params
     # This should be modified if params will return more than one inputs.
-    params.require(:profile).permit(:job)
+    params.require(:profile).permit(:job, :bio, :linkedin, :github)
   end
 
   def set_user
@@ -41,5 +46,11 @@ class ProfilesController < ApplicationController
 
   def set_profile
     @profile = Profile.find(params[:id])
+  end
+
+  def authenticate_profile_owner
+    unless current_user == @profile.user
+      head(:unauthorized)
+    end
   end
 end

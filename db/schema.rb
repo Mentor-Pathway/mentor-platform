@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_20_201325) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_22_084453) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,10 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_20_201325) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "completed"
-    t.text "notes"
-    t.text "feedback"
-    t.integer "rating"
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
 
@@ -64,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_20_201325) do
     t.index ["user_challenge_id"], name: "index_comments_on_user_challenge_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
-
+  
   create_table "path_challenges", force: :cascade do |t|
     t.bigint "challenge_id"
     t.bigint "pathway_id"
@@ -102,8 +98,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_20_201325) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "completed"
-    t.text "notes"
-    t.text "feedback"
     t.integer "rating"
     t.index ["challenge_id"], name: "index_user_challenges_on_challenge_id"
     t.index ["user_id"], name: "index_user_challenges_on_user_id"
@@ -139,6 +133,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_20_201325) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "user_challenges"
   add_foreign_key "comments", "users"
+<<<<<<< HEAD
+=======
+  add_foreign_key "notes", "user_challenges"
+>>>>>>> main
   add_foreign_key "pathways", "users"
   add_foreign_key "user_challenges", "challenges"
   add_foreign_key "user_challenges", "users"
