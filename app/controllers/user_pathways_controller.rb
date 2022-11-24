@@ -1,16 +1,17 @@
 class UserPathwaysController < ApplicationController
   before_action :set_user
   before_action :set_user_pathway, only: %i[destroy approved]
+  before_action :set_pathway, only: :create
 
   def new
     @user_pathway = UserPathway.new
   end
 
   def create
-    @user_pathway.new(user_pathway_params)
-    @user_pathway.user = @user
+    @user_pathway = UserPathway.new(pathway: @pathway, user:@user)
     @user_pathway.completed = false
     if @user_pathway.save
+      redirect_to signup_path(@user_pathway)
       # We should add where we will redirect user to after they create UserPathway instance.
     else
       render :new, status: :unprocessable_entity
@@ -24,11 +25,6 @@ class UserPathwaysController < ApplicationController
     # status: :see_other
   end
 
-  def approved
-    @user_pathway.update(approved: true)
-    redirect_to # We should add a route
-  end
-
   private
 
   def user_pathway_params
@@ -39,7 +35,7 @@ class UserPathwaysController < ApplicationController
     @user = current_user
   end
 
-  def set_user_pathway
-    @user_pathway = UserPathway.find(params[:id])
+  def set_pathway
+    @pathway = Pathway.find(params[:pathway_id])
   end
 end
