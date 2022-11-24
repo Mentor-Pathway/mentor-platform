@@ -1,10 +1,15 @@
 class UserPathwaysController < ApplicationController
   before_action :set_user
-  before_action :set_user_pathway, only: %i[destroy approved]
   before_action :set_pathway, only: :create
+  before_action :set_user_pathway, only: %i[ show destroy approved]
+
 
   def new
     @user_pathway = UserPathway.new
+  end
+
+  def show
+
   end
 
   def create

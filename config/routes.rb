@@ -11,12 +11,17 @@ Rails.application.routes.draw do
     resources :user_pathways, only: :create
   end
 
-  resources :profiles, only: %w[show edit update] do
-    resources :user_challenges, only: %w[show]
+  resources :profiles, only: %w[show edit] do
+    resources :user_pathways, only: %w[show] do 
+      resources :user_challenges, only: %w[show] do
+        resources :comments, only: %w[create update]
+      end
+    end
   end
 
   resources :challenges, only: %w[destroy]
   resources :user_challenges, only: %w[destroy]
   resources :path_challenges, only: %w[destroy]
+  resources :comments, only: %[destroy]
 
 end
