@@ -133,7 +133,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_084453) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "user_challenges"
   add_foreign_key "comments", "users"
-  
   add_foreign_key "pathways", "users"
   add_foreign_key "user_challenges", "challenges"
   add_foreign_key "user_challenges", "users"
