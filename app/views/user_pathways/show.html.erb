@@ -6,14 +6,16 @@
   <h2 class='font-bold text-md p-4 pb-0'>Challenges</h2>
   <div>
     <% @user_pathway.user_challenges.each do | user_challenge | %>
-      <div class='m-6 border p-4 flex flex-col'>
-        <h3 class='font-bold'><%= user_challenge.challenge.title %></h3>
-        <h4 class='p-2'><%= user_challenge.challenge.details %></h4>
-        <p class='font-medium	italic'><%= user_challenge.completed ? 'Completed!' : 'Not completed'%></p>
-        <p><%= user_challenge.notes %></p>
-        <p><%= user_challenge.rating %></p>
-        <p class='font-medium	italic'><%= user_challenge.comments.count %> Comments</p>
-      </div>
+      <%= link_to profile_user_pathway_user_challenge_path(params[:profile_id], params[:id], user_challenge) do%>
+        <div class='m-6 border p-4 flex flex-col hover:bg-blue-500'>
+          <h3 class='font-bold'><%= user_challenge.challenge.title %></h3>
+          <h4 class='p-2'><%= user_challenge.challenge.details %></h4>
+          <p class='font-medium	italic'><%= user_challenge.completed ? 'Completed!' : 'Not completed'%></p>
+          <p><%= user_challenge.notes %></p>
+          <p><%= user_challenge.rating %></p>
+          <p class='font-medium	italic'><%= user_challenge.comments.count %> Comments</p>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
