@@ -1,1 +1,13 @@
-<%= @user_challenge.challenge.title %>
+<div class='flex flex-col justify-between h-full p-12'>
+  <h1 class='font-bold text-lg text-center'><%= @user_challenge.challenge.title %></h1>
+  <h3 class='p-1'><%= @user_challenge.challenge.details %></h3>
+  <p><%= @user_challenge.notes %></p>
+  <p><%= @user_challenge.rating %></p>
+
+  <%# Placeholder input box %>
+      Answer
+      <input type="text" name="Answer" id="" class='h-24'>
+  <%# Placeholder input box %>
+
+  <p class='font-medium	italic'><%= @user_challenge.comments.count %> Comments</p>
+</div>
