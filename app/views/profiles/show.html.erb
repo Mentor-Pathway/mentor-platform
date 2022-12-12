@@ -16,13 +16,16 @@
     </div>
   <% end %>
   <section>
-  <h2>Pathways</h2>
-  <% @pathways.each do |user_pathway| %>
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
-      <h2><%= user_pathway.pathway.title %></h2>
-      <p><%= user_pathway.pathway.details %></p>
-      <%= link_to "See Pathway", profile_user_pathway_path(user_pathway.id, profile_id: current_user.profile.id), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    <h2>Pathways</h2>
+    <div class="flex flex-wrap justify-center">  
+      <% @pathways.each do |user_pathway| %>
+        <div class=" border p-4 flex flex-col h-full max-w-sm rounded overflow-hidden shadow-lg">
+          <h2 class='font-bold'><%= user_pathway.pathway.title %></h2>
+          <p class='grow p-3'><%= user_pathway.pathway.details %></p>
+          <%= link_to "See Pathway", profile_user_pathway_path(user_pathway.id, profile_id: current_user.profile.id), 
+            class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
   </section>
-  
+</div>
