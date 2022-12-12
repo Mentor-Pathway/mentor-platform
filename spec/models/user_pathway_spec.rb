@@ -11,9 +11,9 @@ RSpec.describe UserPathway, type: :model do
     it 'has user_challenges on creation' do
       pathway = (create(:pathway))
       challenge = (create(:challenge))
-      path_challenge = (create(:path_challenge, pathway: pathway, challenge: challenge))
+      path_challenge = (create(:path_challenge, pathway: pathway, challenge: challenge, order: 3))
       user_pathway = (create(:user_pathway, pathway: pathway))
-      expect(user_pathway.user_challenges).not_to be_empty
+      expect(user_pathway.user_challenges).to include(UserChallenge)
     end    
   end
 end
