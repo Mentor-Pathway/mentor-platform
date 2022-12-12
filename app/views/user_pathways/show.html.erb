@@ -3,6 +3,7 @@
     <h1 class='text-center p-2 text-lg font-bold'><%= @user_pathway.pathway.title %></h1>
     <p class='px-8'><%= @user_pathway.pathway.details %></p>
   </div>
+  
   <h2 class='font-bold text-md p-4 pb-0'>Challenges</h2>
   <div>
     <% @user_pathway.user_challenges.each do | user_challenge | %>

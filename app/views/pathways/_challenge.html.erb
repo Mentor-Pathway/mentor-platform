@@ -1,5 +1,6 @@
-<%= link_to pathway_challenge_path(challenge) do %>
-  <div class="border">
-    <%= challenge.title %>
+<%= link_to pathway_challenge_path(pathway, challenge) do %>
+  <div class='m-6 border p-4 flex flex-col hover:border-blue-500'>
+    <h3 class='font-bold'><%= challenge.title %></h3>
+    <h4 class='p-2'><%= challenge.details %></h4>
   </div>
 <% end %>
