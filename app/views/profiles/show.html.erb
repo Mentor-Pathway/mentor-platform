@@ -17,7 +17,7 @@
   <% end %>
   <section>
     <h2 class='p-2 font-medium text-md border-b-2'>Pathways</h2>
-    <div class="py-2 flex flex-wrap justify-center">  
+    <div class="py-2 flex flex-wrap justify-around">  
       <% @pathways.each do |user_pathway| %>
         <div class=" border p-4 flex flex-col h-full max-w-sm rounded overflow-hidden shadow-lg">
           <h2 class='font-bold'><%= user_pathway.pathway.title %></h2>
