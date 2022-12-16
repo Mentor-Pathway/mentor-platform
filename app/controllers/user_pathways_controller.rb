@@ -9,7 +9,6 @@ class UserPathwaysController < ApplicationController
   end
 
   def show
-
   end
 
   def create
@@ -42,5 +41,9 @@ class UserPathwaysController < ApplicationController
 
   def set_pathway
     @pathway = Pathway.find(params[:pathway_id])
+  end
+
+  def set_user_pathway
+    @user_pathway = UserPathway.find(params[:id])
   end
 end

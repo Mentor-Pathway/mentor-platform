@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_084453) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_12_132900) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -99,8 +99,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_084453) do
     t.datetime "updated_at", null: false
     t.datetime "completed"
     t.integer "rating"
+    t.text "notes"
+    t.bigint "user_pathway_id", null: false
     t.index ["challenge_id"], name: "index_user_challenges_on_challenge_id"
     t.index ["user_id"], name: "index_user_challenges_on_user_id"
+    t.index ["user_pathway_id"], name: "index_user_challenges_on_user_pathway_id"
   end
 
   create_table "user_pathways", force: :cascade do |t|
@@ -135,5 +138,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_084453) do
   add_foreign_key "comments", "users"
   add_foreign_key "pathways", "users"
   add_foreign_key "user_challenges", "challenges"
+  add_foreign_key "user_challenges", "user_pathways"
   add_foreign_key "user_challenges", "users"
 end
