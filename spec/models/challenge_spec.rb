@@ -43,7 +43,7 @@ RSpec.describe Challenge, type: :model do
       context "details are too short" do
         it "is not valid with too short details" do
           subject.details = "abc"
-          expect { subject.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Details is too short (minimum is 50 characters)")
+          expect { subject.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Details is too short (minimum is 8 characters)")
         end
       end
 
