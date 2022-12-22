@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2022_11_21_011532) do
-=======
 ActiveRecord::Schema[7.0].define(version: 2022_12_12_132900) do
->>>>>>> main
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,14 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_132900) do
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
 
-<<<<<<< HEAD
-  create_table "notes", force: :cascade do |t|
-    t.bigint "user_challenge_id", null: false
-    t.text "note"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_challenge_id"], name: "index_notes_on_user_challenge_id"
-=======
   create_table "comments", force: :cascade do |t|
     t.text "message"
     t.bigint "user_challenge_id", null: false
@@ -71,7 +59,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_132900) do
     t.datetime "updated_at", null: false
     t.index ["user_challenge_id"], name: "index_comments_on_user_challenge_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
->>>>>>> main
   end
 
   create_table "path_challenges", force: :cascade do |t|
@@ -147,12 +134,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_132900) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-<<<<<<< HEAD
   add_foreign_key "notes", "user_challenges"
-=======
   add_foreign_key "comments", "user_challenges"
   add_foreign_key "comments", "users"
->>>>>>> main
   add_foreign_key "pathways", "users"
   add_foreign_key "user_challenges", "challenges"
   add_foreign_key "user_challenges", "user_pathways"
