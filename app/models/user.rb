@@ -8,11 +8,12 @@ class User < ApplicationRecord
   has_many :pathways, dependent: :destroy
   has_many :user_challenges, dependent: :destroy
   has_many :notes, through: :user_challenges, dependent: :destroy
+  has_many :user_pathways, dependent: :destroy
 
   enum :role, {mentor: 0, mentee: 1}
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
-# Creates profile and associates it to given user instance. Method only called upon initial user creation
+  # Creates profile and associates it to given user instance. Method only called upon initial user creation
   after_create :create_profile
 
   private

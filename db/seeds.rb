@@ -2,6 +2,7 @@ Pathway.destroy_all
 Challenge.destroy_all
 UserChallenge.destroy_all
 User.destroy_all
+UserPathway.destroy_all
 puts "RUNNING SEED FILE"
 puts "-----------------"
 
@@ -10,6 +11,12 @@ puts "-----------------"
 
 @mentee = User.create!(
     first_name: "Mentee", last_name: "Test", email: "mentee@test.com", password: "Testpassword1!", role: "mentee")
+
+User.create!(
+    first_name: "Mentor", last_name: "Fresh", email: "mentor@fresh.com", password: "Testpassword1!", role: "mentor")
+
+    User.create!(
+    first_name: "Mentee", last_name: "Fresh", email: "mentee@fresh.com", password: "Testpassword1!", role: "mentor")
 
 @mentee.profile.update!(
     job: 'Devops Enginner',
@@ -39,7 +46,7 @@ end
 5.times do |i|
     level_choice = rand(0..2)
     Pathway.create!( user_id: @mentor.id,
-    title: "Pathway, #{i + 1}!",
+    title: "Pathways, #{i + 1}!",
     details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. #{i + 1}!",
@@ -50,10 +57,8 @@ end
     end
 end
 
-User.create!(
-  first_name: "Mentor", last_name: "Fresh", email: "mentor@fresh.com", password: "Testpassword1!", role: "mentor")
-User.create!(
-  first_name: "Mentee", last_name: "Fresh", email: "mentee@fresh.com", password: "Testpassword1!", role: "mentor")
+UserPathway.create!(user: @mentee, pathway: Pathway.last)
+
 
 puts "Create User Challenge object"
 UserChallenge.create!(
@@ -65,6 +70,7 @@ puts "created #{Pathway.count} pathways"
 puts "Created #{Challenge.count} challenges"
 puts "Created #{PathChallenge.count} Path challenges"
 puts "Created #{UserChallenge.count} User challenges"
+puts "Created #{UserPathway.count} User Pathways"
 
 puts "-----------------"
 puts "SEED FINISHED"

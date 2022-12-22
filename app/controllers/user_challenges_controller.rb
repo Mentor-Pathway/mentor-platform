@@ -1,6 +1,6 @@
 class UserChallengesController < ApplicationController
   before_action :set_user, only: :create
-  before_action :set_user_challenge, only: %i[edit update]
+  before_action :set_user_challenge, only: %i[edit update show]
 
   def show
     @user_challenge = current_user.user_challenges.find(params[:id])
@@ -9,6 +9,10 @@ class UserChallengesController < ApplicationController
 
   def new
     @user_challenge = UserChallenge.new
+  end
+
+  def show
+
   end
 
   def create

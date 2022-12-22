@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
   before_action :authenticate_profile_owner, only: %i[edit update]
 
   def show
+    @pathways = UserPathway.where(user: current_user)
   end
 
   def new

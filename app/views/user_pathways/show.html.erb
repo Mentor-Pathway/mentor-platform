@@ -1,0 +1,23 @@
+<div class="container p-12 flex flex-col items-center">
+  <div class='border w-2/4 p-4'>
+    <%= link_to "Back", profile_path(current_user.profile) %>
+    <h1 class='text-center p-2 text-lg font-bold'><%= @user_pathway.pathway.title %></h1>
+    <p class='px-8'><%= @user_pathway.pathway.details %></p>
+  </div>
+
+  <h2 class='font-bold text-md p-4 pb-0'>Challenges</h2>
+  <div>
+    <% @user_pathway.user_challenges.each do | user_challenge | %>
+      <%= link_to profile_user_pathway_user_challenge_path(params[:profile_id], params[:id], user_challenge) do%>
+        <div class='m-6 border p-4 flex flex-col hover:border-blue-500'>
+          <h3 class='font-bold'><%= user_challenge.challenge.title %></h3>
+          <h4 class='p-2'><%= user_challenge.challenge.details %></h4>
+          <p class='font-medium	italic'><%= user_challenge.completed ? 'Completed!' : 'Not completed'%></p>
+          <p><%= user_challenge.notes %></p>
+          <p><%= user_challenge.rating %></p>
+          <p class='font-medium	italic'><%= user_challenge.comments.count %> Comments</p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
