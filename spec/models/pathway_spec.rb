@@ -67,7 +67,7 @@ RSpec.describe Pathway, type: :model do
           expect { subject.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Title is too short (minimum is 8 characters)")
         end
       end
-  
+      
       context "title too long" do
         it "is not valid with too long a title" do
           subject.title = ("a" * 51).to_s
