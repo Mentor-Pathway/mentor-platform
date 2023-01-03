@@ -16,7 +16,7 @@
 
 
   <h2 class='font-bold text-md p-4 pb-0'>Challenges</h2>
-    <% @challenges.each do |challenge| %>
-      <%= render "challenge", challenge: challenge ,pathway: @pathway%>
+    <% @challenges.each_with_index do |challenge, index| %>
+      <%= render "challenge", challenge: challenge ,pathway: @pathway, index: index%>
     <% end %>
 </div>

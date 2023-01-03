@@ -1,6 +1,22 @@
-<%= link_to pathway_challenge_path(pathway, challenge) do %>
-  <div class='m-6 border p-4 flex flex-col hover:border-blue-500'>
-    <h3 class='font-bold'><%= challenge.title %></h3>
-    <h4 class='p-2'><%= challenge.details %></h4>
+<%# Saves HTML template to variable %>
+<% challenge_template = capture do %>
+   <div class='m-6 border p-4 flex flex-col hover:border-blue-500 w-full'>
+      <h3 class='font-bold'><%= challenge.title %></h3>
+    <% if index == 0 %>
+      <h4 class='p-2'><%= challenge.details %></h4>
+    <% else %>
+      <h4 class='p-2'><%= user_signed_in? ? challenge.details : 'Sign up to see more details' %></h4>
+    <% end %>
   </div>
 <% end %>
+
+<% if user_signed_in? %>
+   <%# Render template inside link %>
+  <%= link_to challenge_template, pathway_challenge_path(pathway, challenge), class: 'w-full' %>
+<% else %>
+   <%# Render template without link %>
+   <%= challenge_template %>
+<% end %>
+
+
+
