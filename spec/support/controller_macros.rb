@@ -2,7 +2,6 @@ module ControllerMacros
   def login_mentor
     before(:each) do
       @request.env["devise.mapping"] = Devise.mappings[:user]
-      mentor = FactoryBot.create(:user, role: "mentor")
       sign_in user
     end
   end
