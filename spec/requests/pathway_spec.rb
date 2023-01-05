@@ -13,7 +13,7 @@ RSpec.describe "Pathways", type: :request do
     end
 
     context "mentee cannot access" do
-      it "redirects ro root" do
+      it "redirects to root" do
         mentee = create(:user, role: "mentee")
         pathway = create(:pathway, user: mentee)
         login_as mentee
