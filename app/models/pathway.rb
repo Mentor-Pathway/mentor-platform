@@ -11,5 +11,5 @@ class Pathway < ApplicationRecord
   has_many :challenges, through: :path_challenges
   has_one_attached :photo
 
-  validates_presence_of :user
+  validates :user, presence: true
 end

@@ -8,5 +8,5 @@ class Challenge < ApplicationRecord
   has_many :user_challenges, dependent: :destroy
   has_one_attached :photo
 
-  validates_presence_of :user
+  validates :user, presence: true
 end

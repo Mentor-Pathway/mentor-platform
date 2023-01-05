@@ -3,14 +3,14 @@ require "open-uri"
 
 RSpec.describe Pathway, type: :model do
   describe "validations" do
-    it { should validate_presence_of(:user) }
+    it { is_expected.to validate_presence_of(:user) }
   end
 
   describe "associations" do
-    it { should belong_to(:user).without_validating_presence }
-    it { should have_many(:path_challenges) }
-    it { should have_many(:user_pathways).dependent :destroy }
-    it { should have_many(:challenges).through :path_challenges }
+    it { is_expected.to belong_to(:user).without_validating_presence }
+    it { is_expected.to have_many(:path_challenges) }
+    it { is_expected.to have_many(:user_pathways).dependent :destroy }
+    it { is_expected.to have_many(:challenges).through :path_challenges }
   end
 
   describe "create a pathway" do
