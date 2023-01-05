@@ -60,7 +60,7 @@ end
 end
 
 puts "Create User Pathway"
-user_pathway = UserPathway.create!(user: @mentee, pathway: Pathway.last)
+UserPathway.create!(user: @mentee, pathway: Pathway.last)
 
 puts "Update User Challenge objects"
 UserChallenge.all.each do |challenge|
