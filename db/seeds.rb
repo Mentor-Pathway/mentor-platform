@@ -62,7 +62,7 @@ UserPathway.create!(user: @mentee, pathway: Pathway.last)
 
 puts "Create User Challenge object"
 UserChallenge.create!(
-  user_id: @mentee.id, challenge_id: Challenge.all.sample.id, rating: 5
+  user_id: @mentee.id, challenge_id: Challenge.all.sample.id, rating: 5, user_pathway_id: UserPathway.first.id
 )
 
 puts "created #{User.count} users"

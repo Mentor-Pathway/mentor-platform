@@ -8,9 +8,11 @@
   <%= turbo_frame_tag Note.new %>
 
   <%= turbo_frame_tag "notes" do %>
+   <% if !@notes.nil? %>
     <% @notes.each do |note| %>
       <%= render "notes/note", note: note %>
     <% end %>
+   <% end %>
   <% end %>
 <div class='flex flex-col justify-between h-full p-12'>
   <%= link_to "Back", profile_user_pathway_path(current_user.profile, @user_challenge.user_pathway) %>

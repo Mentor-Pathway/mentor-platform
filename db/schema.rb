@@ -61,6 +61,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_132900) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.bigint "user_challenge_id", null: false
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_challenge_id"], name: "index_notes_on_user_challenge_id"
+  end
+
   create_table "path_challenges", force: :cascade do |t|
     t.bigint "challenge_id"
     t.bigint "pathway_id"
@@ -134,9 +142,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_132900) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "notes", "user_challenges"
   add_foreign_key "comments", "user_challenges"
   add_foreign_key "comments", "users"
+  add_foreign_key "notes", "user_challenges"
   add_foreign_key "pathways", "users"
   add_foreign_key "user_challenges", "challenges"
   add_foreign_key "user_challenges", "user_pathways"
