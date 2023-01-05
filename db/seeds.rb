@@ -7,25 +7,29 @@ puts "RUNNING SEED FILE"
 puts "-----------------"
 
 @mentor = User.create!(
-  first_name: "Mentor", last_name: "Test", email: "mentor@test.com", password: "Testpassword1!", role: "mentor")
-
-@mentee = User.create!(
-  first_name: "Mentee", last_name: "Test", email: "mentee@test.com", password: "Testpassword1!", role: "mentee")
-
-User.create!(
-  first_name: "Mentor", last_name: "Fresh", email: "mentor@fresh.com", password: "Testpassword1!", role: "mentor")
-
-User.create!(
-  first_name: "Mentee", last_name: "Fresh", email: "mentee@fresh.com", password: "Testpassword1!", role: "mentor")
-
-@mentee.profile.update!(
-  job: 'Devops Enginner',
-  bio: "Ever since I was a little child, I've dreamt of being a DevOps Engineer. I'm still dreaming!",
-  linkedin: "linkedin.com/in/boris-johnson",
-  github: 'www.github.com/torvalds'
+  first_name: "Mentor", last_name: "Test", email: "mentor@test.com", password: "Testpassword1!", role: "mentor"
 )
 
-level = ["beginner", "intermediate", "advanced", ]
+@mentee = User.create!(
+  first_name: "Mentee", last_name: "Test", email: "mentee@test.com", password: "Testpassword1!", role: "mentee"
+)
+
+User.create!(
+  first_name: "Mentor", last_name: "Fresh", email: "mentor@fresh.com", password: "Testpassword1!", role: "mentor"
+)
+
+User.create!(
+  first_name: "Mentee", last_name: "Fresh", email: "mentee@fresh.com", password: "Testpassword1!", role: "mentee"
+)
+
+@mentee.profile.update!(
+  job: "Devops Enginner",
+  bio: "Ever since I was a little child, I've dreamt of being a DevOps Engineer. I'm still dreaming!",
+  linkedin: "linkedin.com/in/boris-johnson",
+  github: "www.github.com/torvalds"
+)
+
+level = ["beginner", "intermediate", "advanced"]
 
 def CreateChallenge(i)
   Challenge.create!(
@@ -39,7 +43,7 @@ def CreateChallenge(i)
   PathChallenge.create!(
     challenge_id: Challenge.last.id,
     pathway_id: Pathway.last.id,
-    order: (i)
+    order: i
   )
 end
 

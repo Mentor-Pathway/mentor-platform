@@ -2,6 +2,7 @@ class ChallengesController < ApplicationController
   before_action :set_user, only: %i[new create edit]
   before_action :set_pathway, except: :destroy
   before_action :set_challenge, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   def show
   end

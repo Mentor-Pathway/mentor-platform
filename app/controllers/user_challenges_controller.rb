@@ -10,6 +10,12 @@ class UserChallengesController < ApplicationController
     @user_challenge = UserChallenge.new
   end
 
+<<<<<<< HEAD
+=======
+  def show
+  end
+
+>>>>>>> main
   def create
     @user_challenge = current_user.user_challenges.build(user_challenge_params)
     @user_challenge.user = @user

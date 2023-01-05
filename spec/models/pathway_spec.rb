@@ -3,14 +3,14 @@ require "open-uri"
 
 RSpec.describe Pathway, type: :model do
   describe "validations" do
-    it { should validate_presence_of(:user) }
+    it { is_expected.to validate_presence_of(:user) }
   end
 
   describe "associations" do
-    it { should belong_to(:user).without_validating_presence }
-    it { should have_many(:path_challenges) }
-    it { should have_many(:user_pathways).dependent :destroy }
-    it { should have_many(:challenges).through :path_challenges }
+    it { is_expected.to belong_to(:user).without_validating_presence }
+    it { is_expected.to have_many(:path_challenges) }
+    it { is_expected.to have_many(:user_pathways).dependent :destroy }
+    it { is_expected.to have_many(:challenges).through :path_challenges }
   end
 
   describe "create a pathway" do
@@ -19,10 +19,10 @@ RSpec.describe Pathway, type: :model do
         user: create(:user),
         title: "Roman numeral to integer",
         details: "Convert Roman numerals to numbers and convert numbers to Roman numerals",
-        difficulty: 0,
+        difficulty: 0
       )
     }
-      
+
     it "can have an attached photo" do
       file = URI.open("https://source.unsplash.com/random")
       subject.photo.attach(io: file, filename: "random.jpg")
@@ -60,28 +60,28 @@ RSpec.describe Pathway, type: :model do
           expect { subject.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Title can't be blank, Title is invalid, Title is too short (minimum is 8 characters)")
         end
       end
-  
+
       context "title too short" do
         it "is not valid with too short a title" do
           subject.title = "abc"
           expect { subject.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Title is too short (minimum is 8 characters)")
         end
       end
-  
+
       context "title too long" do
         it "is not valid with too long a title" do
           subject.title = ("a" * 51).to_s
           expect { subject.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Title is too long (maximum is 50 characters)")
-        end   
+        end
       end
     end
-    
+
     describe "difficulty validation" do
       context "No details" do
         it "is not valid without difficulty" do
           subject.difficulty = nil
           expect { subject.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Difficulty can't be blank")
-        end 
+        end
       end
 
       context "invalid chars" do
@@ -89,7 +89,7 @@ RSpec.describe Pathway, type: :model do
           subject.title = "!*?!#@^(){}"
           expect { subject.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Title is invalid")
         end
-      end  
-    end    
+      end
+    end
   end
-end 
+end

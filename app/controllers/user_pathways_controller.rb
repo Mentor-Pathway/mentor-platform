@@ -1,8 +1,7 @@
 class UserPathwaysController < ApplicationController
   before_action :set_user
   before_action :set_pathway, only: :create
-  before_action :set_user_pathway, only: %i[ show destroy approved]
-
+  before_action :set_user_pathway, only: %i[show destroy approved]
 
   def new
     @user_pathway = UserPathway.new
@@ -12,7 +11,7 @@ class UserPathwaysController < ApplicationController
   end
 
   def create
-    @user_pathway = UserPathway.new(pathway: @pathway, user:@user)
+    @user_pathway = UserPathway.new(pathway: @pathway, user: @user)
     @user_pathway.completed = false
     if @user_pathway.save
       redirect_to signup_path(@user_pathway)
