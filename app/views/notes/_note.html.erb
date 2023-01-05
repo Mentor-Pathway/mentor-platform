@@ -1,10 +1,10 @@
 <%= turbo_frame_tag note do %>
-  <div class="flex items-end mb-4">
-    <div class="bg-blue-300 border px-24 py-3">
+  <div class="flex flex-col mb-4">
+    <div class="bg-blue-100 border w-100 break-words p-2 mb-1">
       <%= note.note %>
     </div>
     <div class="flex">
-      <%= link_to "Edit", edit_user_challenge_note_path(note.user_challenge, note), class: "border px-3 ml-2" %>
+      <%= link_to "Edit", edit_user_challenge_note_path(note.user_challenge, note), class: "border px-3" %>
       <%= link_to "Delete", note_path(note), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "border px-3 ml-1" %>
     </div>
   </div>
