@@ -32,6 +32,7 @@ RSpec.describe User, type: :model do
     end
 
     it "user has a unique email" do
+      user1 = create(:user, email: "email1@example.com")
       expect { create(:user, email: "email1@example.com") }.to raise_error(ActiveRecord::RecordInvalid)
     end
 
