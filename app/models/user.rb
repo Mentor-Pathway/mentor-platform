@@ -14,7 +14,7 @@ class User < ApplicationRecord
   # Creates profile and associates it to given user instance. Method only called upon initial user creation
   after_create :create_profile
 
-  private
+  private_class_method
 
   def self.create_profile
     Profile.create(user: self)
