@@ -11,10 +11,10 @@ class User < ApplicationRecord
   enum :role, {mentor: 0, mentee: 1}
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
-# Creates profile and associates it to given user instance. Method only called upon initial user creation
+  # Creates profile and associates it to given user instance. Method only called upon initial user creation
   after_create :create_profile
 
-  private
+  private_class_method
 
   def self.create_profile
     Profile.create(user: self)

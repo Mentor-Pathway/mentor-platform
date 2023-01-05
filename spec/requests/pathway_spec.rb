@@ -1,11 +1,9 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Pathways", type: :request do
   describe "GET /edit" do
-
-
     context "mentor can access" do
-      it "should return 200:OK" do
+      it "returns 200:OK" do
         mentor = create(:user, role: "mentor")
         pathway = create(:pathway, user: mentor)
         login_as mentor
@@ -15,7 +13,7 @@ RSpec.describe "Pathways", type: :request do
     end
 
     context "mentee cannot access" do
-      it "should redirect ro root" do
+      it "redirects to root" do
         mentee = create(:user, role: "mentee")
         pathway = create(:pathway, user: mentee)
         login_as mentee
@@ -25,7 +23,7 @@ RSpec.describe "Pathways", type: :request do
     end
 
     context "not signed in cannot access" do
-      it "should redirect to root" do
+      it "redirects to root" do
         pathway = create(:pathway)
         get edit_pathway_path(pathway)
         expect(response).to redirect_to(new_user_session_path)
