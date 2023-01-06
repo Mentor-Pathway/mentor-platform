@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Note, type: :model do
-  let note = create(:note)
+  let(:note) { create(:note) }
 
   describe "Associations:" do
     it { is_expected.to belong_to(:user_challenge) }
