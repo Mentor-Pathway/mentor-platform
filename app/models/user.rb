@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :pathways, dependent: :destroy
   has_many :user_challenges, dependent: :destroy
-  has_many :notes, through: :user_challenges, dependent: :destroy
+  has_many :notes, dependent: :destroy
   has_many :user_pathways, dependent: :destroy
 
   enum :role, {mentor: 0, mentee: 1}
