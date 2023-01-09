@@ -66,13 +66,6 @@ end
 puts "Create User Pathway"
 UserPathway.create!(user: @mentee, pathway: Pathway.last)
 
-puts "Update User Challenge objects"
-UserChallenge.all.each do |challenge|
-  UserChallenge.update!(
-    user_id: @mentee.id, rating: 5, completed: false
-  )
-end
-
 puts "created #{User.count} users"
 puts "created #{Pathway.count} pathways"
 puts "Created #{Challenge.count} challenges"
