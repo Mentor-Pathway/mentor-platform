@@ -33,5 +33,5 @@ FileUtils.chdir APP_ROOT do
 
   # bundle exec will run specific versions of Ruby and gems that are specified in your application's Gemfile
   puts "\n== Setting up the database =="
-  system! "bundle exec rails db:setup"
+  system! "bundle exec bin/rails db:setup"
 end
