@@ -14,7 +14,7 @@ RSpec.describe Comment, type: :model do
 
   describe "comment validity" do
     it "is valid with valid attributes" do
-      comment = build(:comment)
+      comment = build(:comment, message: "valid message")
       expect(comment).to be_valid
     end
 
