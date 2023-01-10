@@ -30,4 +30,8 @@ FileUtils.chdir APP_ROOT do
 
   puts "\n== Restarting application server =="
   system! "bin/rails restart"
+
+  # bundle exec will run specific versions of Ruby and gems that are specified in your application's Gemfile
+  puts "\n== Setting up the database =="
+  system! "bundle exec rails db:setup"
 end
