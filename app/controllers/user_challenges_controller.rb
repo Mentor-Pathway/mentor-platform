@@ -31,7 +31,7 @@ class UserChallengesController < ApplicationController
   private
 
   def user_challenge_params
-    params.require(:user_challenge).permit(:challenge_id, :notes, :feedback, :rating)
+    params.require(:user_challenge).permit(:challenge_id, :notes, :comments, :feedback, :rating)
   end
 
   def set_user

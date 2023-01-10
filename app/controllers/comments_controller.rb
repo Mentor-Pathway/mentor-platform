@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
   before_action :set_user_challenge, only: %i[new create edit]
 
-  def comment
+  def new
     @comment = Comment.new
   end
 
@@ -43,7 +43,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:comment)
+    params.require(:comment).permit(:message)
   end
 
   def set_comment
