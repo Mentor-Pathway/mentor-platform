@@ -8,3 +8,4 @@ RSpec.configure do |config|
   end
 end
 
+#checking to see if my add and commit works
