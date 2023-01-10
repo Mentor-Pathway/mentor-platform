@@ -8,7 +8,6 @@ class NotesController < ApplicationController
 
   def create
     @note = current_user.notes.build(note_params)
-    @note.user = current_user
     @note.user_challenge = @user_challenge
     if @note.save
       respond_to do |format|

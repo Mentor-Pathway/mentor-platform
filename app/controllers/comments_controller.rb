@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    @comment.user = current_user
     @comment.user_challenge = @user_challenge
     if @comment.save
       respond_to do |format|
