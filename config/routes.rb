@@ -19,6 +19,12 @@ Rails.application.routes.draw do
     end
   end
 
+  # Created this routes to test out Notes
+  resources :user_challenges, only: %w[index show] do
+    resources :notes, only: %w[new create edit update]
+  end
+  resources :notes, only: :destroy
+
   resources :challenges, only: %w[destroy]
   resources :user_challenges, only: %w[destroy]
   resources :path_challenges, only: %w[destroy]
