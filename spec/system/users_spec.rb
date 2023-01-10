@@ -30,4 +30,6 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_link "Log out"
     end
   end
+
+  
 end
