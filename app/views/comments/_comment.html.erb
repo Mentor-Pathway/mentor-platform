@@ -1,7 +1,7 @@
 <%= turbo_frame_tag comment do %>
   <div class="flex flex-col mb-4">
     <div class="p-2 mb-1 border break-word w-100">
-      <%= comment.message %>
+      <%= markdown(comment.message) %>
     </div>
     <div class="flex">
       <%= link_to "Edit", edit_user_challenge_comment_path(comment.user_challenge, comment), class: "border px-3" %>
