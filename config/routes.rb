@@ -20,9 +20,9 @@ Rails.application.routes.draw do
     resources :comments, only: %w[new create edit update]
   end
   resources :notes, only: :destroy
+  resources :comments, only: :destroy
 
   resources :challenges, only: %w[destroy]
   resources :user_challenges, only: %w[destroy]
   resources :path_challenges, only: %w[destroy]
-  resources :comments, only: %(destroy)
 end
