@@ -13,15 +13,13 @@ Rails.application.routes.draw do
 
   resources :profiles, only: %w[show edit] do
     resources :user_pathways, only: %w[show] do
-      resources :user_challenges, only: %w[show] do
-        resources :comments, only: %w[create update]
-      end
+      resources :user_challenges, only: %w[show]
     end
   end
 
-  # Created this routes to test out Notes
   resources :user_challenges, only: %w[index show] do
     resources :notes, only: %w[new create edit update]
+    resources :comments, only: %w[create update]
   end
   resources :notes, only: :destroy
 
