@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  # Defines the root path route ("/")
-  # root "articles#index"
+
   get "/user_pathways/:id/signup", to: "user_pathways#signup", as: "signup"
   root "pages#home"
   resources :pathways do
@@ -19,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :user_challenges, only: %w[index show] do
     resources :notes, only: %w[new create edit update]
-    resources :comments, only: %w[create update]
+    resources :comments, only: %w[new create edit update]
   end
   resources :notes, only: :destroy
 
