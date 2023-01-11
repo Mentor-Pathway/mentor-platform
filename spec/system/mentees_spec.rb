@@ -6,6 +6,7 @@ RSpec.describe "Mentees", type: :system do
      driven_by (:rack_test)
      @mentee = create(:mentee)
      @pathway = create(:pathway)
+     @profile = create(:profile)
    end
 
    it "valid with correct credentials" do
@@ -33,9 +34,8 @@ RSpec.describe "Mentees", type: :system do
    it "Pathway added to profile" do
       login_as(@mentee)
       UserPathway.create(user:@mentee,pathway:@pathway)
-      visit profile_path(@mentee)
+      visit profile_path(@profile)
       expect(page).to have_content "Pathway One"
    end
      
-
 end

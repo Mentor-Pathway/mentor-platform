@@ -6,4 +6,5 @@ FactoryBot.define do
     linkedin { "linkedin.com/in/boris-johnson" }
     github { "github.com/torvalds" }
   end
+
 end
