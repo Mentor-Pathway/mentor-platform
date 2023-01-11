@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user_challenge do
-    challenge { association :challenge }
-    user { association :user }
+    challenge { create(:challenge) }
+    user_pathway { create(:user_pathway) }
   end
 end

@@ -8,7 +8,6 @@ class NotesController < ApplicationController
 
   def create
     @note = current_user.notes.build(note_params)
-    @note.user = current_user
     @note.user_challenge = @user_challenge
     if @note.save
       respond_to do |format|
@@ -47,10 +46,10 @@ class NotesController < ApplicationController
   end
 
   def set_user_challenge
-    @user_challenge = current_user.user_challenges.find(params[:user_challenge_id])
+    @user_challenge = current_user.user_challenges.find_by(id: params[:user_challenge_id])
   end
 
   def set_note
-    @note = current_user.notes.find(params[:id])
+    @note = current_user.notes.find_by(id: params[:id])
   end
 end

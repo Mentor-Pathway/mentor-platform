@@ -1,4 +1,15 @@
 @tailwind base;
+
+/* h1 {
+  @apply text-4xl;
+}
+h2 {
+  @apply text-xl;
+}
+h3 {
+  @apply text-lg;
+} */
+
 @tailwind components;
 @tailwind utilities;
 
@@ -6,7 +17,7 @@
 
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+    @apply px-4 py-2 bg-blue-200;
   }
 }
 
