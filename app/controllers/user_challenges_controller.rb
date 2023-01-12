@@ -4,6 +4,7 @@ class UserChallengesController < ApplicationController
 
   def show
     @notes = @user_challenge.notes.reverse
+    @comments = @user_challenge.comments.reverse
   end
 
   def new
@@ -15,7 +16,6 @@ class UserChallengesController < ApplicationController
     @user_challenge.user = @user
     @user_challenge.completed = false
     if @user_challenge.save
-      # We should add where to redirect
     else
       render :new, status: :unprocessable_entity
     end
@@ -31,7 +31,7 @@ class UserChallengesController < ApplicationController
   private
 
   def user_challenge_params
-    params.require(:user_challenge).permit(:challenge_id, :notes, :feedback, :rating)
+    params.require(:user_challenge).permit(:challenge_id, :notes, :comments, :feedback, :rating)
   end
 
   def set_user

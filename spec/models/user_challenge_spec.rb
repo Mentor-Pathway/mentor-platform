@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.describe UserChallenge, type: :model do
-  # Set up test data
   let(:user_challenge) { create(:user_challenge) }
 
   describe "validations" do
