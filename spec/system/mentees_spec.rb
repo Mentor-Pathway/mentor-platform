@@ -20,13 +20,13 @@ RSpec.describe "Mentees", type: :system do
    it "Displaying pathways" do
       login_as(@mentee)
       visit pathways_path
-      expect(page).to have_content "Pathway One"
+      find("input[placeholder='Find a pathway']").set "value"
    end 
 
    it "Join a pathway" do
       login_as(@mentee)
       visit pathway_path(@pathway)
-      expect(page).to have_content "Pathway One"
+      expect(page).to have_content "Challenges"
       click_button "Pathway Signup"
       expect(page).to have_content "Congratulations, you have signed up to a Pathway!!!"
    end
@@ -35,7 +35,7 @@ RSpec.describe "Mentees", type: :system do
       login_as(@mentee)
       UserPathway.create(user:@mentee,pathway:@pathway)
       visit profile_path(@profile)
-      expect(page).to have_content "Pathway One"
+      expect(page).to have_content "See Pathway"
    end
      
 end
