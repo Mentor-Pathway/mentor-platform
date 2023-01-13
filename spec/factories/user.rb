@@ -7,4 +7,14 @@ FactoryBot.define do
 
     sequence(:email) { |n| "user#{n}@example.com" }
   end
+
+  factory :mentee, class: "User" do
+    first_name { "Test" }
+    last_name { "user" }
+    role { :mentee }
+    password { "Testpassword1!" }
+
+    sequence(:email) { |n| "mentee#{n}@example.com"}
+  end
+
 end

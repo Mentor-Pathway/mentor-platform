@@ -7,6 +7,7 @@ require_relative "../config/environment"
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 
 require "rspec/rails"
+require 'capybara/rspec'
 
 require_relative "support/devise"
 require_relative "support/chrome"
