@@ -13,7 +13,8 @@ FactoryBot.define do
     last_name { "user" }
     role { :mentee }
     password { "Testpassword1!" }
-    email {"mentee@example.com"}
+
+    sequence(:email) { |n| "mentee#{n}@example.com"}
   end
 
 end

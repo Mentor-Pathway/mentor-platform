@@ -35,7 +35,7 @@ RSpec.describe "Mentees", type: :system do
       login_as(@mentee)
       UserPathway.create(user:@mentee,pathway:@pathway)
       visit profile_path(@profile)
-      expect(page).to have_content "See Pathway"
+      expect(page).to have_content(@pathway.title)
    end
      
 end
