@@ -1,0 +1,9 @@
+<div class="mt-3">
+  <%= simple_form_for [user_challenge, note] do |f| %>
+    <%= f.input :note, label: false, input_html: { autofocus: true } %>
+    <div>
+      <%= link_to "Cancel", user_challenge_path(user_challenge), class: "border p-2" %>
+      <%= f.submit note.id.nil? ? "Create" : "Save", class: "border p-2" %>
+    </div>
+  <% end %>
+</div>

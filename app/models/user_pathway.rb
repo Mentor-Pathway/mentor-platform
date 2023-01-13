@@ -11,7 +11,10 @@ class UserPathway < ApplicationRecord
     pathway.challenges.each do |challenge|
       UserChallenge.create!(
         user_pathway: self,
-        challenge: challenge
+        challenge: challenge,
+        user: user,
+        rating: 5,
+        completed: false
       )
     end
   end

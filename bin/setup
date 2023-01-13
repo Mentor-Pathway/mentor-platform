@@ -30,4 +30,7 @@ FileUtils.chdir APP_ROOT do
 
   puts "\n== Restarting application server =="
   system! "bin/rails restart"
+
+  puts "\n== Setting up the database =="
+  system! "bin/rails db:setup"
 end

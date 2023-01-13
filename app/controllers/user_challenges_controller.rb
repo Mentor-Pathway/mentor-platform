@@ -2,19 +2,20 @@ class UserChallengesController < ApplicationController
   before_action :set_user, only: :create
   before_action :set_user_challenge, only: %i[edit update show]
 
+  def show
+    @notes = @user_challenge.notes.reverse
+    @comments = @user_challenge.comments.reverse
+  end
+
   def new
     @user_challenge = UserChallenge.new
   end
 
-  def show
-  end
-
   def create
-    @user_challenge = UserChallenge.new(user_challenge_params)
+    @user_challenge = current_user.user_challenges.build(user_challenge_params)
     @user_challenge.user = @user
     @user_challenge.completed = false
     if @user_challenge.save
-      # We should add where to redirect
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +31,7 @@ class UserChallengesController < ApplicationController
   private
 
   def user_challenge_params
-    params.require(:user_challenge).permit(:challenge_id, :notes, :feedback, :rating)
+    params.require(:user_challenge).permit(:challenge_id, :notes, :comments, :feedback, :rating)
   end
 
   def set_user
@@ -38,6 +39,6 @@ class UserChallengesController < ApplicationController
   end
 
   def set_user_challenge
-    @user_challenge = UserChallenge.find(params[:id])
+    @user_challenge = current_user.user_challenges.find(params[:id])
   end
 end
