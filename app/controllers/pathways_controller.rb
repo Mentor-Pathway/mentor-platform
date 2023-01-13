@@ -4,7 +4,9 @@ class PathwaysController < ApplicationController
   before_action :mentor?, only: %i[new create edit update destroy]
 
   def index
-    @pathways = Pathway.all
+    @pathways = params[:query].present? ?
+      Pathway.where("title ILIKE ?", "%#{params[:query]}%")
+      : Pathway.all
   end
 
   def show
