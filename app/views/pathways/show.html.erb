@@ -1,21 +1,21 @@
-<div class="container p-12 flex flex-col items-center">
-  <div class='border w-2/4 p-4'>
+<div class="">
+  <div class=''>
     <%= link_to "Back", pathways_path %>
-    <h1 class='text-center p-2 text-lg font-bold'><%= @pathway.title %></h1>
-    <p class='px-8'><%= @pathway.details %></p>
-    <p class='px-8'><%= @pathway.difficulty %></p>
-    <div class='flex justify-end'>
-      <%= link_to "Add Challenge", new_pathway_path_challenge_path(@pathway), class: "border p-2 m-3" if @pathway.challenges.present? && user_signed_in? && current_user.mentor?%>
-      <%= link_to "Create Challenge", new_pathway_challenge_path(@pathway), class: "border p-2 m-3" if user_signed_in? && current_user.mentor? %>
-      <%= button_to "Pathway Signup", pathway_user_pathways_path(@pathway), class: "border rounded-lg bg-blue-700 text-white p-2 m-3" if user_signed_in? && current_user.mentee? %>
+    <h1 class=''><%= @pathway.title %></h1>
+    <p class=''><%= @pathway.details %></p>
+    <p class=''><%= @pathway.difficulty %></p>
+    <div class=''>
+      <%= link_to "Add Challenge", new_pathway_path_challenge_path(@pathway), class: "" if @pathway.challenges.present? && user_signed_in? && current_user.mentor?%>
+      <%= link_to "Create Challenge", new_pathway_challenge_path(@pathway), class: "" if user_signed_in? && current_user.mentor? %>
+      <%= button_to "Pathway Signup", pathway_user_pathways_path(@pathway), class: "" if user_signed_in? && current_user.mentee? %>
       <div class="my-5">
-        <%= link_to "Edit", edit_pathway_path(@pathway), class: "border rounded-lg bg-blue-700 text-white py-2 px-3" if user_signed_in? && current_user.mentor? %>
+        <%= link_to "Edit", edit_pathway_path(@pathway), class: "" if user_signed_in? && current_user.mentor? %>
       </div>
     </div>
   </div>
 
 
-  <h2 class='font-bold text-md p-4 pb-0'>Challenges</h2>
+  <h2 class=''>Challenges</h2>
     <% @challenges.each_with_index do |challenge, index| %>
       <%= render "challenge", challenge: challenge ,pathway: @pathway, index: index%>
     <% end %>

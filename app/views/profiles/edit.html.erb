@@ -1,5 +1,5 @@
 <%= turbo_frame_tag :profile do %>
-  <%= form_with model: @profile, url: profile_path(@profile), class: 'grid' do |form| %>
+  <%= form_with model: @profile, url: profile_path(@profile), class: '' do |form| %>
     <%= form.text_field :job %>
     <%= form.text_field :bio %>
     <%= form.text_field :linkedin %>

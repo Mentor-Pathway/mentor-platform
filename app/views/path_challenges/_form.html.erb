@@ -1,9 +1,9 @@
- <div class="mt-5">
+ <div class="">
   <%= simple_form_for [pathway, path_challenge] do |f| %>
-    <div class="my-3">
+    <div class="">
       <p>Challenges</p>
       <%= f.association :challenge, label: false, input_html: { multiple: true } %>
     </div>
-    <%= f.submit path_challenge.nil? ? "Save" : "Create", class: "border rounded mt-3 py-2 px-3 bg-blue-700 text-white" %>
+    <%= f.submit path_challenge.nil? ? "Save" : "Create", class: "" %>
   <% end %>
 </div>

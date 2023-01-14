@@ -1,13 +1,13 @@
 <div>
   <%= simple_form_for [pathway, challenge] do |f| %>
-    <div class="my-3">
+    <div class="">
       <p>Title</p>
       <%= f.input :title, label: false %>
     </div>
-    <div class="my-3">
+    <div class="">
       <p>Details</p>
       <%= f.input :details, label: false, input_html: { style: "width: 30%" } %>
     </div>
-    <%= f.submit challenge.nil? ? "Save" : "Create", class: "border rounded mt-3 py-2 px-3 bg-blue-700 text-white" %>
+    <%= f.submit challenge.nil? ? "Save" : "Create", class: "" %>
   <% end %>
 </div>

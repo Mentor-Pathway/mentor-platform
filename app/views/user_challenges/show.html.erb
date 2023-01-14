@@ -1,22 +1,22 @@
-<div class="p-12 mt-16">
+<div class="">
   <h1>This is User_Challenge #Show page</h1>
 
-  <div class='flex'>
-    <div class='flex flex-col justify-between w-3/4 h-full p-12'>
+  <div class=''>
+    <div class=''>
       <%= link_to "Back", profile_user_pathway_path(current_user.profile, @user_challenge.user_pathway) %>
-      <h1 class='text-lg font-bold text-center'><%= @user_challenge.challenge.title %></h1>
-      <h3 class='p-1'><%= @user_challenge.challenge.details %></h3>
+      <h1 class=''><%= @user_challenge.challenge.title %></h1>
+      <h3 class=''><%= @user_challenge.challenge.details %></h3>
       <p><%= @user_challenge.rating %></p>
 
       <div class="">
         <%= link_to "New comment",
                     new_user_challenge_comment_path(@user_challenge),
                     data: { turbo_frame: dom_id(Comment.new) },
-                    class: "border px-3 mb-3" %>
+                    class: "" %>
 
         <%= turbo_frame_tag Comment.new %>
 
-        <div class='mt-3'>
+        <div class=''>
           <%= turbo_frame_tag "comments" do %>
             <% if !@comments.nil? %>
               <% @comments.each do |comment| %>
@@ -27,14 +27,14 @@
         </div>
       </div>
 
-      <p class='italic font-medium'><%= @user_challenge.comments.count %> Comments</p>
+      <p class=''><%= @user_challenge.comments.count %> Comments</p>
     </div>
 
-    <div class='w-1/4 h-full p-12'>
+    <div class=''>
       <%= link_to "New note",
                   new_user_challenge_note_path(@user_challenge),
                   data: { turbo_frame: dom_id(Note.new) },
-                  class: "border px-3 mb-3" %>
+                  class: "" %>
 
       <%= turbo_frame_tag Note.new %>
 

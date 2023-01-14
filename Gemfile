@@ -98,5 +98,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers", github: "jmccure/webdrivers", branch: "fix-m1-downloads"
 end
-
-gem "tailwindcss-rails", "~> 2.0"
