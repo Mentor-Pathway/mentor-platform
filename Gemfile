@@ -98,3 +98,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers", github: "jmccure/webdrivers", branch: "fix-m1-downloads"
 end
+
+gem "cssbundling-rails", "~> 1.1"
