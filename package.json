@@ -1,9 +1,20 @@
 {
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
+    "@babel/eslint-parser": "^7.19.1",
+    "autoprefixer": "^10.4.13",
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.31.10",
-    "prettier": "2.7.1"
+    "postcss": "^8.4.21",
+    "postcss-import": "^15.1.0",
+    "postcss-nested": "^6.0.0",
+    "prettier": "2.7.1",
+    "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "sass": "^1.57.1"
+  },
+  "scripts": {
+    "build:css": "tailwindcss --postcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css"
   }
 }
