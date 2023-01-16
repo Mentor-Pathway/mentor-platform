@@ -15,19 +15,18 @@ default: &default
 
 development:
   <<: *default
-  database: flatiron_mod3_development
+  database: mentor_pathway_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: flatiron_mod3_test
+  database: mentor_pathway_test
 
 production:
   <<: *default
-  database: <%= ENV['RDS_DATABASE'] %>
-  username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
-  host: <%= ENV['RDS_HOST'] %>
-  post: 5432
+  database: mentor_pathway_production
+  username: mentor_mathway
+  password: <%= ENV["MENTOR_PATHWAY_DATABASE_PASSWORD"] %>
+
