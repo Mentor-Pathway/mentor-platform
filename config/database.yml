@@ -26,6 +26,6 @@ test:
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  database: mentor_pathway_production
 
 
