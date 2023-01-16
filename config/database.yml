@@ -27,5 +27,7 @@ test:
 production:
   <<: *default
   database: mentor_pathway_production
+  username: mentor_pathway
+  password: <%= ENV['MENTOR_PATHWAY_DATABASE_PASSWORD'] %>
 
 
