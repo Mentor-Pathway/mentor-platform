@@ -6,6 +6,6 @@ if ! gem list foreman -i --silent; then
 fi
 
 # precompile assets
-bin/rails assets:precompile
+# bin/rails assets:precompile
 
 exec foreman start -f Procfile.dev "$@"
