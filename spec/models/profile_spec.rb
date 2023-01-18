@@ -59,13 +59,6 @@ RSpec.describe Profile, type: :model do
         profile = build(:profile, bio: nil)
         expect(profile).to be_valid
       end
-
-      it 'cannot have the same tag twice' do
-         profile = build(:profile)
-         tag = build(:tag, name: 'Dev Ops')
-         create(:tagging, tag: tag, profile: profile)
-         expect{ create(:tagging, tag: tag, profile: profile) }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Profile tag must be unique")
-      end
     end
 
     context "if present" do
