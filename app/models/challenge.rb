@@ -7,7 +7,7 @@ class Challenge < ApplicationRecord
   has_many :pathways, through: :path_challenges
   has_many :user_challenges, dependent: :destroy
   has_one_attached :photo
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings 
 
   validates :user, presence: true

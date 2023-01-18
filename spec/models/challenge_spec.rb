@@ -4,6 +4,13 @@ require "open-uri"
 RSpec.describe Challenge, type: :model do
   describe "validations" do
     it { is_expected.to validate_presence_of(:user) }
+
+    it 'cannot have the same tag twice' do
+      challenge = build(:challenge)
+      tag = build(:tag, name: 'Testing')
+      create(:tagging, tag: tag, challenge: challenge)
+      expect{ create(:tagging, tag: tag, challenge: challenge) }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Challenge tag must be unique")
+   end
   end
 
   describe "associations" do

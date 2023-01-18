@@ -4,6 +4,13 @@ require "open-uri"
 RSpec.describe Pathway, type: :model do
   describe "validations" do
     it { is_expected.to validate_presence_of(:user) }
+
+    it 'cannot have the same tag twice' do
+      pathway = build(:pathway)
+      tag = build(:tag, name: 'Ruby')
+      create(:tagging, tag: tag, pathway: pathway)
+      expect{ create(:tagging, tag: tag, pathway: pathway) }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Pathway tag must be unique")
+   end
   end
 
   describe "associations" do
@@ -18,6 +25,15 @@ RSpec.describe Pathway, type: :model do
       create(:tagging, tag: tag, pathway: pathway)
       expect(pathway.tags.last.name).to eq "JavaScript"
    end
+
+   it 'can be associated to many tags' do
+      pathway = create(:pathway)
+      create(:tagging, tag: create(:tag, name: 'Ruby'), pathway: pathway)
+      create(:tagging, tag: create(:tag, name: 'AWS'), pathway: pathway)
+      create(:tagging, tag: create(:tag, name: 'React'), pathway: pathway)
+      expect(pathway.tags.count).to eq 3
+   end
+
   end
 
   describe "create a pathway" do

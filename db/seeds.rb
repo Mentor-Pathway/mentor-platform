@@ -32,9 +32,14 @@ User.create!(
 
 level = ["beginner", "intermediate", "advanced"]
 
-Tag.create(name: 'JavaScript')
-Tag.create(name: 'AWS')
-Tag.create(name: 'Python')
+tags_array = [
+   Tag.create(name: 'JavaScript'),
+   Tag.create(name: 'AWS'),
+   Tag.create(name: 'Python'),
+   Tag.create(name: 'Ruby'),
+   Tag.create(name: 'Rspec'),
+   Tag.create(name: 'Kubernetes')
+]
 
 def CreateChallenge(i)
   Challenge.create!(
@@ -62,7 +67,16 @@ end
     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. #{i + 1}!",
     difficulty: level[level_choice]
   )
-
+  
+  rand(5).times do 
+   # Assign between 1 and 5 random tags to pathway. Skip iteration if validation error raised, to ensure pathway has no duplicate tags
+   begin
+      Tagging.create!(pathway: Pathway.last, tag: tags_array.sample)
+   rescue
+      next
+   end
+  end
+  puts Pathway.last.tags.count
   20.times do |i|
     CreateChallenge(i)
   end
