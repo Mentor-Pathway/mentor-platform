@@ -21,6 +21,11 @@ RSpec.describe Tagging, type: :model do
          pathway = create(:pathway)
          tagging = create(:tagging, pathway: pathway)
          expect(tagging).to be_an_instance_of Tagging
-       end      
+       end
+       it 'can be associated to a profile' do
+         profile = create(:profile)
+         tagging = create(:tagging, profile: profile)
+         expect(tagging).to be_an_instance_of Tagging
+       end         
     end
 end

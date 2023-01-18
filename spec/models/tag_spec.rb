@@ -16,7 +16,21 @@ RSpec.describe Tag, type: :model do
       tag = create(:tag)
       pathway = create(:pathway)
       create(:tagging, tag: tag, pathway: pathway)
-      expect(tag.pathways.last.name).to be_a_kind_of Pathway
+      expect(tag.pathways.last).to be_a_kind_of Pathway
+   end
+
+   it 'can be associated to a challenge' do
+      tag = create(:tag)
+      challenge = create(:challenge)
+      create(:tagging, tag: tag, challenge: challenge)
+      expect(tag.challenges.last).to be_a_kind_of Challenge
+   end
+
+   it 'can be associated to a profile' do
+      tag = create(:tag)
+      profile = create(:profile)
+      create(:tagging, tag: tag, profile: profile)
+      expect(tag.profiles.last).to be_a_kind_of Profile
    end
   end
 end
