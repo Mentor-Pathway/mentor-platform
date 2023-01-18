@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_18_101014) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_18_104836) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -104,9 +104,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_101014) do
 
   create_table "taggings", force: :cascade do |t|
     t.bigint "tag_id", null: false
-    t.bigint "pathway_id", null: false
+    t.bigint "pathway_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "challenge_id"
+    t.index ["challenge_id"], name: "index_taggings_on_challenge_id"
     t.index ["pathway_id"], name: "index_taggings_on_pathway_id"
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
   end
@@ -164,6 +166,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_101014) do
   add_foreign_key "notes", "user_challenges"
   add_foreign_key "notes", "users"
   add_foreign_key "pathways", "users"
+  add_foreign_key "taggings", "challenges"
   add_foreign_key "taggings", "pathways"
   add_foreign_key "taggings", "tags"
   add_foreign_key "user_challenges", "challenges"
