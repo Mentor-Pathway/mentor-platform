@@ -10,6 +10,9 @@
   <div class="border hover:border-blue-500 p-4">
     <%= link_to pathway_path(pathway), class: 'flex flex-col h-full' do %>
       <h2 class='font-bold'><%= pathway.title %></h2>
+      <p><% pathway.tags.each do |tag| %>
+         (<%= tag.name %>) 
+      <% end  %> </p>
       <p class='grow p-1'><%= pathway.details %></p>
       <h4 class='font-bold text-end'><%= pathway.difficulty.capitalize %></h4>
     <% end %>

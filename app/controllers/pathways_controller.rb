@@ -18,13 +18,21 @@ class PathwaysController < ApplicationController
   end
 
   def create
-    @pathway = Pathway.new(pathway_params)
-    @pathway.user = current_user
-    if @pathway.save
+   @pathway = Pathway.new(pathway_params)
+   @pathway.user = current_user
+   if @pathway.save
       redirect_to pathways_path
+      tag_pathway(@pathway)
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def tag_pathway(pathway)
+   tags = params[:pathway][:tag_ids]
+   tags.drop(1).each do |tag|
+      Tagging.create!(tag: Tag.find(tag.to_i), pathway: pathway) 
+   end
   end
 
   def edit
