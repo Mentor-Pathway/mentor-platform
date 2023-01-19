@@ -39,6 +39,6 @@ class UserChallengesController < ApplicationController
   end
 
   def set_user_challenge
-    @user_challenge = current_user.user_challenges.find(params[:id])
+    @user_challenge = UserChallenge.find(params[:id])
   end
 end
