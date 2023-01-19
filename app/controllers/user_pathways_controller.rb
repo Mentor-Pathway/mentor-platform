@@ -16,7 +16,6 @@ class UserPathwaysController < ApplicationController
     @user_pathway.completed = false
     if @user_pathway.save
       redirect_to signup_path(@user_pathway)
-      # We should add where we will redirect user to after they create UserPathway instance.
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,8 +24,6 @@ class UserPathwaysController < ApplicationController
   def destroy
     @user_pathway = UserPathway.find(params[:id])
     @user_pathway.destroy
-    # We should add where we will redirect user to after they delete UserPathway instance.
-    # status: :see_other
   end
 
   private
