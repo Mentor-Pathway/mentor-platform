@@ -28,13 +28,6 @@ class PathwaysController < ApplicationController
     end
   end
 
-  def add_tags_on_pathway_create(pathway)
-   tags = params[:pathway][:tag_ids]
-   tags.drop(1).each do |tag|
-      Tagging.create!(tag: Tag.find(tag.to_i), pathway: pathway) 
-   end
-  end
-
   def edit
   end
 
@@ -42,6 +35,20 @@ class PathwaysController < ApplicationController
    @pathway.update(pathway_params)
    edit_pathway_tags(@pathway)
    redirect_to pathway_path(@pathway)
+  end
+
+  def destroy
+    @pathway.destroy
+    redirect_to pathways_path
+  end
+
+  private
+  
+  def add_tags_on_pathway_create(pathway)
+   tags = params[:pathway][:tag_ids]
+   tags.drop(1).each do |tag|
+      Tagging.create!(tag: Tag.find(tag.to_i), pathway: pathway) 
+   end
   end
 
   def edit_pathway_tags(pathway)
@@ -65,13 +72,6 @@ class PathwaysController < ApplicationController
       Tagging.find_by(tag: tag, pathway: pathway).destroy!
    end  
   end
-
-  def destroy
-    @pathway.destroy
-    redirect_to pathways_path
-  end
-
-  private
 
   def pathway_params
     params.require(:pathway).permit(:title, :details, :difficulty)

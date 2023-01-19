@@ -25,13 +25,6 @@ class ChallengesController < ApplicationController
     end
   end
 
-  def add_tags_on_challenge_create(challenge)
-   tags = params[:challenge][:tag_ids]
-   tags.drop(1).each do |tag|
-      Tagging.create!(tag: Tag.find(tag.to_i), challenge: challenge) 
-   end
-  end
-
   def edit
   end
 
@@ -39,6 +32,22 @@ class ChallengesController < ApplicationController
     @challenge.update(challenge_params)
     edit_challenge_tags(@challenge)
     redirect_to pathway_challenge_path(@pathway, @challenge)
+  end
+
+ 
+
+  def destroy
+    @challenge.destroy
+    redirect_to challenges_path(@user), status: :see_other # path can be modified after routes built
+  end
+
+  private
+
+  def add_tags_on_challenge_create(challenge)
+   tags = params[:challenge][:tag_ids]
+   tags.drop(1).each do |tag|
+      Tagging.create!(tag: Tag.find(tag.to_i), challenge: challenge) 
+   end
   end
 
   def edit_challenge_tags(challenge)
@@ -62,13 +71,6 @@ class ChallengesController < ApplicationController
       Tagging.find_by(tag: tag, challenge: challenge).destroy!
    end  
   end
-
-  def destroy
-    @challenge.destroy
-    redirect_to challenges_path(@user), status: :see_other # path can be modified after routes built
-  end
-
-  private
 
   def challenge_params
     params.require(:challenge).permit(:title, :details, :notes, :feedback, :rating)
