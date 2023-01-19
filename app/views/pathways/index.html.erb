@@ -1,25 +1,33 @@
-<div class="p-12">
-   <div class='w-1/2 mx-auto mb-10'>
-      <%= form_with url: pathways_path, method: :get, class: "flex" do %>
-         <%= text_field_tag :query,
-            params[:query],
-            class: "w-5/6 rounded-l-lg",
-            placeholder: "Find a pathway"
-         %>
-         <%= submit_tag "Search", class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-1/6 rounded-r-lg cursor-pointer" %>
+<div class='Search'>
+  <div class="Title">Pathways</div>
+  <div class='searchbar'>
+    <%= form_with url: pathways_path, method: :get, class: "flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        placeholder: "Search"
+        %>
       <% end %>
-   </div>
-  <h1 class="mb-5 font-bold">This is Pathway #Index Page</h1>
-  <div class="mb-5">
-    <%= link_to "New", new_pathway_path, class: "border rounded-lg bg-blue-700 text-white py-2 px-3" if user_signed_in? && current_user.mentor? %>
   </div>
-    <% if @pathways %>
-      <div class="grid grid-cols-4 gap-4">
-        <% @pathways.each do |pathway| %>
-          <%= render "pathway", pathway: pathway %>
-        <% end %>
-      </div>
+</div>  
+
+<label for="difficulty">Difficulty</label>
+<select name="levels" id="levels" style="width:6cm !important">
+    <option value="Beginner">Beginner</option>
+    <option value="Intermediate">Intermediate</option>
+    <option value="Advanced">Advanced</option>
+</select>
+ 
+<% if @pathways %>
+  <div class="try">
+    <div class="grid grid-cols-2 gap-4">
+      <% @pathways.each do |pathway| %>
+        <%= render "pathway", pathway: pathway %>
+      <% end %>
+    </div>
+  </div>  
     <% else %>
-      <h1 class="error">Ooops no pathways here!</h1>
-    <% end %>
-</div>
+    <h1 class="error">Ooops no pathways here!</h1>
+<% end %>
+
+
+
