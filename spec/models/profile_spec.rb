@@ -15,6 +15,13 @@ RSpec.describe Profile, type: :model do
       expect(profile.photo.attached?).to be_truthy
     end
 
+    it 'can be associated to a tag' do
+      profile = create(:profile)
+      tag = create(:tag)
+      create(:tagging, tag: tag, profile: profile)
+      expect(profile.tags.last.name).to eq "JavaScript"
+   end
+
     it "creating a user creates a profile" do
       user = create((:user))
       expect(user.profile).to be_an_instance_of Profile
