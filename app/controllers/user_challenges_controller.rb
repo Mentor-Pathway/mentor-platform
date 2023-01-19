@@ -4,7 +4,6 @@ class UserChallengesController < ApplicationController
   before_action :set_user_challenge, only: %i[edit update show verify_user]
 
   def show
-    # byebug
     @notes = @user_challenge.notes.reverse
     @comments = @user_challenge.comments.reverse
   end
