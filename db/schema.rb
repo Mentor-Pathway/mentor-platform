@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_09_163243) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_18_111722) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -102,6 +102,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_163243) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "taggings", force: :cascade do |t|
+    t.bigint "tag_id", null: false
+    t.bigint "pathway_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "challenge_id"
+    t.bigint "profile_id"
+    t.index ["challenge_id"], name: "index_taggings_on_challenge_id"
+    t.index ["pathway_id"], name: "index_taggings_on_pathway_id"
+    t.index ["profile_id"], name: "index_taggings_on_profile_id"
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_challenges", force: :cascade do |t|
     t.bigint "challenge_id"
     t.bigint "user_id"
@@ -149,6 +168,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_163243) do
   add_foreign_key "notes", "user_challenges"
   add_foreign_key "notes", "users"
   add_foreign_key "pathways", "users"
+  add_foreign_key "taggings", "challenges"
+  add_foreign_key "taggings", "pathways"
+  add_foreign_key "taggings", "profiles"
+  add_foreign_key "taggings", "tags"
   add_foreign_key "user_challenges", "challenges"
   add_foreign_key "user_challenges", "user_pathways"
   add_foreign_key "user_challenges", "users"

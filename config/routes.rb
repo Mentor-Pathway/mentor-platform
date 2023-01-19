@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  devise_scope :user do
+    get "/users/sign_out" => "devise/sessions#destroy"
+  end
+
   get "/user_pathways/:id/signup", to: "user_pathways#signup", as: "signup"
   root "pages#home"
   resources :pathways do

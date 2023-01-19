@@ -1,4 +1,4 @@
-<nav class="sticky top-0 z-50 position-fixed flex items-center justify-between flex-wrap bg-white-500 p-6">
+<nav class="sticky top-0 z-50 flex flex-wrap items-center justify-between p-6 position-fixed bg-white-500">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
     <a href="/" class="flex items-center">
     <span class="self-center text-xl font-semibold whitespace-nowrap" style="color:black;">Mentor Pathway</span>
@@ -9,7 +9,7 @@
          <% if user_signed_in? %>
           <%= link_to "Hi, #{current_user.first_name}!", profile_path(current_user.profile), class: "nav-link block text-black font-medium text-xs leading-tight uppercase rounded px-6 py-3 my-2 md:mx-2 focus:outline-none focus:ring-0" %>
          <% end %>
-      <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-pill text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" if user_signed_in? %>
+      <%= link_to "Log out", destroy_user_session_path, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-pill text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" if user_signed_in? %>
     </div>
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
       <ul class="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0">
