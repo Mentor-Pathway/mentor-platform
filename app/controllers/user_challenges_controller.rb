@@ -1,8 +1,10 @@
 class UserChallengesController < ApplicationController
+  before_action :verify_user, only: :show
   before_action :set_user, only: :create
-  before_action :set_user_challenge, only: %i[edit update show]
+  before_action :set_user_challenge, only: %i[edit update show verify_user]
 
   def show
+    # byebug
     @notes = @user_challenge.notes.reverse
     @comments = @user_challenge.comments.reverse
   end
@@ -29,6 +31,12 @@ class UserChallengesController < ApplicationController
   end
 
   private
+
+  def verify_user
+    mentee = User.find(params[:profile_id])
+    mentor = Pathway.find(UserPathway.find(params[:user_pathway_id]).id).user
+    redirect_to root_path if current_user != mentor && current_user != mentee
+  end
 
   def user_challenge_params
     params.require(:user_challenge).permit(:challenge_id, :notes, :comments, :feedback, :rating)
