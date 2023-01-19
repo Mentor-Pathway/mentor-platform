@@ -42,9 +42,9 @@ class ProfilesController < ApplicationController
   end
 
   def verify_user
-    mentee = User.find(params[:id])
+    mentee = current_user != User.find(params[:id])
     mentor = current_user.role != "mentor"
-    redirect_to root_path if current_user != mentee && mentor
+    redirect_to root_path if mentee && mentor
   end
 
   def set_user
