@@ -8,7 +8,7 @@ RSpec.describe Tag, type: :model do
       end
       
       it 'has a name as a string' do
-         tag = create(:tag, name: 'Python')
+         tag = build(:tag, name: 'Python')
          expect(tag.name).to be_a_kind_of String
       end
 
