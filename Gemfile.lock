@@ -171,6 +171,8 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.5.8)
+    nokogiri (1.14.0-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.14.0-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -291,6 +293,8 @@ GEM
       rubocop-performance (= 1.15.2)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.21-arm64-darwin)
+      railties (>= 6.0.0)
     tailwindcss-rails (2.0.21-x86_64-darwin)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -321,6 +325,7 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
+  arm64-darwin-21
   x86_64-darwin-21
 
 DEPENDENCIES
