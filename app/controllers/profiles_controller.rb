@@ -1,8 +1,8 @@
 class ProfilesController < ApplicationController
-  before_action :verify_user, only: :show
   before_action :set_user, except: :show
   before_action :set_profile, only: %i[show edit update authenticate_profile_owner]
   before_action :authenticate_profile_owner, only: %i[edit update]
+  before_action :verify_user, only: :show
 
   def show
     @pathways = UserPathway.where(user: current_user)
@@ -42,7 +42,7 @@ class ProfilesController < ApplicationController
   end
 
   def verify_user
-    mentee = current_user != User.find(Profile.find(params[:id]).user.id)
+    mentee = current_user != @profile.user
     mentor = current_user.role != "mentor"
     redirect_to root_path if mentee && mentor
   end
