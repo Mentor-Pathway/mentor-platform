@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
   before_action :set_user, except: :show
   before_action :set_profile, only: %i[show edit update authenticate_profile_owner]
   before_action :authenticate_profile_owner, only: %i[edit update]
+  before_action :verify_user, only: :show
 
   def show
     @pathways = UserPathway.where(user: current_user)
@@ -38,6 +39,12 @@ class ProfilesController < ApplicationController
   def profile_params
     # This should be modified if params will return more than one inputs.
     params.require(:profile).permit(:job, :bio, :linkedin, :github)
+  end
+
+  def verify_user
+    mentee = current_user = @profile.user
+    mentor = current_user.role = "mentor"
+    redirect_to root_path if !mentee && !mentor
   end
 
   def set_user

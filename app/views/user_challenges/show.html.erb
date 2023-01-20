@@ -20,7 +20,7 @@
           <%= turbo_frame_tag "comments" do %>
             <% if !@comments.nil? %>
               <% @comments.each do |comment| %>
-                <%= render "comments/comment", comment: comment %>
+                <%= render "comments/comment", comment: comment, :class => 'comment' %>
               <% end %>
             <% end %>
           <% end %>
