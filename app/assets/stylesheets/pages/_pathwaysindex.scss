@@ -33,9 +33,9 @@
 }
 
 .difficulty {
-   background-color: blue;
+
    border-radius: 10px;
-   width: 43%;
+   width: 4cm;
    text-align: center;
    font-weight: lighter;
    letter-spacing: 1px;
@@ -47,10 +47,30 @@
    margin-left: 45%;
 }
 
-#levels option {
-   background-color: rgb(255, 175, 163);
+#levels {
+   margin-left: 3cm;
 }
 
 label[for="difficulty"] {
+   margin-bottom: 7px;
    margin-left: 3cm;
+   width: fit-content;
+}
+
+.difficulty.beginner {
+   background-color: rgb(202, 240, 188);
+   font-size: smaller;
+   margin-top: 6px;
+}
+
+.difficulty.intermediate {
+   background-color: rgb(252, 209, 156);
+   font-size: smaller;
+   margin-top: 6px;
+}
+
+.difficulty.advanced {
+   background-color: rgb(255, 172, 167);
+   font-size: smaller;
+   margin-top: 6px;
 }
