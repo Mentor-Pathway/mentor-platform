@@ -8,6 +8,10 @@
       <p>Details</p>
       <%= f.input :details, label: false, input_html: { style: "width: 30%" } %>
     </div>
+     <div class="my-3">
+      <p>Tags</p>
+      <%= f.association :tags, as: :check_boxes %>
+    </div>
     <%= f.submit challenge.nil? ? "Save" : "Create", class: "border rounded mt-3 py-2 px-3 bg-blue-700 text-white" %>
   <% end %>
 </div>

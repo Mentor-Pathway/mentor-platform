@@ -3,6 +3,7 @@ UserPathway.destroy_all
 Challenge.destroy_all
 Pathway.destroy_all
 User.destroy_all
+Tag.destroy_all
 puts "RUNNING SEED FILE"
 puts "-----------------"
 
@@ -15,11 +16,11 @@ puts "-----------------"
 )
 
 User.create!(
-  first_name: "Mentor", last_name: "Fresh", email: "mentor@fresh.com", password: "Testpassword1!", role: "mentor"
+   first_name: "Mentor", last_name: "Fresh", email: "mentor@fresh.com", password: "Testpassword1!", role: "mentor"
 )
 
 User.create!(
-  first_name: "Mentee", last_name: "Fresh", email: "mentee@fresh.com", password: "Testpassword1!", role: "mentee"
+   first_name: "Mentee", last_name: "Fresh", email: "mentee@fresh.com", password: "Testpassword1!", role: "mentee"
 )
 
 @mentee.profile.update!(
@@ -30,6 +31,15 @@ User.create!(
 )
 
 level = ["beginner", "intermediate", "advanced"]
+
+tags_array = [
+   Tag.create(name: 'JavaScript'),
+   Tag.create(name: 'AWS'),
+   Tag.create(name: 'Python'),
+   Tag.create(name: 'Ruby'),
+   Tag.create(name: 'Rspec'),
+   Tag.create(name: 'Kubernetes')
+]
 
 def CreateChallenge(i)
   Challenge.create!(
@@ -55,7 +65,11 @@ end
     details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. #{i + 1}!",
     difficulty: level[level_choice]
   )
-
+  
+  rand(5).times do 
+      Tagging.find_or_create_by!(pathway: Pathway.last, tag: tags_array.sample)
+  end
+  
   20.times do |i|
     CreateChallenge(i)
   end
@@ -70,6 +84,8 @@ puts "Created #{Challenge.count} challenges"
 puts "Created #{PathChallenge.count} Path challenges"
 puts "Created #{UserPathway.count} User Pathways"
 puts "Created #{UserChallenge.count} User challenges"
+puts "Created #{Tag.count} Tags"
+
 
 puts "-----------------"
 puts "SEED FINISHED"

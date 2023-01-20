@@ -11,6 +11,22 @@ RSpec.describe Pathway, type: :model do
     it { is_expected.to have_many(:path_challenges) }
     it { is_expected.to have_many(:user_pathways).dependent :destroy }
     it { is_expected.to have_many(:challenges).through :path_challenges }
+
+   it 'can be associated to a tag' do
+      pathway = create(:pathway)
+      tag = create(:tag)
+      create(:tagging, tag: tag, pathway: pathway)
+      expect(pathway.tags.last.name).to eq "JavaScript"
+   end
+
+   it 'can be associated to many tags' do
+      pathway = create(:pathway)
+      create(:tagging, tag: create(:tag, name: 'Ruby'), pathway: pathway)
+      create(:tagging, tag: create(:tag, name: 'AWS'), pathway: pathway)
+      create(:tagging, tag: create(:tag, name: 'React'), pathway: pathway)
+      expect(pathway.tags.count).to eq 3
+   end
+
   end
 
   describe "create a pathway" do

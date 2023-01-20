@@ -11,6 +11,9 @@
       <div class="Details">
         <%= image_tag "placeholder2.png" %>
         <h2 class='font-bold'><%= pathway.title %></h2>
+        <p><% pathway.tags.each do |tag| %>
+         (<%= tag.name %>) 
+        <% end  %> </p>
         <p class='grow p-1'><%= pathway.details %></p>
         <h4 class='difficulty <%= pathway.difficulty %>' id='difficulty'><%= pathway.difficulty.upcase %></h4>
       </div>  

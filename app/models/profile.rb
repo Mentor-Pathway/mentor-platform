@@ -7,4 +7,6 @@ class Profile < ApplicationRecord
   validates :bio, length: {maximum: 1500, minimum: 40}, allow_blank: true
   belongs_to :user
   has_one_attached :photo
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings 
 end
