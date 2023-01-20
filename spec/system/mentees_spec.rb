@@ -6,7 +6,7 @@ RSpec.describe "Mentees", type: :system do
      driven_by (:rack_test)
      @mentee = create(:mentee)
      @pathway = create(:pathway)
-     @profile = create(:profile)
+     @profile = create(:profile, user: @mentee)
    end
 
    it "valid with correct credentials" do

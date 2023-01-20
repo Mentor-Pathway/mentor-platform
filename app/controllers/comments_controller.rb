@@ -50,6 +50,6 @@ class CommentsController < ApplicationController
   end
 
   def set_user_challenge
-    @user_challenge = current_user.user_challenges.find_by(id: params[:user_challenge_id])
+    @user_challenge = UserChallenge.find_by(id: params[:user_challenge_id])
   end
 end
