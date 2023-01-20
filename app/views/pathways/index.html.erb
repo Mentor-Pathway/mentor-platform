@@ -11,26 +11,28 @@
 </div>
 
 <label for="difficulty">Difficulty</label>
-<select id="levels"  data-controller="pathway" style="width:6cm !important">
+<div data-controller="pathway">
+  <select id="levels" data-action="change->pathway#change">
     <option value="Beginner">Beginner</option>
     <option value="Intermediate">Intermediate</option>
     <option value="Advanced">Advanced</option>
-</select>
+  </select>
 
- <div id="pathways">
-    <div class="pathway" data-difficulty="Beginner">Beginner Pathway</div>
-    <div class="pathway" data-difficulty="Intermediate">Intermediate Pathway</div>
-    <div class="pathway" data-difficulty="Advanced">Advanced Pathway</div>
-  </div>
-
-<% if @pathways %>
-  <div class="try">
-    <div class="grid grid-cols-2 gap-4">
-      <% @pathways.each do |pathway| %>
-        <%= render "pathway", pathway: pathway %>
-      <% end %>
+  <div id="pathways">
+      <div class="pathway" data-difficulty="Beginner">Beginner Pathway</div>
+      <div class="pathway" data-difficulty="Intermediate">Intermediate Pathway</div>
+      <div class="pathway" data-difficulty="Advanced">Advanced Pathway</div>
     </div>
-  </div>
-    <% else %>
-    <h1 class="error">Ooops no pathways here!</h1>
-<% end %>
+
+  <% if @pathways %>
+    <div class="try">
+      <div class="grid grid-cols-2 gap-4">
+        <% @pathways.each do |pathway| %>
+          <%= render "pathway", pathway: pathway %>
+        <% end %>
+      </div>
+    </div>
+      <% else %>
+      <h1 class="error">Ooops no pathways here!</h1>
+  <% end %>
+</div>
