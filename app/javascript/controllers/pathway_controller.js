@@ -1,7 +1,10 @@
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus"
 
+// Connects to data-controller="pathway"
 export default class extends Controller {
-   static targets = ["pathway"]
+   connect() {
+      console.log("connected to the path stimulus controller")
+    }
 
    change(event) {
       var selectedDifficulty = event.target.value

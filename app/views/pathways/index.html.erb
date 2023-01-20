@@ -1,6 +1,3 @@
-<script src="difficulty.js"></script>
-
-
 <div class='Search'>
   <div class="Title">Pathways</div>
   <div class='searchbar'>
@@ -11,15 +8,15 @@
         %>
       <% end %>
   </div>
-</div>  
+</div>
 
 <label for="difficulty">Difficulty</label>
-<select id="levels"  data-controller="pathways" data-action="change->pathways#change" style="width:6cm !important">
+<select id="levels"  data-controller="pathway" style="width:6cm !important">
     <option value="Beginner">Beginner</option>
     <option value="Intermediate">Intermediate</option>
     <option value="Advanced">Advanced</option>
 </select>
- 
+
  <div id="pathways">
     <div class="pathway" data-difficulty="Beginner">Beginner Pathway</div>
     <div class="pathway" data-difficulty="Intermediate">Intermediate Pathway</div>
@@ -33,10 +30,7 @@
         <%= render "pathway", pathway: pathway %>
       <% end %>
     </div>
-  </div>  
+  </div>
     <% else %>
     <h1 class="error">Ooops no pathways here!</h1>
 <% end %>
-
-
-<script src="app/javascript/path_controller.js"></script>
