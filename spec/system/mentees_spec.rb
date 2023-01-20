@@ -20,7 +20,7 @@ RSpec.describe "Mentees", type: :system do
    it "Displaying pathways" do
       login_as(@mentee)
       visit pathways_path
-      find("input[placeholder='Find a pathway']").set "value"
+      find("input[placeholder='Search']").set "value"
    end 
 
    it "Join a pathway" do
