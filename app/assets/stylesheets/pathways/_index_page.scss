@@ -12,7 +12,7 @@
 }
 
 .searchbar {
-   margin-bottom: 50px;
+   margin-bottom: 100px;
    margin-left: 3%;
    margin-top: 110px;
    width: 50cm;
@@ -33,13 +33,12 @@
 }
 
 .difficulty {
-
    border-radius: 10px;
    width: 4cm;
    text-align: center;
    font-weight: lighter;
    letter-spacing: 1px;
-   margin-left: 60%;
+   margin-left: 55%;
 }
 
 .try {
@@ -48,13 +47,17 @@
 }
 
 #levels {
-   margin-left: 3cm;
+   margin-left: 25px;
+   width: 4cm;
+   margin-bottom: 15px;
 }
 
 label[for="difficulty"] {
    margin-bottom: 7px;
-   margin-left: 3cm;
-   width: fit-content;
+   margin-left: 25px;
+   margin-top: 15px;
+   font-size: x-large;
+   color: rgb(48, 48, 48);
 }
 
 .difficulty.beginner {
@@ -73,4 +76,52 @@ label[for="difficulty"] {
    background-color: rgb(255, 172, 167);
    font-size: smaller;
    margin-top: 6px;
+}
+
+.diff label {
+   display: block;
+   width: 10cm;
+}
+
+.diff select {
+   display: block;
+}
+
+.align {
+   display: flex;
+   margin-inline-start: 7%;
+   margin-inline-end: 75%;
+}
+
+.grid {
+   width: 25cm;
+}
+
+.diff {
+   background-color: rgb(233, 238, 255);
+   height: 8cm;
+   border-radius: 3%;
+}
+
+.Language {
+   margin-top: 20px;
+   margin-left: 25px;
+   margin-bottom: 22px;
+   font-size: x-large;
+}
+
+[type="button"] {
+   background-color: white;
+   border-radius: 25px;
+   padding: 7px;
+   padding-left: 28px;
+   padding-right: 28px;
+   color: rgb(72, 72, 72);
+   margin-left: 18px;
+   margin-bottom: 7px;
+}
+
+[type="button"]:hover {
+   background-color: rgb(51, 86, 209);
+   color: white;
 }

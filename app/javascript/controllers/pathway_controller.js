@@ -6,7 +6,7 @@ export default class extends Controller {
 
    connect() {
       console.log("connected to the path stimulus controller")
-    }
+   }
 
    change(event) {
       const selectedDifficulty = (event.target.value).toLowerCase();

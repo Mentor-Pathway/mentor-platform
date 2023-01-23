@@ -10,29 +10,36 @@
   </div>
 </div>
 
-<label for="difficulty">Difficulty</label>
-<div data-controller="pathway">
-  <select id="levels" data-action="change->pathway#change">
-    <option value="Beginner">Beginner</option>
-    <option value="Intermediate">Intermediate</option>
-    <option value="Advanced">Advanced</option>
-  </select>
 
-  <div id="pathways">
-      <div class="pathway" data-difficulty="Beginner">Beginner Pathway</div>
-      <div class="pathway" data-difficulty="Intermediate">Intermediate Pathway</div>
-      <div class="pathway" data-difficulty="Advanced">Advanced Pathway</div>
-    </div>
+
+
+<div data-controller="pathway" class="align">
+  <div class="diff">
+    <h1 class="Language">Language/s</h1>
+    <button type="button" style="width: max-content;">JavaScript</button>
+    <button type="button" style="width: max-content;">AWS</button>
+    <button type="button" style="width: max-content;">Python</button>
+    <button type="button" style="width: max-content;">Ruby</button>
+    <button type="button" style="width: max-content;">RSpec</button>
+    <button type="button" style="width: max-content;">Kubernetes</button>
+    <hr style="margin-top: 7%; width: 87%; margin-left: 25px; color: black;">
+    <label for="difficulty">Difficulty</label>
+    <select id="levels" data-action="change->pathway#change">
+      <option value="Beginner">Beginner</option>
+      <option value="Intermediate">Intermediate</option>
+      <option value="Advanced">Advanced</option>
+    </select>
+  </div>
 
   <% if @pathways %>
-    <div class="try">
-      <div class="grid grid-cols-2 gap-4">
-        <% @pathways.each do |pathway| %>
-          <%= render "pathway", pathway: pathway %>
-        <% end %>
-      </div>
+  <div class="try">
+    <div class="grid grid-cols-2 gap-4">
+      <% @pathways.each do |pathway| %>
+        <%= render "pathway", pathway: pathway %>
+      <% end %>
     </div>
-      <% else %>
-      <h1 class="error">Ooops no pathways here!</h1>
+  </div>
+    <% else %>
+    <h1 class="error">Ooops no pathways here!</h1>
   <% end %>
 </div>
