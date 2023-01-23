@@ -16,12 +16,12 @@
 <div data-controller="pathway" class="align">
   <div class="diff">
     <h1 class="Language">Language/s</h1>
-    <button type="button" style="width: max-content;">JavaScript</button>
-    <button type="button" style="width: max-content;">AWS</button>
-    <button type="button" style="width: max-content;">Python</button>
-    <button type="button" style="width: max-content;">Ruby</button>
-    <button type="button" style="width: max-content;">RSpec</button>
-    <button type="button" style="width: max-content;">Kubernetes</button>
+    <button class="tag-button" type="button" style="width: max-content;" data-controller="tags" data-action="click->tags#filter">JavaScript</button>
+    <button class="tag-button" type="button" style="width: max-content;" data-controller="tags" data-action="click->tags#filter">AWS</button>
+    <button class="tag-button" type="button" style="width: max-content;" data-controller="tags" data-action="click->tags#filter">Python</button>
+    <button class="tag-button" type="button" style="width: max-content;" data-controller="tags" data-action="click->tags#filter">Ruby</button>
+    <button class="tag-button" type="button" style="width: max-content;" data-controller="tags" data-action="click->tags#filter">RSpec</button>
+    <button class="tag-button" type="button" style="width: max-content;" data-controller="tags" data-action="click->tags#filter">Kubernetes</button>
     <hr style="margin-top: 7%; width: 87%; margin-left: 25px; color: black;">
     <label for="difficulty">Difficulty</label>
     <select id="levels" data-action="change->pathway#change">
