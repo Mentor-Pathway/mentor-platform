@@ -1,13 +1,10 @@
-.x {
+.Container {
    display: flex;
    flex-direction: row;
 }
 
 // CSS changes for Pathway Info
 
-.PathwayInfo {
-   margin-top: 5%;
-}
 
 .Title {
    font-size: 50px;
@@ -17,7 +14,6 @@
 }
 
 .Difficulty {
-   background-color: rgb(202, 240, 188);
    text-align: center;
    padding: 3px;
    width: 4cm;
@@ -26,6 +22,18 @@
    border-radius: 10px;
    font-size: smaller;
    margin-bottom: 15px;
+}
+
+.Difficulty.beginner {
+   background-color: rgb(202, 240, 188);
+}
+
+.Difficulty.intermediate {
+   background-color: rgb(252, 209, 156);
+}
+
+.Difficulty.advanced {
+   background-color: rgb(255, 172, 167);
 }
 
 // CSS Changes for Challenges
@@ -37,6 +45,7 @@
 .c {
    margin-top: 4%;
    margin-right: 7%;
+   padding-left: 6%;
 }
 
 .ChallengesHeader {
@@ -96,4 +105,8 @@
 .ChallengeDetails {
    margin-left: 3%;
    padding-top: 2%;
+}
+
+.button_to {
+   margin-top: 15px;
 }

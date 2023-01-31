@@ -1,11 +1,11 @@
-<div class="x">
+<div class="Container">
   <div class='PathwayInfo'>
     <%# <%= link_to "Back", pathways_path %>
     <h1 class='Title'><%= @pathway.title %></h1>
-    <p class='Difficulty'><%= @pathway.difficulty.capitalize %></p>
+    <p class='Difficulty <%= @pathway.difficulty %>' id='difficulty'><%= @pathway.difficulty.capitalize %></p>
     <p class='Details'><%= @pathway.details %></p>
     <div class='o'>
-      <%= button_to "Pathway Signup", pathway_user_pathways_path(@pathway), class: "border rounded-lg bg-blue-700 text-white p-2 m-3" if user_signed_in? && current_user.mentee? %>
+      <%= button_to "Pathway Signup", pathway_user_pathways_path(@pathway), class: "border rounded-lg bg-blue-700 text-black p-2 m-2" if user_signed_in? && current_user.mentee? %>
       <div class="my-5">
         <%= link_to "Edit", edit_pathway_path(@pathway), class: "border rounded-lg text-black py-2 px-3" if user_signed_in? && current_user.mentor? %>
       </div>
@@ -22,8 +22,7 @@
       <%= render "challenge", challenge: challenge ,pathway: @pathway, index: index%>
     <% end %>
   </div>
-  
-
 </div>
+
 
 
