@@ -1,25 +1,45 @@
-<div class="p-12">
-   <div class='w-1/2 mx-auto mb-10'>
-      <%= form_with url: pathways_path, method: :get, class: "flex" do %>
-         <%= text_field_tag :query,
-            params[:query],
-            class: "w-5/6 rounded-l-lg",
-            placeholder: "Find a pathway"
-         %>
-         <%= submit_tag "Search", class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-1/6 rounded-r-lg cursor-pointer" %>
+<div class='search'>
+  <div class="title">Pathways</div>
+  <div class='searchbar'>
+    <%= form_with url: pathways_path, method: :get, class: "flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        placeholder: "Search"
+        %>
       <% end %>
-   </div>
-  <h1 class="mb-5 font-bold">This is Pathway #Index Page</h1>
-  <div class="mb-5">
-    <%= link_to "New", new_pathway_path, class: "border rounded-lg bg-blue-700 text-white py-2 px-3" if user_signed_in? && current_user.mentor? %>
   </div>
-    <% if @pathways %>
-      <div class="grid grid-cols-4 gap-4">
-        <% @pathways.each do |pathway| %>
-          <%= render "pathway", pathway: pathway %>
-        <% end %>
-      </div>
+</div>
+
+
+
+
+<div data-controller="pathway" class="align">
+  <div class="diff">
+    <h1 class="Language">Language/s</h1>
+    <button class="tag-button" type="button" style="width: max-content;" data-controller="tags" data-action="click->tags#filter">JavaScript</button>
+    <button class="tag-button" type="button" style="width: max-content;" data-controller="tags" data-action="click->tags#filter">AWS</button>
+    <button class="tag-button" type="button" style="width: max-content;" data-controller="tags" data-action="click->tags#filter">Python</button>
+    <button class="tag-button" type="button" style="width: max-content;" data-controller="tags" data-action="click->tags#filter">Ruby</button>
+    <button class="tag-button" type="button" style="width: max-content;" data-controller="tags" data-action="click->tags#filter">RSpec</button>
+    <button class="tag-button" type="button" style="width: max-content;" data-controller="tags" data-action="click->tags#filter">Kubernetes</button>
+    <hr style="margin-top: 7%; width: 87%; margin-left: 25px; border-color: #D9D9D9; background: #D9D9D9;">
+    <label for="difficulty">Difficulty</label>
+    <select id="levels" data-action="change->pathway#change">
+      <option value="Beginner">Beginner</option>
+      <option value="Intermediate">Intermediate</option>
+      <option value="Advanced">Advanced</option>
+    </select>
+  </div>
+
+  <% if @pathways %>
+  <div class="try">
+    <div class="grid grid-cols-2 gap-4">
+      <% @pathways.each do |pathway| %>
+        <%= render "pathway", pathway: pathway %>
+      <% end %>
+    </div>
+  </div>
     <% else %>
-      <h1 class="error">Ooops no pathways here!</h1>
-    <% end %>
+    <h1 class="error">Ooops no pathways here!</h1>
+  <% end %>
 </div>

@@ -1,0 +1,132 @@
+.search {
+   display: flex;
+}
+
+.title {
+   font-size: 1cm;
+   font-weight: bolder;
+   margin-top: 100px;
+   margin-left: 113px;
+   letter-spacing: 2px;
+   width: min-content;
+}
+
+.searchbar {
+   margin-bottom: 100px;
+   margin-left: 3%;
+   margin-top: 110px;
+   width: 50cm;
+}
+
+#query {
+   background: rgb(245, 245, 245);
+   padding: 9px;
+   border-radius: 8px;
+   width: 40%;
+   text-indent: 40px;
+   letter-spacing: 1px;
+   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z'/%3E%3C/svg%3E");
+   background-repeat: no-repeat;
+   background-size: 20px;
+   background-position: 10px;
+   opacity: 0.6;
+}
+
+.difficulty {
+   border-radius: 10px;
+   width: 4cm;
+   text-align: center;
+   font-weight: lighter;
+   letter-spacing: 1px;
+   margin-left: 55%;
+}
+
+.try {
+   width: 50%;
+   margin-left: 45%;
+}
+
+#levels {
+   margin-left: 25px;
+   width: 4cm;
+   margin-bottom: 15px;
+}
+
+label[for="difficulty"] {
+   margin-bottom: 7px;
+   margin-left: 25px;
+   margin-top: 15px;
+   font-size: x-large;
+   color: rgb(48, 48, 48);
+}
+
+.difficulty.beginner {
+   background-color: rgb(202, 240, 188);
+   font-size: smaller;
+   margin-top: 6px;
+}
+
+.difficulty.intermediate {
+   background-color: rgb(252, 209, 156);
+   font-size: smaller;
+   margin-top: 6px;
+}
+
+.difficulty.advanced {
+   background-color: rgb(255, 172, 167);
+   font-size: smaller;
+   margin-top: 6px;
+}
+
+.diff label {
+   display: block;
+   width: 10cm;
+}
+
+.diff select {
+   display: block;
+}
+
+.align {
+   display: flex;
+   margin-inline-start: 7%;
+   margin-inline-end: 75%;
+}
+
+.grid {
+   width: 25cm;
+}
+
+.diff {
+   background-color: rgb(233, 238, 255);
+   height: 8cm;
+   border-radius: 3%;
+}
+
+.Language {
+   margin-top: 20px;
+   margin-left: 25px;
+   margin-bottom: 22px;
+   font-size: x-large;
+   color: rgb(48, 48, 48);
+}
+
+[type="button"] {
+   background-color: white;
+   border-radius: 25px;
+   padding: 7px;
+   padding-left: 28px;
+   padding-right: 28px;
+   color: rgb(72, 72, 72);
+   margin-left: 18px;
+   margin-bottom: 7px;
+}
+
+[type="button"]:hover {
+   background-color: rgb(51, 86, 209);
+   color: white;
+}
+
+.hr {
+   background-color: black;
+}
