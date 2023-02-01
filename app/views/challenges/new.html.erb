@@ -1,13 +1,15 @@
 <div class="idk">
+
   <div class="pathwayinformation">
     <h1 class='Title'><%= @pathway.title %></h1>
     <p class='Difficulty <%= @pathway.difficulty %>' id='difficulty'><%= @pathway.difficulty.capitalize %></p>
     <p class='Details'><%= @pathway.details %></p>
-  <div>
+  </div>
+
   <div class="ChallengeForm">
     <%= link_to "BACK", pathway_path(@pathway) %>
     <p class="NewChallengeHeader">Create a new challenge!</p>
     <%= render "challenges/form", pathway: @pathway, challenge: @challenge %>
-  <div>
-</div>
+  </div>
 
+</div>

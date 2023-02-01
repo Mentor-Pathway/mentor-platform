@@ -3,26 +3,47 @@
    flex-direction: row;
 }
 
-.pathwayinformation {}
+.pathwayinformation {
+   margin-left: 10%;
+   margin-top: 6%;
+   width: 20%;
+}
 
 .ChallengeForm {
    border-radius: 20px;
    background-color: rgb(233, 238, 255);
-   width: 45%;
+   width: 40%;
    margin-top: 6%;
-   margin-left: 70%;
+   margin-left: 10%;
+   padding-left: 60px;
+   padding-top: 25px;
 }
 
 .NewChallengeHeader {
-   margin-top: 30px;
-   margin-left: 10%;
    margin-bottom: 30px;
    font-size: 30px;
    font-weight: bold;
    letter-spacing: 2px;
+   margin-top: 20px;
 }
 
 .FormStyle {
-   margin-left: 10%;
    margin-bottom: 30px;
+}
+
+.CreateButton {
+   background-color: rgb(51, 86, 209);
+   padding: 6px;
+   width: 20%;
+   border-radius: 30px;
+   color: white;
+   margin-top: 20px;
+}
+
+.ChallengeDeets {
+   margin-top: 30px;
+}
+
+.ChallengeTags {
+   margin-top: 30px;
 }

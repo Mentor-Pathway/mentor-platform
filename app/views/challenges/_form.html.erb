@@ -3,12 +3,12 @@
     
     <div class="my-3">
       <p class="ChallengeName" style="font-size:20px; font-weight:bold; letter-spacing:1px; margin-bottom: 13px;">Title</p>
-      <%= f.input :title, placeholder: 'Title here', label: false, input_html: { style: "width: 70%;border-radius: 10px; padding: 7px" } %>
+      <%= f.input :title, placeholder: 'Title here', label: false, input_html: { style: "width: 90%;border-radius: 10px; padding: 7px" } %>
     </div>
     
     <div class="dld">
       <p class="ChallengeDeets" style="font-size:20px; font-weight:bold; letter-spacing:1px; margin-bottom: 13px;">Details</p>
-      <%= f.input :details, placeholder: 'Description', label: false, input_html: { style: "width: 70%;border-radius: 10px; padding-left: 7px; padding-top: 7px; height: 100px"} %>
+      <%= f.input :details, placeholder: 'Description', label: false, input_html: { style: "width: 90%;border-radius: 10px; padding-left: 7px; padding-top: 7px; height: 100px;"} %>
     </div>
 
     <div class="my-3">
@@ -16,7 +16,7 @@
     <%= f.association :tags, as: :check_boxes %>
     </div>
     
-    <%= f.submit challenge.nil? ? "Save" : "Create", class: "border rounded mt-3 py-2 px-3 bg-blue-700 text-white" %>
+    <%= f.submit challenge.nil? ? "Save" : "Create", class: "CreateButton" %>
 
   <% end %>
 </div>
