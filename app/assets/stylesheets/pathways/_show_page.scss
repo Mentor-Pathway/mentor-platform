@@ -48,7 +48,7 @@
    display: flex;
    flex-direction: row;
    align-items: center;
-   margin-left: 2%;
+   margin-left: 45%;
    background-color: rgb(233, 238, 255);
    height: 110px;
    width: 25cm;
@@ -84,12 +84,13 @@
 
 .ChallengeDesign {
    background-color: rgb(250, 251, 255);
-   margin-left: 2%;
    height: 5cm;
    border-bottom-width: thick;
    border-bottom-color: rgb(233, 238, 255);
    width: 25cm;
    padding-right: 3%;
+   margin-left: 45%;
+
 }
 
 .ChallengeTitle {
@@ -108,6 +109,12 @@
 }
 
 .PathwayInfo {
+   position: fixed;
    margin-top: 5%;
    margin-left: 6%;
+   width: 20%;
+}
+
+.Details {
+   margin-bottom: 20px;
 }
