@@ -3,7 +3,7 @@
    <div class='ChallengeDesign'>
       <h3 class='ChallengeTitle'><%= challenge.title %></h3>
       <p><% challenge.tags.each do |tag| %>
-         (<%= tag.name %>) 
+         (<%= tag.name %>)
       <% end  %> </p>
     <% if index == 0 %>
       <h4 class='ChallengeDetails'><%= challenge.details %></h4>

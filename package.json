@@ -2,7 +2,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
     "autoprefixer": "^10.4.13",
-    "eslint": "^8.32.0",
+    "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",
@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^7.8.3",
-    "sass": "^1.57.1"
+    "postcss-preset-env": "^8.0.1",
+    "sass": "^1.58.0"
   },
   "scripts": {
     "build:css": "tailwindcss --postcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css"
