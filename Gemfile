@@ -31,6 +31,10 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# 3rd party authentication
+gem "omniauth", "~> 1.9.1"
+gem 'omniauth-github'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
