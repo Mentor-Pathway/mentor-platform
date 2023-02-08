@@ -3,12 +3,12 @@
    <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
       <div class="field my-4">
          <%= f.label :email, 'Email *', class: 'font-semibold' %><br />
-         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Enter your email', class:'w-[22vw] h-8 p-2 border solid rounded-xl border-[#D9D9D9]'%>
+         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Enter your email', class:'w-[22vw] h-fit p-2 border solid rounded-xl border-[#D9D9D9]'%>
       </div>
 
       <div class="field mt-4 mb-2">
          <%= f.label :password, 'Password *', class: 'font-semibold' %><br />
-         <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Enter your password', class:'w-[22vw] h-8 p-2 border solid rounded-xl border-[#D9D9D9]' %>
+         <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Enter your password', class:'w-[22vw] h-fit p-2 border solid rounded-xl border-[#D9D9D9]' %>
       </div>
 
       <% if devise_mapping.rememberable? %>

@@ -26,9 +26,6 @@
 
       <div class="field my-4">
          <%= f.label :password, 'Password *', class: 'font-semibold' %>
-         <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-         <% end %><br />
          <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Create a password', class:'w-[105%] h-fit p-2 border solid rounded-xl border-[#D9D9D9]' %>
       </div>
 
