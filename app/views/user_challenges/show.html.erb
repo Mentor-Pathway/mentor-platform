@@ -7,7 +7,6 @@
       <h1 class='text-lg font-bold text-center'><%= @user_challenge.challenge.title %></h1>
       <h3 class='p-1'><%= @user_challenge.challenge.details %></h3>
       <p><%= @user_challenge.rating %></p>
-
       <div class="">
         <%= link_to "New comment",
                     new_user_challenge_comment_path(@user_challenge),
