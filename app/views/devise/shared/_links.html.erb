@@ -1,13 +1,29 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <%= link_to "Log in", new_session_path(resource_name) %>
+<% end %>
+
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+   <div class='bg-[#D9D9D9] flex rounded-3xl mb-8'>
+      <%= link_to omniauth_authorize_path(resource_name, provider), method: :post, class: 'font-medium my-2 mx-4' do%>
+         <%# COMMENT OUT LINE BELOW WHEN FONT-AWESOME IS ENABLED %>
+         <%# <i class="fa-brands fa-github"></i> %>
+         <%="Log in with #{OmniAuth::Utils.camelize(provider)}"%>
+      <% end %>
+   </div>
+  <% end %>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+   <span class='text-sm font-light mb-1'>
+      Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name), class: 'font-medium underline text-blue-600' %>
+   </span>
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+   <span class='text-sm font-light mb-1'>
+      Forgot your password?<%= link_to "Reset", new_password_path(resource_name), class: 'font-medium underline text-blue-600' %>
+   </span>
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
@@ -18,8 +34,4 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %><br />
-  <% end %>
-<% end %>
+
