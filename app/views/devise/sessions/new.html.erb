@@ -1,6 +1,6 @@
-   <div class='flex m-auto flex-col items-center content-center'>
-      <h2 class='text-3xl font-bold'>Log in</h2>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
+<div class='flex m-auto flex-col items-center content-center'>
+   <h2 class='text-3xl font-bold'>Log in</h2>
+   <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
       <div class="field my-4">
          <%= f.label :email, 'Email *', class: 'font-semibold' %><br />
          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Enter your email', class:'w-[22vw] h-8 p-2 border solid rounded-xl border-[#D9D9D9]'%>
@@ -20,8 +20,8 @@
 
       <div class="actions rounded-2xl bg-[#3356D1] w-fit mx-auto my-4">
          <%= f.submit "Log in", class: 'text-white py-2 px-7' %>
-      </div>
-      <% end %>
-      <%= render "devise/shared/links" %>
-      <%#= link_to "sign in with github", user_github_omniauth_authorize_path  %> 
-   </div>
+      </div>     
+   <% end %>
+   <%= render "devise/shared/links" %>
+   <%#= link_to "sign in with github", user_github_omniauth_authorize_path  %> 
+</div>
