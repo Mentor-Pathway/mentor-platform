@@ -1,10 +1,6 @@
-<%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %>
-<% end %>
-
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-   <div class='bg-[#D9D9D9] flex rounded-3xl mb-8'>
+   <div class='bg-[#D9D9D9] flex rounded-3xl'>
       <%= link_to omniauth_authorize_path(resource_name, provider), method: :post, class: 'font-medium my-2 mx-4' do%>
          <%# COMMENT OUT LINE BELOW WHEN FONT-AWESOME IS ENABLED %>
          <%# <i class="fa-brands fa-github"></i> %>
@@ -14,8 +10,14 @@
   <% end %>
 <% end %>
 
+<%- if controller_name != 'sessions' %>
+   <span class='text-sm font-light mt-4'>
+      Already have an account? <%= link_to "Log in", new_session_path(resource_name), class: 'font-medium underline text-blue-600' %>
+   </span>
+<% end %>
+
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-   <span class='text-sm font-light mb-1'>
+   <span class='text-sm font-light mt-8 mb-1'>
       Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name), class: 'font-medium underline text-blue-600' %>
    </span>
 <% end %>
