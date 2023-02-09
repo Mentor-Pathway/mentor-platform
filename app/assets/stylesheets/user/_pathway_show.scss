@@ -1,0 +1,109 @@
+.Attempt {
+   display: flex;
+   flex-direction: row;
+}
+
+/* CSS for Pathway Info on RHS */
+
+.Info3 {
+   position: fixed;
+}
+
+#pathwayinfo {
+   margin-top: 1cm;
+   margin-left: 2cm;
+}
+
+
+#pathwayinfo h1 {
+   font-size: 50px;
+   font-weight: bold;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   letter-spacing: 2px;
+}
+
+
+#pathwayinfo p {
+   width: 280px;
+   margin-bottom: 20px;
+}
+
+.user_img {
+   width: 320px;
+   height: 231px;
+}
+
+
+/* CSS for Challenge Info on RHS */
+
+.fine {
+   margin-left: 15cm;
+   margin-top: 2cm;
+}
+
+.fine h2 {
+   font-size: 35px;
+   font-weight: bold;
+   padding: 25px 25px;
+   background-color: rgb(233, 238, 255);
+   border-top-left-radius: 15px;
+   border-top-right-radius: 15px;
+   border-bottom-width: thick;
+   border-bottom-color: rgb(233, 238, 255);
+}
+
+.e {
+   background-color: rgb(250, 251, 255);
+   border-bottom-width: thick;
+   border-bottom-color: rgb(233, 238, 255);
+   padding-left: 25px;
+   padding-top: 25px;
+   padding-bottom: 25px;
+}
+
+.e h3 {
+   font-weight: bold;
+   font-size: large;
+   margin-top: 5px;
+   margin-bottom: 10px;
+}
+
+.e h4 {
+   margin-bottom: 10px;
+   margin-top: 10px;
+   width: 25cm;
+}
+
+.COMPLETED {
+   background-color: rgb(165, 224, 144);
+   font-size: small;
+   font-weight: lighter;
+   letter-spacing: 2px;
+   text-align: center;
+   padding-top: 12px;
+   border-top-left-radius: 30px;
+   border-bottom-left-radius: 30px;
+   width: 4cm;
+
+}
+
+.ONGOING {
+   background-color: rgb(255, 175, 163);
+   font-size: small;
+   font-weight: lighter;
+   letter-spacing: 2px;
+   text-align: center;
+   padding-top: 12px;
+   border-top-left-radius: 30px;
+   border-bottom-left-radius: 30px;
+   width: 5cm;
+}
+
+
+.Completion {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-bottom: 20px;
+}
