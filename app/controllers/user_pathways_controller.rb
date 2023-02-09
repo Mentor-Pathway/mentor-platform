@@ -34,7 +34,7 @@ class UserPathwaysController < ApplicationController
 
   def verify_user
     mentee = User.find(params[:profile_id])
-    mentor = Pathway.find(UserPathway.find(params[:id]).id).user
+    mentor = Pathway.find(UserPathway.find(params[:id]).pathway_id).user
     redirect_to root_path if current_user != mentor && current_user != mentee
   end
 
