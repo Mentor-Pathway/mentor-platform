@@ -1,44 +1,43 @@
-<h2>Sign up</h2>
+<div class='flex m-auto flex-col items-center content-center'>
+   <h2 class='text-3xl font-bold'>Sign up</h2>
+   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class='flex w-[105%] justify-between'> 
+         <div class="field my-4">
+            <%= f.label :first_name, 'First Name *', class: 'font-semibold' %><br />
+            <%= f.text_field :first_name, autofocus: true, autocomplete: "first-name", placeholder: 'Enter your first name', class:'w-fit h-fit p-2 border solid rounded-xl border-[#D9D9D9]' %>
+         </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+         <div class="field my-4">
+            <%= f.label :last_name, 'Last Name *', class: 'font-semibold' %><br />
+            <%= f.text_field :last_name, autofocus: true, autocomplete: "last-name", placeholder: 'Enter your last name', class:'w-fit h-fit p-2 border solid rounded-xl border-[#D9D9D9]' %>
+         </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first-name" %>
-  </div>
+      <div class="field">
+         <%= f.label :role, 'Role *', class: 'font-semibold' %><br />
+         <%= f.select :role, options_for_select(User.roles.map {|key, value| [key.titleize, User.roles.key(value)]}, @user.role), {prompt: 'Select a role'}, {class:'w-[105%] h-fit p-2 border solid rounded-xl border-[#D9D9D9]' } %>
+      </div>
+      
+      <div class="field my-4">
+         <%= f.label :email, 'Email *', class: 'font-semibold' %><br />
+         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Enter your email', class:'w-[105%] h-fit p-2 border solid rounded-xl border-[#D9D9D9]' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last-name" %>
-  </div>
+      <div class="field my-4">
+         <%= f.label :password, 'Password *', class: 'font-semibold' %>
+         <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Create a password', class:'w-[105%] h-fit p-2 border solid rounded-xl border-[#D9D9D9]' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :role %><br />
-    <%= f.select :role, options_for_select(User.roles.map {|key, value| [key.titleize, User.roles.key(value)]}, @user.role) %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field">
+         <%= f.label :password_confirmation, class: 'font-semibold' %><br />
+         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Re-enter password', class:'w-[105%] h-fit p-2 border solid rounded-xl border-[#D9D9D9]' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <div class="actions rounded-2xl bg-[#3356D1] w-fit mx-auto my-4">
+         <%= f.submit "Sign up", class: 'text-white py-2 px-7' %>
+      </div>
+   <% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+   <%= render "devise/shared/links" %>
+</div>
