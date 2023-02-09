@@ -1,21 +1,21 @@
-.Attempt {
+/* CSS targeting the div that puts the Pathway and Challenge Info into 2 aligned columns/ in a single row */
+
+.page {
    display: flex;
    flex-direction: row;
 }
 
 /* CSS for Pathway Info on RHS */
 
-.Info3 {
+
+#pathway-info {
+   margin-top: 1cm;
+   margin-left: 3cm;
    position: fixed;
 }
 
-#pathwayinfo {
-   margin-top: 1cm;
-   margin-left: 2cm;
-}
 
-
-#pathwayinfo h1 {
+#pathway-info h1 {
    font-size: 50px;
    font-weight: bold;
    margin-top: 20px;
@@ -24,7 +24,7 @@
 }
 
 
-#pathwayinfo p {
+#pathway-info p {
    width: 280px;
    margin-bottom: 20px;
 }
@@ -37,12 +37,12 @@
 
 /* CSS for Challenge Info on RHS */
 
-.fine {
-   margin-left: 15cm;
+.challenge-info {
+   margin-left: 14cm;
    margin-top: 2cm;
 }
 
-.fine h2 {
+.challenge-info h2 {
    font-size: 35px;
    font-weight: bold;
    padding: 25px 25px;
@@ -53,7 +53,7 @@
    border-bottom-color: rgb(233, 238, 255);
 }
 
-.e {
+.challenge-details {
    background-color: rgb(250, 251, 255);
    border-bottom-width: thick;
    border-bottom-color: rgb(233, 238, 255);
@@ -62,17 +62,27 @@
    padding-bottom: 25px;
 }
 
-.e h3 {
+.challenge-details h3 {
    font-weight: bold;
    font-size: large;
    margin-top: 5px;
    margin-bottom: 10px;
 }
 
-.e h4 {
+.challenge-details h4 {
    margin-bottom: 10px;
    margin-top: 10px;
    width: 25cm;
+}
+
+
+/* CSS that is applied based on the value of the ternary operator */
+
+.completion {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-bottom: 20px;
 }
 
 .COMPLETED {
@@ -98,12 +108,4 @@
    border-top-left-radius: 30px;
    border-bottom-left-radius: 30px;
    width: 5cm;
-}
-
-
-.Completion {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-   margin-bottom: 20px;
 }
