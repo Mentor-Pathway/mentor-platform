@@ -4,5 +4,6 @@
 
 @import "./pages/_index.scss";
 @import "./pathways/_index.scss";
+@import "./challenges/_index.scss";
 @import "./user/_index.scss";
 @import "./components/_index.scss";

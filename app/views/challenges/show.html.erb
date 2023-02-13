@@ -1,5 +1,8 @@
-<div class='flex flex-col justify-between h-full p-12'>
-  <%= link_to "Back", pathway_path(@pathway) %>
-  <h1 class='text-lg font-bold text-center'><%= @challenge.title %></h1>
-  <h3 class='p-1'><%= @challenge.details %></h3>
+
+<div class='title_n_desc flex flex-col justify-between h-full p-12'>
+  <%= link_to "Back", pathway_path(@pathway), class: "back_button" %>
+  <h1 class='challenge_title text-lg font-bold'><%= @challenge.title %></h1>
+  <h3 class='challenge_text p-1'><%= @challenge.details %></h3>
+  <%= image_tag('placeholder2.png', class:"mentor_img") %>
 </div>
+
