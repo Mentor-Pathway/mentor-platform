@@ -1,50 +1,39 @@
-.Container {
+/* CSS targeting the div that puts the Pathway and Challenge Info into 2 aligned columns/ in a single row */
+
+.container {
    display: flex;
    flex-direction: row;
 }
 
-.Title {
+/* CSS for Pathway Info on RHS */
+
+.pathway-info {
+   position: fixed;
+   margin-top: 2cm;
+   margin-left: 3cm;
+   width: 20%;
+}
+
+.pathway-info h1 {
    font-size: 50px;
    font-weight: bold;
    letter-spacing: 2px;
    margin-bottom: 10px;
 }
 
-.Difficulty {
-   text-align: center;
-   padding: 3px;
-   width: 4cm;
-   font-weight: lighter;
-   letter-spacing: 1px;
-   border-radius: 10px;
-   font-size: smaller;
-   margin-bottom: 15px;
+.pathway-info p {
+   margin-bottom: 20px;
 }
 
-.Difficulty.beginner {
-   background-color: rgb(202, 240, 188);
-}
+/* CSS for Challenge Info on LHS */
 
-.Difficulty.intermediate {
-   background-color: rgb(252, 209, 156);
-}
-
-.Difficulty.advanced {
-   background-color: rgb(255, 172, 167);
-}
-
-.title4 {
-   font-size: 30px;
-   font-weight: bold;
-}
-
-.c {
-   margin-top: 4%;
+.challenge-description {
+   margin-top: 5%;
    margin-right: 7%;
-   padding-left: 6%;
+   padding-left: 12%;
 }
 
-.ChallengesHeader {
+.challenge-header {
    display: flex;
    flex-direction: row;
    align-items: center;
@@ -52,9 +41,39 @@
    background-color: rgb(233, 238, 255);
    height: 110px;
    width: 25cm;
-   border-top-left-radius: 13px;
-   border-top-right-radius: 13px;
+   border-top-left-radius: 15px;
+   border-top-right-radius: 15px;
+   padding: 25px 25px;
 }
+
+.challenge-header h2 {
+   font-weight: bold;
+   font-size: 35px;
+   margin-left: 25px 25px;
+}
+
+.challenge-design {
+   background-color: rgb(250, 251, 255);
+   height: 5cm;
+   border-bottom-width: thick;
+   border-bottom-color: rgb(233, 238, 255);
+   width: 25cm;
+   padding: 25px 25px;
+   margin-left: 45%;
+
+}
+
+.challenge-design h3 {
+   font-weight: bold;
+   font-size: large;
+}
+
+.challenge-design h4 {
+   margin-top: 15px;
+}
+
+
+/* CSS for add/create buttons on Mentor Pathway Show page */
 
 .add {
    color: white;
@@ -82,39 +101,33 @@
    margin-left: 15px;
 }
 
-.ChallengeDesign {
-   background-color: rgb(250, 251, 255);
-   height: 5cm;
-   border-bottom-width: thick;
-   border-bottom-color: rgb(233, 238, 255);
-   width: 25cm;
-   padding-right: 3%;
-   margin-left: 45%;
-
-}
-
-.ChallengeTitle {
-   margin-left: 3%;
-   padding-top: 2%;
-   font-weight: bold;
-}
-
-.ChallengeDetails {
-   margin-left: 3%;
-   padding-top: 2%;
-}
 
 .button_to {
    margin-top: 15px;
 }
 
-.PathwayInfo {
-   position: fixed;
-   margin-top: 5%;
-   margin-left: 6%;
-   width: 20%;
+
+/* CSS that changes based on difficulty level */
+
+.Difficulty {
+   text-align: center;
+   padding: 3px;
+   width: 4cm;
+   font-weight: lighter;
+   letter-spacing: 1px;
+   border-radius: 10px;
+   font-size: smaller;
+   margin-bottom: 15px;
 }
 
-.Details {
-   margin-bottom: 20px;
+.Difficulty.beginner {
+   background-color: rgb(202, 240, 188);
+}
+
+.Difficulty.intermediate {
+   background-color: rgb(252, 209, 156);
+}
+
+.Difficulty.advanced {
+   background-color: rgb(255, 172, 167);
 }

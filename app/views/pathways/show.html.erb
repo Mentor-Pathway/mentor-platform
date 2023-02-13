@@ -1,21 +1,18 @@
-<div class="Container">
-  <div class='PathwayInfo'>
+<div class="container">
+
+  <div class='pathway-info'>
     <%# <%= link_to "Back", pathways_path %>
-    <h1 class='Title'><%= @pathway.title %></h1>
+    <h1><%= @pathway.title %></h1>
     <p class='Difficulty <%= @pathway.difficulty %>' id='difficulty'><%= @pathway.difficulty.capitalize %></p>
-    <p class='Details'><%= @pathway.details %></p>
+    <p><%= @pathway.details %></p>
     <%= image_tag "placeholder2.png" %>
-    <div class='o'>
-      <%= button_to "Pathway Signup", pathway_user_pathways_path(@pathway), class: "border rounded-lg bg-blue-700 text-black p-2 m-2" if user_signed_in? && current_user.mentee? %>
-      <div class="my-5">
-        <%= link_to "Edit", edit_pathway_path(@pathway), class: "border rounded-lg text-black py-2 px-3" if user_signed_in? && current_user.mentor? %>
-      </div>
-    </div>
+    <%= button_to "Pathway Signup", pathway_user_pathways_path(@pathway), class: "border rounded-lg bg-blue-700 text-black p-2 m-2" if user_signed_in? && current_user.mentee? %>
+    <%= link_to "Edit", edit_pathway_path(@pathway), class: "border rounded-lg text-black py-2 px-3" if user_signed_in? && current_user.mentor? %>
   </div>
 
-  <div class="c">
-    <div class="ChallengesHeader">
-      <h2 style="font-weight: bold; font-size: 30px; margin-left: 25px">Challenges</h2>
+  <div class="challenge-description">
+    <div class="challenge-header">
+      <h2>Challenges</h2>
       <%= link_to " + Add Challenge", new_pathway_path_challenge_path(@pathway), class: "add" if @pathway.challenges.present? && user_signed_in? && current_user.mentor?%>
       <%= link_to "Create New Challenge", new_pathway_challenge_path(@pathway), class: "create" if user_signed_in? && current_user.mentor? %>
     </div>
@@ -23,6 +20,7 @@
       <%= render "challenge", challenge: challenge ,pathway: @pathway, index: index%>
     <% end %>
   </div>
+  
 </div>
 
 

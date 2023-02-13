@@ -1,8 +1,10 @@
+/* CSS for Search bar */
+
 .search {
    display: flex;
 }
 
-.title {
+.search h1 {
    font-size: 1cm;
    font-weight: bolder;
    margin-top: 100px;
@@ -32,51 +34,7 @@
    opacity: 0.6;
 }
 
-.difficulty {
-   border-radius: 10px;
-   width: 4cm;
-   text-align: center;
-   font-weight: lighter;
-   letter-spacing: 1px;
-   margin-left: 55%;
-}
-
-.try {
-   width: 50%;
-   margin-left: 45%;
-}
-
-#levels {
-   margin-left: 25px;
-   width: 4cm;
-   margin-bottom: 15px;
-}
-
-label[for="difficulty"] {
-   margin-bottom: 7px;
-   margin-left: 25px;
-   margin-top: 15px;
-   font-size: x-large;
-   color: rgb(48, 48, 48);
-}
-
-.difficulty.beginner {
-   background-color: rgb(202, 240, 188);
-   font-size: smaller;
-   margin-top: 6px;
-}
-
-.difficulty.intermediate {
-   background-color: rgb(252, 209, 156);
-   font-size: smaller;
-   margin-top: 6px;
-}
-
-.difficulty.advanced {
-   background-color: rgb(255, 172, 167);
-   font-size: smaller;
-   margin-top: 6px;
-}
+/* CSS for filter */
 
 .diff label {
    display: block;
@@ -86,6 +44,70 @@ label[for="difficulty"] {
 .diff select {
    display: block;
 }
+
+[type="button"]:hover {
+   background-color: rgb(51, 86, 209);
+   color: white;
+}
+
+#levels {
+   width: 3cm;
+   margin-left: 23px;
+}
+
+
+[type="button"] {
+   background-color: white;
+   border-radius: 25px;
+   padding: 7px;
+   padding-left: 28px;
+   padding-right: 28px;
+   color: rgb(72, 72, 72);
+   margin-left: 18px;
+   margin-bottom: 7px;
+}
+
+/* CSS for Pathway Information */
+
+label[for="difficulty"] {
+   margin-bottom: 7px;
+   margin-left: 25px;
+   margin-top: 15px;
+   font-size: x-large;
+   color: rgb(48, 48, 48);
+}
+
+.difficulty {
+   border-radius: 10px;
+   width: 4cm;
+   text-align: center;
+   font-weight: lighter;
+   letter-spacing: 1px;
+}
+
+.difficulty.beginner {
+   background-color: rgb(202, 240, 188);
+   font-size: smaller;
+   height: 20px;
+}
+
+.difficulty.intermediate {
+   background-color: rgb(252, 209, 156);
+   font-size: smaller;
+   height: 20px;
+}
+
+.difficulty.advanced {
+   background-color: rgb(255, 172, 167);
+   font-size: smaller;
+   height: 20px;
+}
+
+.pathway-selection {
+   width: 50%;
+   margin-left: 45%;
+}
+
 
 .align {
    display: flex;
@@ -103,7 +125,7 @@ label[for="difficulty"] {
    border-radius: 3%;
 }
 
-.Language {
+.diff h1 {
    margin-top: 20px;
    margin-left: 25px;
    margin-bottom: 22px;
@@ -111,22 +133,15 @@ label[for="difficulty"] {
    color: rgb(48, 48, 48);
 }
 
-[type="button"] {
-   background-color: white;
-   border-radius: 25px;
-   padding: 7px;
-   padding-left: 28px;
-   padding-right: 28px;
-   color: rgb(72, 72, 72);
-   margin-left: 18px;
-   margin-bottom: 7px;
+.pathways {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-top: 10px;
+   margin-bottom: 10px;
 }
 
-[type="button"]:hover {
-   background-color: rgb(51, 86, 209);
-   color: white;
-}
-
-.hr {
-   background-color: black;
+.pathways h2 {
+   width: 3cm;
+   font-weight: bold;
 }

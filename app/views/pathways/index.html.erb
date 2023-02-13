@@ -1,5 +1,5 @@
 <div class='search'>
-  <div class="title">Pathways</div>
+  <h1>Pathways</h1>
   <div class='searchbar'>
     <%= form_with url: pathways_path, method: :get, class: "flex" do %>
       <%= text_field_tag :query,
@@ -12,7 +12,7 @@
 
 <div data-controller="pathway" class="align">
   <div class="diff">
-    <h1 class="Language">Language/s</h1>
+    <h1>Language/s</h1>
     <button class="tag-button" type="button" style="width: max-content;" data-controller="tags" data-action="click->tags#filter">JavaScript</button>
     <button class="tag-button" type="button" style="width: max-content;" data-controller="tags" data-action="click->tags#filter">AWS</button>
     <button class="tag-button" type="button" style="width: max-content;" data-controller="tags" data-action="click->tags#filter">Python</button>
@@ -29,7 +29,7 @@
   </div>
 
   <% if @pathways %>
-  <div class="try">
+  <div class="pathway-selection">
     <div class="grid grid-cols-2 gap-4">
       <% @pathways.each do |pathway| %>
         <%= render "pathway", pathway: pathway %>
@@ -39,4 +39,5 @@
     <% else %>
     <h1 class="error">Ooops no pathways here!</h1>
   <% end %>
+
 </div>

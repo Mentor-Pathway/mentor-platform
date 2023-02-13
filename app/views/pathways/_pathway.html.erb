@@ -1,21 +1,28 @@
 <% if UserPathway.find_by(user: current_user, pathway: pathway).present? %>
+
   <div class="p-4 border-2 border-blue-500">
     <%= link_to profile_user_pathway_path( current_user.profile, UserPathway.find_by(user: current_user, pathway: pathway)), class: 'flex flex-col h-full' do %>
-      <h2 class='font-bold'><%= pathway.title %></h2>
-      <p class='p-1 grow'><%= pathway.details %></p>
-      <h4 class='font-bold text-end'><%= pathway.difficulty.capitalize %></h4>
-    <% end %>
+      <%= image_tag "placeholder2.png" %>
+      <div class="pathways">
+      <h2><%= pathway.title %></h2>
+      <h4 class='difficulty <%= pathway.difficulty %>' id='difficulty'><%= pathway.difficulty.upcase %></h4>
+      </div>
+      <p><%= pathway.details %></p>
+      
+     <% end %>
 <% else %>
   <div class="p-4 border hover:border-blue-500" data-pathway-target="path" difficulty="<%= pathway.difficulty %>">
     <%= link_to pathway_path(pathway), class: 'flex flex-col h-full' do %>
       <div class="Details">
         <%= image_tag "placeholder2.png" %>
-        <h2 class='font-bold'><%= pathway.title %></h2>
-        <p><% pathway.tags.each do |tag| %>
-         (<%= tag.name %>)
-        <% end  %> </p>
-        <p class='p-1 grow'><%= pathway.details %></p>
+         <div class="pathways">
+        <h2><%= pathway.title %></h2>
         <h4 class='difficulty <%= pathway.difficulty %>' id='difficulty'><%= pathway.difficulty.upcase %></h4>
+        </div>
+        <p><% pathway.tags.each do |tag| %>
+        (<%= tag.name %>)
+        <% end  %> </p>
+        <p><%= pathway.details %></p>
       </div>
     <% end %>
   <% end %>
