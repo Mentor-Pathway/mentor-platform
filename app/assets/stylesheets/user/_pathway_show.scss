@@ -30,14 +30,16 @@
 }
 
 .user_img {
-   width: 320px;
-   height: 231px;
+   width: 346px;
+   height: 259px;
 }
 
 
 /* CSS for Challenge Info on RHS */
 
 .challenge-info {
+   margin-top: 2cm;
+   padding-left: 16cm;
    margin-left: 14cm;
    margin-top: 2cm;
 }
@@ -99,7 +101,7 @@
 }
 
 .ONGOING {
-   background-color: rgb(255, 175, 163);
+   background-color: rgb(252, 209, 156);
    font-size: small;
    font-weight: lighter;
    letter-spacing: 2px;
@@ -110,4 +112,3 @@
    width: 5cm;
 }
 
-/* */

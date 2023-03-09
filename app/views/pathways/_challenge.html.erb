@@ -1,14 +1,14 @@
 <%# Saves HTML template to variable %>
 <% challenge_template = capture do %>
-   <div class='ChallengeDesign'>
-      <h3 class='ChallengeTitle'><%= challenge.title %></h3>
+   <div class='challenge-design'>
+      <h3><%= challenge.title %></h3>
       <p><% challenge.tags.each do |tag| %>
          (<%= tag.name %>)
       <% end  %> </p>
     <% if index == 0 %>
-      <h4 class='ChallengeDetails'><%= challenge.details %></h4>
+      <h4><%= challenge.details %></h4>
     <% else %>
-      <h4 class='ChallengeDetails'><%= user_signed_in? ? challenge.details : 'Sign up to see more details' %></h4>
+      <h4><%= user_signed_in? ? challenge.details : 'Sign up to see more details' %></h4>
     <% end %>
   </div>
 <% end %>
