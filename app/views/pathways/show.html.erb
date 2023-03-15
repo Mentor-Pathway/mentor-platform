@@ -7,7 +7,7 @@
     <p><%= @pathway.details %></p>
     <%= image_tag "placeholder2.png" %>
     <%= button_to "Pathway Signup", pathway_user_pathways_path(@pathway), class: "border rounded-lg bg-blue-700 text-black p-2 m-2" if user_signed_in? && current_user.mentee? %>
-    <%= link_to "Edit", edit_pathway_path(@pathway), class: "border rounded-lg text-black py-2 px-3" if user_signed_in? && current_user.mentor? %>
+    <%= link_to "Edit", edit_pathway_path(@pathway), class: "border rounded-lg text-black py-0 px-6" if user_signed_in? && current_user.mentor? %>
   </div>
 
   <div class="challenge-description">
